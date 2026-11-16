@@ -12,48 +12,53 @@
 
 工作流程：**完整截图 → 逐页审查与复查 → 同类问题归并 → 标注报告 → 聊天中总结共性问题**。
 
-## 下载与安装
+## 安装
 
-**推荐：把下面一句话发给 Codex。**
+在 Codex 中发送：
 
-> 请使用 $skill-installer 安装 https://github.com/Janetzhengxinglin/iphone-duo-skill-set 中 skills/ 下的全部三个 skill，并检查和配置录屏截图所需依赖，完成联动检查。
+```text
+请使用 $skill-installer 安装完整的 iPhone Duo 适配审查 Skill Set，并配置依赖、完成联动检查。
+仓库：https://github.com/Janetzhengxinglin/iphone-duo-skill-set
+```
 
-安装后，在下一轮对话中调用「iPhone Duo 适配审查」。
+安装完成后，在下一轮对话中开始审查。
 
 <details>
-<summary>安装信息（供 Codex 读取）</summary>
+<summary>手动下载安装</summary>
 
-三个路径：`skills/app-video-page-capture`、`skills/iphone-duo-design-guidelines`、`skills/iphone-duo-adaptation-review`。用内置 `skill-installer` 一次安装三个目录。检查运行环境能否导入 OpenCV 和 Pillow，缺少时安装 `requirements.txt` 的依赖，再运行总入口的 `scripts/preflight.py`。已有同名 skill 时先核对版本并保留备份，不直接覆盖用户修改。
+1. [下载 ZIP](https://github.com/Janetzhengxinglin/iphone-duo-skill-set/archive/refs/heads/main.zip) 并解压。
+2. 在解压目录执行：
+
+```bash
+python3 install.py
+python3 -m pip install -r requirements.txt
+```
+
+三个 skill 安装到 `~/.codex/skills/`，已有同名版本会先备份。
+
+[安装与联动检查详情](INSTALL.md)
 
 </details>
 
-**手动安装（可选）**
+## 开始审查
 
-1. [下载 ZIP](https://github.com/Janetzhengxinglin/iphone-duo-skill-set/archive/refs/heads/main.zip)，解压。
-2. 在解压目录执行：
+提交录屏，并发送：
 
-   ```bash
-   python3 install.py
-   ```
+```text
+使用 $iphone-duo-adaptation-review 审查这个录屏。
+流程：充值；姿态：折叠态；输出：Figma／飞书目标链接。
+```
 
-   三个 skill 会一起安装到 `~/.codex/skills/`。同名旧版本会先备份，安装完成后显示备份位置。也可以手动复制 `skills/` 中的三个目录到该位置。
-3. 安装后在 Codex 的下一轮对话中调用。处理录屏的 Python 环境需要：
+| 需要提供 | 填写内容 |
+|---|---|
+| 录屏 | 本地 App 录屏文件 |
+| 流程 | 如充值、支付、提现 |
+| 姿态 | 折叠态、展开－横屏、展开－竖屏；支持混合 |
+| 输出 | Figma 或飞书目标链接，需有写入权限 |
 
-   ```bash
-   python3 -m pip install -r requirements.txt
-   ```
+缺少信息时，Codex 会询问。总入口自动串联三个 skill，仅审查 App 内页面。
 
-发布到 Figma 需要 Figma 工具及目标文件编辑权限；发布到飞书需要已授权的文档工具。
-
-## 如何使用
-
-把本地录屏交给 Codex，并说：
-
-> 使用 $iphone-duo-adaptation-review 审查这个录屏。流程是充值，姿态是折叠态，报告输出到这个 Figma 或飞书链接：……
-
-缺少流程、姿态或输出信息时，skill 会询问。选择 Figma 输出时，需要提供可编辑的目标文件链接。重点支持 **折叠态、展开－横屏、展开－竖屏**，也支持混合录屏。仅审查 App 内页面。
-
-「iPhone Duo 适配审查」统一调用截图和规范 skill，完成截图、逐页审查、问题汇总与报告发布。
+发布到 Figma 需要 Figma 工具；发布到飞书需要已授权的文档工具。
 
 ## 输出结果
 
