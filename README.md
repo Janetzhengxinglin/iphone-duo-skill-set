@@ -14,6 +14,21 @@
 
 ## 下载与安装
 
+**推荐：把下面一句话发给 Codex。**
+
+> 请使用 $skill-installer 安装 https://github.com/Janetzhengxinglin/iphone-duo-skill-set 中 skills/ 下的全部三个 skill，并检查和配置录屏截图所需依赖。
+
+仓库为私有：使用者需先接受 GitHub 邀请，并在电脑上登录有访问权限的 GitHub 账号。Codex 会完成下载和安装；遇到登录、网络或依赖安装授权时，按提示操作。安装后下一轮对话即可调用。
+
+<details>
+<summary>安装信息（供 Codex 读取）</summary>
+
+三个路径：`skills/app-video-page-capture`、`skills/iphone-duo-design-guidelines`、`skills/iphone-duo-adaptation-review`。用内置 `skill-installer` 一次安装三个目录；私有仓库使用已授权的 Git 凭据。检查运行环境能否导入 OpenCV 和 Pillow，缺少时安装 `requirements.txt` 的依赖。已有同名 skill 时先核对版本并保留备份，不直接覆盖用户修改。
+
+</details>
+
+**手动安装（可选）**
+
 1. [下载 ZIP](https://github.com/Janetzhengxinglin/iphone-duo-skill-set/archive/refs/heads/main.zip)，解压。
 2. 在解压目录执行：
 
@@ -22,7 +37,7 @@
    ```
 
    三个 skill 会一起安装到 `~/.codex/skills/`。同名旧版本会先备份，安装完成后显示备份位置。也可以手动复制 `skills/` 中的三个目录到该位置。
-3. 在支持本地 skills 的 Codex 中重新打开会话。处理录屏的 Python 环境需要：
+3. 安装后在 Codex 的下一轮对话中调用。处理录屏的 Python 环境需要：
 
    ```bash
    python3 -m pip install -r requirements.txt
