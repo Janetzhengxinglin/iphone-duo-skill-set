@@ -1,0 +1,98 @@
+{
+  "conflicts": [
+    {
+      "id": "C-01",
+      "topic": "Inner-display sheet bar orientation",
+      "status": "conditional-use-not-global-failure",
+      "affected_rules": [
+        "DUO-04",
+        "DUO-10"
+      ],
+      "evidence": [
+        {
+          "source_id": "video-111466",
+          "start_seconds": 550,
+          "quote": "On the inside, in both landscape and portrait,"
+        },
+        {
+          "source_id": "video-111466",
+          "start_seconds": 554,
+          "quote": "sheets use standard horizontal bars."
+        },
+        {
+          "source_id": "duo-prepare",
+          "section": "Optimize bars for vertical presentation",
+          "quote": "For sheets on the inner display, the system presents the toolbar horizontally for centered or leading placements, and vertically for trailing placements."
+        },
+        {
+          "source_id": "kit-ios27",
+          "node_id": "12892:62243",
+          "observed": "Centered inner-landscape sheet render uses horizontal header."
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 243.0,
+          "quote": "On the inner display, they're centered by default,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=243"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 252.0,
+          "quote": "sheets placed on the left remain without a vertical bar,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=252"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 255.0,
+          "quote": "while sheets placed on the right receive one.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=255"
+        }
+      ],
+      "interpretation": "The overview is broad; the bar-focused official video explicitly distinguishes inner sheet placement, consistent with developer documentation. This is a difference in scope, not mutually contradictory requirements.",
+      "decision_policy": "Use centered/leading horizontal and trailing vertical references only with established container conditions. The specialized bar video and developer document agree; the overview video summarizes the default centered case. If the relevant condition is not established, omit the orientation-failure claim and continue reviewing visible defects; do not output needs_confirmation labels.",
+      "resolved_by_runtime": "A runtime can establish observed configuration, not turn a bug into official compliance. Keep the official design guidance and empirical result separate."
+    },
+    {
+      "id": "C-02",
+      "affected_rules": [
+        "IOS-03"
+      ],
+      "title": "控件外形、热区及默认/最小尺寸不能混用",
+      "evidence": [
+        {
+          "source_id": "buttons",
+          "quote": "As a general rule, a button needs a hit region of at least 44x44 pt"
+        },
+        {
+          "source_id": "accessibility",
+          "quote": "Minimum control size"
+        }
+      ],
+      "resolution": "Buttons指button hit region；Accessibility区分默认44x44与最小28x28。默认截图不测数值，专项测量先明确对象、运行时热区、阈值和例外，不能统一用28替代44。"
+    },
+    {
+      "id": "C-03",
+      "affected_rules": [
+        "DUO-04"
+      ],
+      "title": "通用水平栏描述与Duo专用侧栏",
+      "evidence": [
+        {
+          "source_id": "toolbars",
+          "quote": "A toolbar consists of one or more sets of controls arranged horizontally"
+        },
+        {
+          "source_id": "duo-hig",
+          "quote": "In general, don’t override the default bar placement."
+        }
+      ],
+      "resolution": "Duo特定形态与容器指导优先；其它平台的水平栏、visionOS竖栏禁用等不能套用Duo。保留宽文字、自定义视图及sheet例外。"
+    }
+  ]
+}

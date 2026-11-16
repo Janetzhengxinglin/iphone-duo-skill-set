@@ -1,0 +1,419 @@
+{
+  "inspected_date": "2026-11-06",
+  "method": "read-only structure; portrait example render checked",
+  "pages": [
+    {
+      "id": "0:3329",
+      "page": "Examples",
+      "top": [
+        {
+          "id": "12740:23780",
+          "name": "iPad",
+          "type": "SECTION"
+        },
+        {
+          "id": "12740:23995",
+          "name": "iPhone",
+          "type": "SECTION"
+        },
+        {
+          "id": "12886:17523",
+          "name": "iPhone Duo",
+          "type": "SECTION"
+        },
+        {
+          "id": "13138:18643",
+          "name": "iPhone - System",
+          "type": "SECTION"
+        },
+        {
+          "id": "13138:20261",
+          "name": "iPhone Duo - System",
+          "type": "SECTION"
+        },
+        {
+          "id": "13138:18644",
+          "name": "iPad - System",
+          "type": "SECTION"
+        }
+      ],
+      "duo": [
+        {
+          "id": "12886:17523",
+          "name": "iPhone Duo",
+          "type": "SECTION",
+          "width": 36000,
+          "height": 4000
+        },
+        {
+          "id": "12887:23254",
+          "name": "Screen=Inner, Orientation=Landscape, Type=Full Screen",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669
+        },
+        {
+          "id": "12887:23258",
+          "name": "Status bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 48,
+          "height": 83
+        },
+        {
+          "id": "12887:23262",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 951,
+          "height": 84
+        },
+        {
+          "id": "12891:50069",
+          "name": "iPhone Duo",
+          "type": "INSTANCE",
+          "width": 951,
+          "height": 669
+        },
+        {
+          "id": "I12891:50069;12887:20842",
+          "name": "iPhone Duo - Star White - Inner Open Landscape",
+          "type": "RECTANGLE",
+          "width": 1031,
+          "height": 749
+        },
+        {
+          "id": "12887:23263",
+          "name": "Screen=Inner, Orientation=Portrait, Type=Full Screen",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951
+        },
+        {
+          "id": "12887:23264",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 669,
+          "height": 84
+        },
+        {
+          "id": "I12887:23264;12884:8003",
+          "name": "Status bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 98,
+          "height": 48
+        },
+        {
+          "id": "12891:50063",
+          "name": "iPhone Duo",
+          "type": "INSTANCE",
+          "width": 669,
+          "height": 951
+        },
+        {
+          "id": "I12891:50063;12887:20843",
+          "name": "iPhone Duo - Star White - Inner Open Portrait",
+          "type": "RECTANGLE",
+          "width": 749,
+          "height": 1031
+        },
+        {
+          "id": "12887:23266",
+          "name": "Screen=Outer, Orientation=Landscape, Type=Full Screen",
+          "type": "COMPONENT",
+          "width": 678,
+          "height": 466
+        },
+        {
+          "id": "12887:23270",
+          "name": "Status bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 48,
+          "height": 86
+        },
+        {
+          "id": "12887:23275",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 678,
+          "height": 84
+        },
+        {
+          "id": "12887:23276",
+          "name": "Outer Display Lens",
+          "type": "INSTANCE",
+          "width": 95.66999816894531,
+          "height": 95.66999816894531
+        },
+        {
+          "id": "12891:50057",
+          "name": "iPhone Duo",
+          "type": "INSTANCE",
+          "width": 678,
+          "height": 466
+        },
+        {
+          "id": "I12891:50057;12887:20844",
+          "name": "iPhone Duo - Star White - Outer Closed Landscape",
+          "type": "RECTANGLE",
+          "width": 731.3333129882812,
+          "height": 524.6666259765625
+        },
+        {
+          "id": "12887:23277",
+          "name": "Screen=Outer, Orientation=Portrait, Type=Full Screen",
+          "type": "COMPONENT",
+          "width": 466,
+          "height": 678
+        },
+        {
+          "id": "12887:23282",
+          "name": "Status bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 48,
+          "height": 83
+        },
+        {
+          "id": "12887:23286",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 466,
+          "height": 84
+        },
+        {
+          "id": "12887:23287",
+          "name": "Outer Display Lens",
+          "type": "INSTANCE",
+          "width": 95.66999816894531,
+          "height": 95.66999816894531
+        },
+        {
+          "id": "12891:50051",
+          "name": "iPhone Duo",
+          "type": "INSTANCE",
+          "width": 466,
+          "height": 678
+        },
+        {
+          "id": "I12891:50051;12887:20845",
+          "name": "iPhone Duo - Star White - Outer Closed Portrait",
+          "type": "RECTANGLE",
+          "width": 524.6666870117188,
+          "height": 731.3333740234375
+        },
+        {
+          "id": "12887:21899",
+          "name": "Screen=Inner, Orientation=Landscape, Type=Full Screen",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669
+        },
+        {
+          "id": "12887:21903",
+          "name": "Status bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 48,
+          "height": 83
+        },
+        {
+          "id": "12887:22971",
+          "name": "Tab Bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 48,
+          "height": 270
+        },
+        {
+          "id": "12887:21907",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 951,
+          "height": 84
+        },
+        {
+          "id": "12891:50066",
+          "name": "iPhone Duo",
+          "type": "INSTANCE",
+          "width": 951,
+          "height": 669
+        },
+        {
+          "id": "I12891:50066;12887:20842",
+          "name": "iPhone Duo - Star White - Inner Open Landscape",
+          "type": "RECTANGLE",
+          "width": 1031,
+          "height": 749
+        },
+        {
+          "id": "12887:21934",
+          "name": "Screen=Inner, Orientation=Portrait, Type=Full Screen",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951
+        },
+        {
+          "id": "12887:21935",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 669,
+          "height": 84
+        },
+        {
+          "id": "I12887:21935;12884:8003",
+          "name": "Status bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 98,
+          "height": 48
+        },
+        {
+          "id": "12891:50060",
+          "name": "iPhone Duo",
+          "type": "INSTANCE",
+          "width": 669,
+          "height": 951
+        },
+        {
+          "id": "I12891:50060;12887:20843",
+          "name": "iPhone Duo - Star White - Inner Open Portrait",
+          "type": "RECTANGLE",
+          "width": 749,
+          "height": 1031
+        },
+        {
+          "id": "12887:21992",
+          "name": "Screen=Outer, Orientation=Landscape, Type=Full Screen",
+          "type": "COMPONENT",
+          "width": 678,
+          "height": 466
+        },
+        {
+          "id": "12887:21997",
+          "name": "Status bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 48,
+          "height": 86
+        },
+        {
+          "id": "12887:22947",
+          "name": "Tab Bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 48,
+          "height": 270
+        },
+        {
+          "id": "12887:22001",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 678,
+          "height": 84
+        },
+        {
+          "id": "12887:22002",
+          "name": "Outer Display Lens",
+          "type": "INSTANCE",
+          "width": 95.66999816894531,
+          "height": 95.66999816894531
+        },
+        {
+          "id": "12891:50054",
+          "name": "iPhone Duo",
+          "type": "INSTANCE",
+          "width": 678,
+          "height": 466
+        },
+        {
+          "id": "I12891:50054;12887:20844",
+          "name": "iPhone Duo - Star White - Outer Closed Landscape",
+          "type": "RECTANGLE",
+          "width": 731.3333129882812,
+          "height": 524.6666259765625
+        },
+        {
+          "id": "12887:22059",
+          "name": "Screen=Outer, Orientation=Portrait, Type=Full Screen",
+          "type": "COMPONENT",
+          "width": 466,
+          "height": 678
+        },
+        {
+          "id": "12887:22064",
+          "name": "Status bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 48,
+          "height": 83
+        },
+        {
+          "id": "12887:22815",
+          "name": "Tab Bar - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 48,
+          "height": 270
+        },
+        {
+          "id": "12887:22068",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "INSTANCE",
+          "width": 466,
+          "height": 84
+        }
+      ]
+    },
+    {
+      "id": "507:24686",
+      "page": "Status Bars and Menu Bars",
+      "top": [
+        {
+          "id": "5444:10941",
+          "name": "Status and menu bars",
+          "type": "SECTION"
+        },
+        {
+          "id": "10465:36399",
+          "name": "iPad - Leading Accessories",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "5413:10045",
+          "name": "_Menu bar item",
+          "type": "COMPONENT_SET"
+        },
+        {
+          "id": "5444:10948",
+          "name": "Dark background examples",
+          "type": "SECTION"
+        },
+        {
+          "id": "5444:10944",
+          "name": "Light background examples",
+          "type": "SECTION"
+        },
+        {
+          "id": "544:191832",
+          "name": "Header",
+          "type": "INSTANCE"
+        },
+        {
+          "id": "10465:36393",
+          "name": "iPad - Trailing Accessories",
+          "type": "COMPONENT"
+        }
+      ],
+      "duo": [
+        {
+          "id": "12884:7911",
+          "name": "Status bar - iPhone Duo",
+          "type": "COMPONENT_SET",
+          "width": 250,
+          "height": 150
+        }
+      ]
+    }
+  ],
+  "sheets": {
+    "page_id": "507:24684",
+    "component_set": "10525:1632",
+    "variants": [
+      "Detent=Medium",
+      "Detent=Large",
+      "Detent=Large (Stacked)"
+    ],
+    "scope": "Generic iPhone, 402x874 examples; no Duo-specific applicability inferred"
+  }
+}

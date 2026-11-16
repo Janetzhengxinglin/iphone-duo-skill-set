@@ -1,0 +1,4 @@
+interface:
+  display_name: "iPhone Duo 适配审查"
+  short_description: "串联录屏截图与官方规则逐页审查，交互选择 Figma 或飞书报告输出"
+  default_prompt: "使用 $iphone-duo-adaptation-review 审查这个 App 录屏并生成问题页面汇总。"

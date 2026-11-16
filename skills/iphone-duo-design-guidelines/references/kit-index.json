@@ -1,0 +1,924 @@
+{
+  "source_id": "kit-ios27",
+  "version": "27.1.4",
+  "unit": "Figma logical canvas units; not verified runtime pt or screenshot px",
+  "authority": "Specified design resource variant. No universal numerical failure tolerance inferred.",
+  "examples": [
+    {
+      "node_id": "12892:62244",
+      "name": "iPhone Duo/Standard/Outer - Portrait",
+      "size": [
+        466,
+        678
+      ],
+      "reference_regions": [
+        {
+          "id": "12892:61622",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "iPhone Duo/Standard/Outer - Portrait",
+          "rect": [
+            382,
+            0,
+            84,
+            678
+          ]
+        },
+        {
+          "id": "I12892:61630;12884:8203",
+          "name": "Reserved Region - Camera - Right",
+          "type": "RECTANGLE",
+          "visible": true,
+          "parent": "Toolbar - Top - iPhone Duo",
+          "rect": [
+            398,
+            24,
+            44,
+            48
+          ]
+        },
+        {
+          "id": "12892:62049",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            382,
+            0,
+            84,
+            678
+          ]
+        },
+        {
+          "id": "12892:62080",
+          "name": "Reserved Region",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            382,
+            0,
+            84,
+            169
+          ]
+        }
+      ],
+      "use": "Match display, orientation, component context and folded state before consulting. Do not enforce region widths when runtime differs."
+    },
+    {
+      "node_id": "12892:62247",
+      "name": "iPhone Duo/Standard/Inner - Landscape",
+      "size": [
+        951,
+        669
+      ],
+      "reference_regions": [
+        {
+          "id": "12892:61586",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "iPhone Duo/Standard/Inner - Landscape",
+          "rect": [
+            867,
+            0,
+            84,
+            669
+          ]
+        },
+        {
+          "id": "I12892:61593;12884:8203",
+          "name": "Reserved Region - Camera - Right",
+          "type": "RECTANGLE",
+          "visible": true,
+          "parent": "Toolbar - Top - iPhone Duo",
+          "rect": [
+            883,
+            24,
+            44,
+            48
+          ]
+        },
+        {
+          "id": "12892:62028",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            867,
+            0,
+            84,
+            669
+          ]
+        },
+        {
+          "id": "12892:62090",
+          "name": "Reserved Region",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            867,
+            0,
+            84,
+            119
+          ]
+        }
+      ],
+      "use": "Match display, orientation, component context and folded state before consulting. Do not enforce region widths when runtime differs."
+    },
+    {
+      "node_id": "12892:62246",
+      "name": "iPhone Duo/Standard/Inner - Portrait",
+      "size": [
+        669,
+        951
+      ],
+      "reference_regions": [
+        {
+          "id": "12892:62032",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            0,
+            0,
+            669,
+            84
+          ]
+        },
+        {
+          "id": "12892:62034",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            0,
+            856,
+            669,
+            95
+          ]
+        },
+        {
+          "id": "12892:62086",
+          "name": "Reserved Region",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            535,
+            0,
+            134,
+            84
+          ]
+        }
+      ],
+      "use": "Match display, orientation, component context and folded state before consulting. Do not enforce region widths when runtime differs."
+    },
+    {
+      "node_id": "13035:902",
+      "name": "iPhone Duo/Standard/Inner - Landscape - Folded",
+      "size": [
+        951,
+        669
+      ],
+      "reference_regions": [
+        {
+          "id": "13035:830",
+          "name": "Screen",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "iPhone Duo/Standard/Inner - Landscape - Folded",
+          "rect": [
+            0,
+            0,
+            951,
+            669
+          ]
+        },
+        {
+          "id": "13035:831",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "Screen",
+          "rect": [
+            867,
+            0,
+            84,
+            669
+          ]
+        },
+        {
+          "id": "I13035:837;12884:8203",
+          "name": "Reserved Region - Camera - Right",
+          "type": "RECTANGLE",
+          "visible": true,
+          "parent": "Toolbar - Top - iPhone Duo",
+          "rect": [
+            883,
+            24,
+            44,
+            48
+          ]
+        },
+        {
+          "id": "13035:840",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            0,
+            0,
+            867,
+            84
+          ]
+        },
+        {
+          "id": "13035:841",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            867,
+            0,
+            84,
+            669
+          ]
+        },
+        {
+          "id": "13035:842",
+          "name": "Reserved Region",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            867,
+            0,
+            84,
+            119
+          ]
+        },
+        {
+          "id": "13035:903",
+          "name": "Fold Avoidance Region",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            455.5,
+            0,
+            40,
+            669
+          ]
+        }
+      ],
+      "use": "Match display, orientation, component context and folded state before consulting. Do not enforce region widths when runtime differs."
+    },
+    {
+      "node_id": "12892:62243",
+      "name": "iPhone Duo/Sheets/Inner - Landscape",
+      "size": [
+        951,
+        669
+      ],
+      "reference_regions": [
+        {
+          "id": "12892:61544",
+          "name": "Screen",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "iPhone Duo/Sheets/Inner - Landscape",
+          "rect": [
+            0,
+            0,
+            951,
+            669
+          ]
+        },
+        {
+          "id": "12892:61545",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "Screen",
+          "rect": [
+            867,
+            0,
+            84,
+            669
+          ]
+        },
+        {
+          "id": "I12892:61551;12884:8203",
+          "name": "Reserved Region - Camera - Right",
+          "type": "RECTANGLE",
+          "visible": true,
+          "parent": "Toolbar - Top - iPhone Duo",
+          "rect": [
+            883,
+            24,
+            44,
+            48
+          ]
+        },
+        {
+          "id": "12892:62023",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            0,
+            0,
+            867,
+            84
+          ]
+        },
+        {
+          "id": "12892:62024",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            867,
+            0,
+            84,
+            669
+          ]
+        },
+        {
+          "id": "12892:62088",
+          "name": "Reserved Region",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            867,
+            0,
+            84,
+            119
+          ]
+        },
+        {
+          "id": "12892:61553",
+          "name": "Sheet",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "iPhone Duo/Sheets/Inner - Landscape",
+          "rect": [
+            149,
+            305,
+            653,
+            356
+          ]
+        },
+        {
+          "id": "12892:61555",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "Sheet",
+          "rect": [
+            726,
+            305,
+            76,
+            356
+          ]
+        },
+        {
+          "id": "12892:62018",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            149,
+            305,
+            653,
+            76
+          ]
+        }
+      ],
+      "use": "Match display, orientation, component context and folded state before consulting. Do not enforce region widths when runtime differs."
+    },
+    {
+      "node_id": "12892:62242",
+      "name": "iPhone Duo/Sheets/Inner - Portrait",
+      "size": [
+        669,
+        951
+      ],
+      "reference_regions": [
+        {
+          "id": "12892:61566",
+          "name": "Screen",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "iPhone Duo/Sheets/Inner - Portrait",
+          "rect": [
+            0,
+            0,
+            669,
+            951
+          ]
+        },
+        {
+          "id": "12892:62039",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            0,
+            0,
+            669,
+            84
+          ]
+        },
+        {
+          "id": "12892:62040",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            0,
+            856,
+            669,
+            95
+          ]
+        },
+        {
+          "id": "12892:62084",
+          "name": "Reserved Region",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            535,
+            0,
+            134,
+            84
+          ]
+        },
+        {
+          "id": "12892:61569",
+          "name": "Sheet",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "iPhone Duo/Sheets/Inner - Portrait",
+          "rect": [
+            8,
+            587,
+            653,
+            356
+          ]
+        },
+        {
+          "id": "12892:61571",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "visible": true,
+          "parent": "Sheet",
+          "rect": [
+            585,
+            587,
+            76,
+            356
+          ]
+        },
+        {
+          "id": "12892:62045",
+          "name": "Safe Area Inset",
+          "type": "INSTANCE",
+          "visible": true,
+          "parent": "Layout Guides and Safe Areas",
+          "rect": [
+            8,
+            587,
+            653,
+            76
+          ]
+        }
+      ],
+      "use": "Match display, orientation, component context and folded state before consulting. Do not enforce region widths when runtime differs."
+    },
+    {
+      "node_id": "12887:20935",
+      "name": "Tab Bar - iPhone Duo",
+      "properties": {
+        "Minimized": {
+          "type": "VARIANT",
+          "defaultValue": "False",
+          "variantOptions": [
+            "False",
+            "True"
+          ]
+        },
+        "Tabs": {
+          "type": "VARIANT",
+          "defaultValue": "2",
+          "variantOptions": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        },
+        "Type": {
+          "type": "VARIANT",
+          "defaultValue": "Default",
+          "variantOptions": [
+            "Default",
+            "Search Role",
+            "Prominent Tab"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "12887:21095",
+          "name": "Minimized=True, Tabs=5, Type=Prominent Tab",
+          "size": [
+            48,
+            108
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:21033",
+          "name": "Minimized=True, Tabs=5, Type=Search Role",
+          "size": [
+            48,
+            108
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20974",
+          "name": "Minimized=True, Tabs=5, Type=Default",
+          "size": [
+            48,
+            48
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:21078",
+          "name": "Minimized=True, Tabs=4, Type=Prominent Tab",
+          "size": [
+            48,
+            108
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:21016",
+          "name": "Minimized=True, Tabs=4, Type=Search Role",
+          "size": [
+            48,
+            108
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20962",
+          "name": "Minimized=True, Tabs=4, Type=Default",
+          "size": [
+            48,
+            48
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:21062",
+          "name": "Minimized=True, Tabs=3, Type=Prominent Tab",
+          "size": [
+            48,
+            108
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:21000",
+          "name": "Minimized=True, Tabs=3, Type=Search Role",
+          "size": [
+            48,
+            108
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20951",
+          "name": "Minimized=True, Tabs=3, Type=Default",
+          "size": [
+            48,
+            48
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:21047",
+          "name": "Minimized=True, Tabs=2, Type=Prominent Tab",
+          "size": [
+            48,
+            108
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20985",
+          "name": "Minimized=True, Tabs=2, Type=Search Role",
+          "size": [
+            48,
+            108
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20941",
+          "name": "Minimized=True, Tabs=2, Type=Default",
+          "size": [
+            48,
+            48
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:21085",
+          "name": "Minimized=False, Tabs=5, Type=Prominent Tab",
+          "size": [
+            48,
+            270
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:21023",
+          "name": "Minimized=False, Tabs=5, Type=Search Role",
+          "size": [
+            48,
+            270
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20966",
+          "name": "Minimized=False, Tabs=5, Type=Default",
+          "size": [
+            48,
+            260
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            6,
+            0,
+            6
+          ]
+        },
+        {
+          "id": "12887:21069",
+          "name": "Minimized=False, Tabs=4, Type=Prominent Tab",
+          "size": [
+            48,
+            220
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:21007",
+          "name": "Minimized=False, Tabs=4, Type=Search Role",
+          "size": [
+            48,
+            220
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20955",
+          "name": "Minimized=False, Tabs=4, Type=Default",
+          "size": [
+            48,
+            210
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            6,
+            0,
+            6
+          ]
+        },
+        {
+          "id": "12887:21054",
+          "name": "Minimized=False, Tabs=3, Type=Prominent Tab",
+          "size": [
+            48,
+            170
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20992",
+          "name": "Minimized=False, Tabs=3, Type=Search Role",
+          "size": [
+            48,
+            170
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20945",
+          "name": "Minimized=False, Tabs=3, Type=Default",
+          "size": [
+            48,
+            177
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            6,
+            0,
+            6
+          ]
+        },
+        {
+          "id": "12887:21040",
+          "name": "Minimized=False, Tabs=2, Type=Prominent Tab",
+          "size": [
+            48,
+            120
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20978",
+          "name": "Minimized=False, Tabs=2, Type=Search Role",
+          "size": [
+            48,
+            120
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "12887:20936",
+          "name": "Minimized=False, Tabs=2, Type=Default",
+          "size": [
+            48,
+            110
+          ],
+          "layoutMode": "VERTICAL",
+          "padding": [
+            0,
+            6,
+            0,
+            6
+          ]
+        }
+      ],
+      "use": "Consult exact Minimized/Tabs/Type variant; minimized 48×48 and normal 48-wide instances are example dimensions, not all App button minima."
+    }
+  ],
+  "visual_checks": [
+    {
+      "node_id": "12892:62243",
+      "result": "Centered inner-landscape sheet visibly uses a horizontal header. A descendant named Vertical Bar does not prove vertical toolbar behavior."
+    },
+    {
+      "node_id": "13035:902",
+      "result": "Folded inner-landscape guide shows a central fold-avoidance overlay and side controls. Overlay geometry is a kit example, not a universal runtime reserved-region width."
+    }
+  ],
+  "resource_url": "https://www.figma.com/community/file/1651309003795292092/ios-and-ipados-27",
+  "portable_lookup": "Use the official Community resource and frame name/version; recorded node IDs may differ in a new copy."
+}

@@ -1,0 +1,1734 @@
+{
+  "community_url": "https://www.figma.com/community/file/1651309003795292092/ios-and-ipados-27",
+  "community_author": "Apple",
+  "community_updated_label": "October 28, 2026",
+  "read_date": "2026-11-06",
+  "provenance_note": "Existing browser tab named iOS and iPadOS 27 (Community). Read-only MCP inspection; no new copy created. Copy freshness cannot be proved from community date alone; change log was inspected separately. Latest changelog header verified as 27.1.4, October 28, 2026; this matches the community update label but is not proof against any local modifications.",
+  "pages": {
+    "layout": {
+      "page": "Layout Guides",
+      "top": [
+        {
+          "id": "12892:61511",
+          "name": "_Layout Overlays",
+          "type": "COMPONENT_SET",
+          "width": 400,
+          "height": 140
+        },
+        {
+          "id": "13035:902",
+          "name": "iPhone Duo/Standard/Inner - Landscape - Folded",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669
+        },
+        {
+          "id": "13035:1548",
+          "name": "iPhone Duo/Sheets/Inner - Landscape - Folded",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669
+        },
+        {
+          "id": "12892:62247",
+          "name": "iPhone Duo/Standard/Inner - Landscape",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669
+        },
+        {
+          "id": "12892:62243",
+          "name": "iPhone Duo/Sheets/Inner - Landscape",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669
+        },
+        {
+          "id": "13035:1050",
+          "name": "iPhone Duo/Standard/Inner - Portrait - Folded",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951
+        },
+        {
+          "id": "13035:1403",
+          "name": "iPhone Duo/Sheets/Inner - Portrait - Folded",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951
+        },
+        {
+          "id": "12892:62246",
+          "name": "iPhone Duo/Standard/Inner - Portrait",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951
+        },
+        {
+          "id": "12892:62242",
+          "name": "iPhone Duo/Sheets/Inner - Portrait",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951
+        },
+        {
+          "id": "12892:62245",
+          "name": "iPhone Duo/Standard/Outer - Landscape",
+          "type": "COMPONENT",
+          "width": 678,
+          "height": 466
+        },
+        {
+          "id": "12892:62241",
+          "name": "iPhone Duo/Sheets/Outer - Landscape",
+          "type": "COMPONENT",
+          "width": 678,
+          "height": 466
+        },
+        {
+          "id": "12892:62244",
+          "name": "iPhone Duo/Standard/Outer - Portrait",
+          "type": "COMPONENT",
+          "width": 466,
+          "height": 678
+        },
+        {
+          "id": "12892:62240",
+          "name": "iPhone Duo/Sheets/Outer - Portrait",
+          "type": "COMPONENT",
+          "width": 466,
+          "height": 678
+        },
+        {
+          "id": "12892:60918",
+          "name": "Header",
+          "type": "INSTANCE",
+          "width": 1400,
+          "height": 242
+        }
+      ],
+      "text": [
+        {
+          "id": "I12892:60918;507:29150",
+          "text": "Safe Areas and Margins"
+        },
+        {
+          "id": "I12892:60918;507:29151",
+          "text": "A consistent layout that adapts across display sizes, orientations, and multitasking configurations helps people understand and enjoy your app or game on all their devices."
+        },
+        {
+          "id": "I12892:60918;507:29154",
+          "text": "Human Interface Guidelines 􀄫 Layout"
+        }
+      ],
+      "matched": [
+        {
+          "id": "13035:902",
+          "name": "iPhone Duo/Standard/Inner - Landscape - Folded",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "13035:831",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 84,
+          "height": 669,
+          "parent": "Screen"
+        },
+        {
+          "id": "13035:1548",
+          "name": "iPhone Duo/Sheets/Inner - Landscape - Folded",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "13035:19056",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 84,
+          "height": 669,
+          "parent": "Screen"
+        },
+        {
+          "id": "13035:19066",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 76,
+          "height": 356,
+          "parent": "Sheet"
+        },
+        {
+          "id": "12892:62247",
+          "name": "iPhone Duo/Standard/Inner - Landscape",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "12892:61586",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 84,
+          "height": 669,
+          "parent": "iPhone Duo/Standard/Inner - Landscape"
+        },
+        {
+          "id": "12892:62243",
+          "name": "iPhone Duo/Sheets/Inner - Landscape",
+          "type": "COMPONENT",
+          "width": 951,
+          "height": 669,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "12892:61545",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 84,
+          "height": 669,
+          "parent": "Screen"
+        },
+        {
+          "id": "12892:61555",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 76,
+          "height": 356,
+          "parent": "Sheet"
+        },
+        {
+          "id": "13035:1050",
+          "name": "iPhone Duo/Standard/Inner - Portrait - Folded",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "13035:1403",
+          "name": "iPhone Duo/Sheets/Inner - Portrait - Folded",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "13035:1342",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 76,
+          "height": 356,
+          "parent": "Sheet"
+        },
+        {
+          "id": "12892:62246",
+          "name": "iPhone Duo/Standard/Inner - Portrait",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "12892:62242",
+          "name": "iPhone Duo/Sheets/Inner - Portrait",
+          "type": "COMPONENT",
+          "width": 669,
+          "height": 951,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "12892:61571",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 76,
+          "height": 356,
+          "parent": "Sheet"
+        },
+        {
+          "id": "12892:62245",
+          "name": "iPhone Duo/Standard/Outer - Landscape",
+          "type": "COMPONENT",
+          "width": 678,
+          "height": 466,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "12892:61670",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 84,
+          "height": 466,
+          "parent": "iPhone Duo/Standard/Outer - Landscape"
+        },
+        {
+          "id": "12892:62241",
+          "name": "iPhone Duo/Sheets/Outer - Landscape",
+          "type": "COMPONENT",
+          "width": 678,
+          "height": 466,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "12892:61601",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 84,
+          "height": 466,
+          "parent": "Screen"
+        },
+        {
+          "id": "12892:61610",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 76,
+          "height": 458,
+          "parent": "Sheet"
+        },
+        {
+          "id": "12892:62244",
+          "name": "iPhone Duo/Standard/Outer - Portrait",
+          "type": "COMPONENT",
+          "width": 466,
+          "height": 678,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "12892:61622",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 84,
+          "height": 678,
+          "parent": "iPhone Duo/Standard/Outer - Portrait"
+        },
+        {
+          "id": "12892:62240",
+          "name": "iPhone Duo/Sheets/Outer - Portrait",
+          "type": "COMPONENT",
+          "width": 466,
+          "height": 678,
+          "parent": "Layout Guides"
+        },
+        {
+          "id": "12892:61635",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 84,
+          "height": 678,
+          "parent": "Screen"
+        },
+        {
+          "id": "12892:61646",
+          "name": "Vertical Bar",
+          "type": "FRAME",
+          "width": 76,
+          "height": 356,
+          "parent": "Sheet"
+        }
+      ]
+    },
+    "tabs": {
+      "page": "Tab Bars",
+      "top": [
+        {
+          "id": "5735:64660",
+          "name": "_Tab Bar Button - iPad - Text",
+          "type": "COMPONENT_SET",
+          "width": 240,
+          "height": 130
+        },
+        {
+          "id": "5735:64661",
+          "name": "_Tab Bar Button - iPad - Symbol",
+          "type": "COMPONENT_SET",
+          "width": 180,
+          "height": 130
+        },
+        {
+          "id": "2524:7957",
+          "name": "Tab Bar - iPad",
+          "type": "COMPONENT",
+          "width": 491,
+          "height": 44
+        },
+        {
+          "id": "5735:65306",
+          "name": "_Tab Bar Button Round - iPhone",
+          "type": "COMPONENT_SET",
+          "width": 180,
+          "height": 160
+        },
+        {
+          "id": "12887:21456",
+          "name": "_Tab Bar Button - iPhone Duo",
+          "type": "COMPONENT_SET",
+          "width": 180,
+          "height": 160
+        },
+        {
+          "id": "12887:21567",
+          "name": "_Tab Bar Button Round - iPhone Duo",
+          "type": "COMPONENT_SET",
+          "width": 180,
+          "height": 160
+        },
+        {
+          "id": "5735:65307",
+          "name": "_Tab Bar Button - iPhone",
+          "type": "COMPONENT_SET",
+          "width": 210,
+          "height": 160
+        },
+        {
+          "id": "3:70967",
+          "name": "Tab Bar - iPhone",
+          "type": "COMPONENT_SET",
+          "width": 890,
+          "height": 1438
+        },
+        {
+          "id": "12887:20935",
+          "name": "Tab Bar - iPhone Duo",
+          "type": "COMPONENT_SET",
+          "width": 540,
+          "height": 900
+        },
+        {
+          "id": "544:191817",
+          "name": "Header",
+          "type": "INSTANCE",
+          "width": 1400,
+          "height": 208
+        }
+      ],
+      "text": [],
+      "matched": [
+        {
+          "id": "12887:21456",
+          "name": "_Tab Bar Button - iPhone Duo",
+          "type": "COMPONENT_SET",
+          "width": 180,
+          "height": 160,
+          "parent": "Tab Bars"
+        },
+        {
+          "id": "12887:21567",
+          "name": "_Tab Bar Button Round - iPhone Duo",
+          "type": "COMPONENT_SET",
+          "width": 180,
+          "height": 160,
+          "parent": "Tab Bars"
+        },
+        {
+          "id": "12887:20935",
+          "name": "Tab Bar - iPhone Duo",
+          "type": "COMPONENT_SET",
+          "width": 540,
+          "height": 900,
+          "parent": "Tab Bars"
+        }
+      ]
+    },
+    "toolbars": {
+      "page": "Toolbars",
+      "top": [
+        {
+          "id": "5704:38375",
+          "name": "_Toolbar page control",
+          "type": "COMPONENT_SET",
+          "width": 1110,
+          "height": 510
+        },
+        {
+          "id": "5431:813",
+          "name": "_Back Bar Button Item",
+          "type": "COMPONENT_SET",
+          "width": 220,
+          "height": 150
+        },
+        {
+          "id": "5429:6984",
+          "name": "_Button - Text",
+          "type": "COMPONENT_SET",
+          "width": 170,
+          "height": 240
+        },
+        {
+          "id": "10479:19510",
+          "name": "_Button - Text - Prominent",
+          "type": "COMPONENT_SET",
+          "width": 170,
+          "height": 140
+        },
+        {
+          "id": "5426:2003",
+          "name": "_Button - Symbol",
+          "type": "COMPONENT_SET",
+          "width": 130,
+          "height": 240
+        },
+        {
+          "id": "10479:19527",
+          "name": "_Button - Symbol - Prominent",
+          "type": "COMPONENT_SET",
+          "width": 130,
+          "height": 140
+        },
+        {
+          "id": "5573:24524",
+          "name": "_Segmented Control Button",
+          "type": "COMPONENT_SET",
+          "width": 340,
+          "height": 120
+        },
+        {
+          "id": "5573:24624",
+          "name": "_Search Accessory",
+          "type": "COMPONENT_SET",
+          "width": 860,
+          "height": 148
+        },
+        {
+          "id": "5720:33677",
+          "name": "_Search - 44pt",
+          "type": "COMPONENT_SET",
+          "width": 450,
+          "height": 230
+        },
+        {
+          "id": "5720:29596",
+          "name": "_Buttons - 44pt",
+          "type": "COMPONENT_SET",
+          "width": 220,
+          "height": 440
+        },
+        {
+          "id": "5720:33170",
+          "name": "_Search - 48pt",
+          "type": "COMPONENT_SET",
+          "width": 440,
+          "height": 240
+        },
+        {
+          "id": "5720:47981",
+          "name": "_Buttons - 48pt",
+          "type": "COMPONENT_SET",
+          "width": 300,
+          "height": 500
+        },
+        {
+          "id": "12884:8278",
+          "name": "_Title - iPhone Duo - Large Title",
+          "type": "COMPONENT_SET",
+          "width": 109,
+          "height": 142
+        },
+        {
+          "id": "5827:57551",
+          "name": "_Title - iPhone - Large Title",
+          "type": "COMPONENT_SET",
+          "width": 109,
+          "height": 142
+        },
+        {
+          "id": "5827:57557",
+          "name": "_Title - iPhone - Subheadline",
+          "type": "COMPONENT_SET",
+          "width": 72,
+          "height": 96
+        },
+        {
+          "id": "5827:57554",
+          "name": "_Title - iPhone - Body",
+          "type": "COMPONENT_SET",
+          "width": 76,
+          "height": 104
+        },
+        {
+          "id": "5827:57563",
+          "name": "_Subtitle - iPhone - Caption",
+          "type": "COMPONENT_SET",
+          "width": 86,
+          "height": 88
+        },
+        {
+          "id": "5827:57560",
+          "name": "_Subtitle - iPhone - Subheadline",
+          "type": "COMPONENT_SET",
+          "width": 95,
+          "height": 100
+        },
+        {
+          "id": "5561:41165",
+          "name": "Toolbar - Top - iPad",
+          "type": "COMPONENT_SET",
+          "width": 870,
+          "height": 1150
+        },
+        {
+          "id": "12883:6008",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "COMPONENT_SET",
+          "width": 1280,
+          "height": 500
+        },
+        {
+          "id": "1:54472",
+          "name": "Toolbar - Top - iPhone",
+          "type": "COMPONENT_SET",
+          "width": 440,
+          "height": 450
+        },
+        {
+          "id": "4:55732",
+          "name": "Toolbar - Bottom - iPhone",
+          "type": "COMPONENT_SET",
+          "width": 440,
+          "height": 620
+        },
+        {
+          "id": "8515:13163",
+          "name": "Toolbar - Bottom - iPad",
+          "type": "COMPONENT",
+          "width": 500,
+          "height": 58
+        },
+        {
+          "id": "544:191807",
+          "name": "Header",
+          "type": "INSTANCE",
+          "width": 1400,
+          "height": 208
+        },
+        {
+          "id": "5811:30646",
+          "name": "_Page Dots",
+          "type": "COMPONENT_SET",
+          "width": 70,
+          "height": 70
+        }
+      ],
+      "text": [],
+      "matched": [
+        {
+          "id": "12894:62397",
+          "name": "Type=Text, Preferred Axis=Vertical",
+          "type": "COMPONENT",
+          "width": 48,
+          "height": 48,
+          "parent": "_Buttons - 48pt"
+        },
+        {
+          "id": "12894:62400",
+          "name": "Type=Text - Prominent, Preferred Axis=Vertical",
+          "type": "COMPONENT",
+          "width": 48,
+          "height": 48,
+          "parent": "_Buttons - 48pt"
+        },
+        {
+          "id": "12887:23036",
+          "name": "Type=Button Group, Preferred Axis=Vertical",
+          "type": "COMPONENT",
+          "width": 48,
+          "height": 164,
+          "parent": "_Buttons - 48pt"
+        },
+        {
+          "id": "12894:62369",
+          "name": "Type=Symbol, Preferred Axis=Vertical",
+          "type": "COMPONENT",
+          "width": 48,
+          "height": 48,
+          "parent": "_Buttons - 48pt"
+        },
+        {
+          "id": "12894:62372",
+          "name": "Type=Symbol - Prominent, Preferred Axis=Vertical",
+          "type": "COMPONENT",
+          "width": 48,
+          "height": 48,
+          "parent": "_Buttons - 48pt"
+        },
+        {
+          "id": "12884:8278",
+          "name": "_Title - iPhone Duo - Large Title",
+          "type": "COMPONENT_SET",
+          "width": 109,
+          "height": 142,
+          "parent": "Toolbars"
+        },
+        {
+          "id": "5573:24144",
+          "name": "Style=Compact Large, Tab Bar=True",
+          "type": "COMPONENT",
+          "width": 820,
+          "height": 54,
+          "parent": "Toolbar - Top - iPad"
+        },
+        {
+          "id": "5564:42177",
+          "name": "Style=Compact Large, Tab Bar=False",
+          "type": "COMPONENT",
+          "width": 820,
+          "height": 54,
+          "parent": "Toolbar - Top - iPad"
+        },
+        {
+          "id": "12883:6008",
+          "name": "Toolbar - Top - iPhone Duo",
+          "type": "COMPONENT_SET",
+          "width": 1280,
+          "height": 500,
+          "parent": "Toolbars"
+        },
+        {
+          "id": "12886:11607",
+          "name": "Style=Compact Large, Sheet=True",
+          "type": "COMPONENT",
+          "width": 600,
+          "height": 76,
+          "parent": "Toolbar - Top - iPhone Duo"
+        },
+        {
+          "id": "12883:6009",
+          "name": "Style=Compact Large, Sheet=False",
+          "type": "COMPONENT",
+          "width": 600,
+          "height": 84,
+          "parent": "Toolbar - Top - iPhone Duo"
+        },
+        {
+          "id": "5553:32641",
+          "name": "Style=Compact Large",
+          "type": "COMPONENT",
+          "width": 402,
+          "height": 54,
+          "parent": "Toolbar - Top - iPhone"
+        }
+      ]
+    },
+    "changes": {
+      "page": "Change log",
+      "top": [
+        {
+          "id": "5790:52068",
+          "name": " ",
+          "type": "FRAME",
+          "width": 1400,
+          "height": 9721
+        }
+      ],
+      "text": [
+        {
+          "id": "12792:4533",
+          "text": "October 28, 2026"
+        },
+        {
+          "id": "13232:19087",
+          "text": "October 26, 2026"
+        },
+        {
+          "id": "13191:7761",
+          "text": "October 21, 2026"
+        },
+        {
+          "id": "13191:7762",
+          "text": "Added iPhone Duo home screens\nUpdated Activity View (Share Sheet) component for iPhone Duo\nUpdated Music app icon"
+        },
+        {
+          "id": "13131:20779",
+          "text": "October 16, 2026"
+        },
+        {
+          "id": "13131:20780",
+          "text": "Added Activity View (Share Sheet) component for iPhone Duo\nMinor layout changes to toolbars\nAdded iPhone 18 and iPhone 18 Pro Status Bars\nAdded background blur to iPhone Duo Status Bars\nAdded reserved region for fold\nUpdated all components showing iPhone 17 Pro to iPhone 18 Pro and updated Status Bar\nUpdated Freeform app icon"
+        },
+        {
+          "id": "12956:22733",
+          "text": "September 13, 2026"
+        },
+        {
+          "id": "12956:22734",
+          "text": "Components\nAdded new symbols and examples for iPhone Duo including:\nKeyboards\nToolbars\nTab bars\nStatus bars\nSheets\n\nProduct Bezels\nAdded iPhone Duo bezels\nAdded iPhone 18 Pro and iPhone 18 Pro Max bezels\n\nApp Icons\nUpdated all app icons"
+        },
+        {
+          "id": "12880:5334",
+          "text": "August 14, 2026"
+        },
+        {
+          "id": "12880:5335",
+          "text": "Sheets\nChanged iPad sheet toolbar button insets from 16pt to 10pt\nChanged iPad sheet corner radius from 38pt to 32pt\nLinked iPhone sheet corner radius to variable\nChanged width of grabber from 58pt to 60pt"
+        },
+        {
+          "id": "12787:102",
+          "text": "July 16, 2026"
+        },
+        {
+          "id": "12702:421",
+          "text": "June 24, 2026"
+        },
+        {
+          "id": "12592:13703",
+          "text": "June 23, 2026"
+        },
+        {
+          "id": "12592:13704",
+          "text": "General\nRemoved remaining links to the Liquid Glass appearance mode collection\n\nColors\nRemoved increased contrast mode due to limited subcomponent support interfering with light and dark appearance mode switching\n\nMaterials\nUpdated appearance of all liquid glass components\nUpdated appearance of soft style and hard style Scroll Edge Effects\nChanged the \"State\" property of the \"Liquid Glass - Regular\" component to \"Prominent\" and converted it to a boolean\n\nAction Sheets\nConverted buttons frame to a slot\nRenamed \"Description\" to \"Message\"\nRemoved 10pt gap between Title/Message and actions\n\nActivity Views\nUpdated font sizes and layout of buttons and list items\nFixed issue where separator was not switching to dark mode\n\nAlerts\nConverted button frame to a slot\nRenamed \"Description\" to \"Message\"\nUpdated spacing between stacked and side-by-side buttons\nRemoved extra padding between message, text field, and buttons\nUpdated weight of alert buttons from Medium to Semi-Bold\n\nApp Icons\nUpdated all app icons\n\nButtons\nRenamed \"Tinted\" to \"Style\" and updated property values to \"Glass\" and \"Glass Prominent\"\nAdded disabled states for all glass button styles\nAdded small, regular, and large size variants for all glass buttons\nRenamed \"State\" property to \"Is Enabled\" for labels and changed values to True/False\nRemoved secondary buttons\n\nColor Pickers\nPlaced iPhone color picker into a medium detent sheet with a full-screen overlay\nMade various small layout and size updates\n\nDate and Time Pickers\nAdjusted size of calendar days\nAdjusted height of collapsed date and time picker controls\nUpdated appearance of selected date in day pickers\nUpdated layout of date and time pickers\nChanged color of next and previous month buttons from blue to primary label\n\nKeyboards\nAdded more example keyboards\nMade accessories a separate component\nUpdated layout of keypads and keys\nRestructured nested symbols for keypads\nAccessory Bar — Toolbar: Implemented slots and replaced variants for 2, 3, 4, 5, and 6 buttons with a button group variant that can have a minimum of two buttons and no maximum\n\nLists\nAdded fill color to list row symbols\nAdded inline symbol and label swipe action\nUpdated swipe action components to match current font and layout metrics\n\nMenus\nRemoved \"iPhone\" and \"iPad\" menu types and related subcomponents; now using variable collections for differences in font and layout metrics\nAdded slots for menu items\nAdded slots for Edit Menu items\nRenamed Quick Actions to Control Group to better align with SwiftUI\n\nNotifications\nUpdated width of background notification banners in a stack\nAdded app icon, title, description, and timestamp to expanded notifications\nUpdated appearance of Liquid Glass\nAdjusted corner radii for expanded notifications\nAdjusted width of notification banners and expanded notifications\n\nPage Controls\nAdded optional platter background\nChanged unselected page dots to use Tertiary Label Color instead of Primary Label Color at 30% opacity\n\nPopovers\nSplit arrow direction property into two: Edge and Alignment\nRenamed edge property values to Top, Bottom, Leading, and Trailing\n\nProgress Indicators\nChanged determinate progress indicator height from 6pt to 4pt\nAdded optional label inside determinate progress indicator\nAligned small, regular, and large indeterminate progress indicator sizes, adding one new size option\nAdjusted auto-layout frame to \"Hug\" to accommodate label variants\n\nSheets\nMerged iPhone sheets into one component with three variants: Medium, Large, and Large (Stacked)\n\nSteppers\nChanged idle state fill color from Quaternary to Tertiary\n\nStatus Bars and Menu Bars\nUpdated appearance of iPhone and iPad menu bars\nRebuilt menu bar components to use slots\n\nSliders\nAdded pressed and disabled states\n\nSegmented Controls\nAdded support for slots, removing the need for variants for number of segments\nAdded disabled and tapped states\nAdded large control size\n\nSidebars\nExtended sidebars to go edge to edge\nUpdated background material for sidebars\nChanged sidebar buttons to Liquid Glass style and adjusted spacing\nUpdated selected state appearance for sidebar\nTinted sidebar symbols\n\nSystem > Controls\nUpdated appearance of Liquid Glass\n\nSystem > Home Screen\nAdjusted all app icon layouts\nUpdated all app icons\nUpdated status bar components and layout\nUpdated dock material, corner radius, and layout\n\nSystem > Home Screen Quick Actions\nAdjusted fill and opacity of light and dark mode screen overlays\nUpdated size of selected app icon\nAdjusted position of menu and app icon\nAdded Extra Large widget option to menu\n\nSystem > Home Screen Widgets\nAdded Liquid Glass appearance\nAdded Extra Large widget\nMade minor adjustments to widget sizes\n\nSystem > Lock Screen\nAdjusted layout for iPad widgets\nUpdated appearance of example widgets\nUpdated appearance of time\nUpdated status bar\n\nSystem > Lock Screen\nAdjusted position of time\nUpdated glass effect for time\n\nSystem > Windows\nAdded window resize control variant for full-screen windows\nAdded two-window example symbol showing active and inactive states with corresponding visual states for toolbar buttons and window controls\nUpdated appearance of window controls\nAdded inactive window control symbols\nRemoved window controls toolbar in full-screen apps\n\nSystem > Other\nUpdated wallpaper\n\nTab Bars\nImplemented slots for customizing how many tabs are shown\nRenamed \"Separate Search\" to \"Prominent Tab\"\nRefactored component to use fewer variants and better match the new API\nAdjusted appearance of tinted selected tab to better preserve color contrast\nAdded diamond symbol to minimized tab bar to clarify the control's purpose\n\nToggles\nAdded pressed state\nAdded disabled states\n\nToolbars\nAdded active / inactive (window state) appearance property (implemented using the liquid glass component)\nBack Button: Renamed \"Label\" to \"Title\"\nBack Button: Renamed \"Show Label\" to \"Show Title\"\nBack Button: Changed default of \"Show Title\" to False\nBack Button: Changed symbol weight of back chevron to Semibold\nTitle: Linked text style to Subheadline with tight leading and emphasized weight\nGrabber: Added and applied internal variables to keep grabber metrics centralized\nGrabber: Changed grabber metrics to iOS 27 values\nBottom Buttons: Implemented slots and replaced variants for 2, 3, 4, 5, and 6 buttons with a button group variant that can have a minimum of two buttons and no maximum\n\nWidgets\nApplied Liquid Glass appearance\nAdded XL widget for iPhone\n\nWindows\nUpdated window resize grabber shape\nAdded window resize grabber for full-screen\nUpdated appearance of inactive window controls\nChanged corner smoothing of window to 60%\nUpdated window drop shadow radius and opacity\nAdded split view window type with active and inactive options\nKey size and position updates for iPhone keyboard\nKey background and glyph color changes for iPhone and iPad keyboards"
+        }
+      ],
+      "matched": []
+    },
+    "layout-detail": [
+      {
+        "id": "12892:62244",
+        "name": "iPhone Duo/Standard/Outer - Portrait",
+        "size": [
+          466,
+          678
+        ],
+        "rows": [
+          {
+            "id": "12892:61622",
+            "name": "Vertical Bar",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "iPhone Duo/Standard/Outer - Portrait",
+            "rect": [
+              382,
+              0,
+              84,
+              678
+            ]
+          },
+          {
+            "id": "I12892:61630;12884:8203",
+            "name": "Reserved Region - Camera - Right",
+            "type": "RECTANGLE",
+            "visible": true,
+            "parent": "Toolbar - Top - iPhone Duo",
+            "rect": [
+              398,
+              24,
+              44,
+              48
+            ]
+          },
+          {
+            "id": "12892:62049",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              382,
+              0,
+              84,
+              678
+            ]
+          },
+          {
+            "id": "12892:62080",
+            "name": "Reserved Region",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              382,
+              0,
+              84,
+              169
+            ]
+          }
+        ]
+      },
+      {
+        "id": "12892:62247",
+        "name": "iPhone Duo/Standard/Inner - Landscape",
+        "size": [
+          951,
+          669
+        ],
+        "rows": [
+          {
+            "id": "12892:61586",
+            "name": "Vertical Bar",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "iPhone Duo/Standard/Inner - Landscape",
+            "rect": [
+              867,
+              0,
+              84,
+              669
+            ]
+          },
+          {
+            "id": "I12892:61593;12884:8203",
+            "name": "Reserved Region - Camera - Right",
+            "type": "RECTANGLE",
+            "visible": true,
+            "parent": "Toolbar - Top - iPhone Duo",
+            "rect": [
+              883,
+              24,
+              44,
+              48
+            ]
+          },
+          {
+            "id": "12892:62028",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              867,
+              0,
+              84,
+              669
+            ]
+          },
+          {
+            "id": "12892:62090",
+            "name": "Reserved Region",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              867,
+              0,
+              84,
+              119
+            ]
+          }
+        ]
+      },
+      {
+        "id": "12892:62246",
+        "name": "iPhone Duo/Standard/Inner - Portrait",
+        "size": [
+          669,
+          951
+        ],
+        "rows": [
+          {
+            "id": "12892:62032",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              0,
+              0,
+              669,
+              84
+            ]
+          },
+          {
+            "id": "12892:62034",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              0,
+              856,
+              669,
+              95
+            ]
+          },
+          {
+            "id": "12892:62086",
+            "name": "Reserved Region",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              535,
+              0,
+              134,
+              84
+            ]
+          }
+        ]
+      },
+      {
+        "id": "13035:902",
+        "name": "iPhone Duo/Standard/Inner - Landscape - Folded",
+        "size": [
+          951,
+          669
+        ],
+        "rows": [
+          {
+            "id": "13035:830",
+            "name": "Screen",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "iPhone Duo/Standard/Inner - Landscape - Folded",
+            "rect": [
+              0,
+              0,
+              951,
+              669
+            ]
+          },
+          {
+            "id": "13035:831",
+            "name": "Vertical Bar",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "Screen",
+            "rect": [
+              867,
+              0,
+              84,
+              669
+            ]
+          },
+          {
+            "id": "I13035:837;12884:8203",
+            "name": "Reserved Region - Camera - Right",
+            "type": "RECTANGLE",
+            "visible": true,
+            "parent": "Toolbar - Top - iPhone Duo",
+            "rect": [
+              883,
+              24,
+              44,
+              48
+            ]
+          },
+          {
+            "id": "13035:840",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              0,
+              0,
+              867,
+              84
+            ]
+          },
+          {
+            "id": "13035:841",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              867,
+              0,
+              84,
+              669
+            ]
+          },
+          {
+            "id": "13035:842",
+            "name": "Reserved Region",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              867,
+              0,
+              84,
+              119
+            ]
+          },
+          {
+            "id": "13035:903",
+            "name": "Fold Avoidance Region",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              455.5,
+              0,
+              40,
+              669
+            ]
+          }
+        ]
+      },
+      {
+        "id": "12892:62243",
+        "name": "iPhone Duo/Sheets/Inner - Landscape",
+        "size": [
+          951,
+          669
+        ],
+        "rows": [
+          {
+            "id": "12892:61544",
+            "name": "Screen",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "iPhone Duo/Sheets/Inner - Landscape",
+            "rect": [
+              0,
+              0,
+              951,
+              669
+            ]
+          },
+          {
+            "id": "12892:61545",
+            "name": "Vertical Bar",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "Screen",
+            "rect": [
+              867,
+              0,
+              84,
+              669
+            ]
+          },
+          {
+            "id": "I12892:61551;12884:8203",
+            "name": "Reserved Region - Camera - Right",
+            "type": "RECTANGLE",
+            "visible": true,
+            "parent": "Toolbar - Top - iPhone Duo",
+            "rect": [
+              883,
+              24,
+              44,
+              48
+            ]
+          },
+          {
+            "id": "12892:62023",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              0,
+              0,
+              867,
+              84
+            ]
+          },
+          {
+            "id": "12892:62024",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              867,
+              0,
+              84,
+              669
+            ]
+          },
+          {
+            "id": "12892:62088",
+            "name": "Reserved Region",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              867,
+              0,
+              84,
+              119
+            ]
+          },
+          {
+            "id": "12892:61553",
+            "name": "Sheet",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "iPhone Duo/Sheets/Inner - Landscape",
+            "rect": [
+              149,
+              305,
+              653,
+              356
+            ]
+          },
+          {
+            "id": "12892:61555",
+            "name": "Vertical Bar",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "Sheet",
+            "rect": [
+              726,
+              305,
+              76,
+              356
+            ]
+          },
+          {
+            "id": "12892:62018",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              149,
+              305,
+              653,
+              76
+            ]
+          }
+        ]
+      },
+      {
+        "id": "12892:62242",
+        "name": "iPhone Duo/Sheets/Inner - Portrait",
+        "size": [
+          669,
+          951
+        ],
+        "rows": [
+          {
+            "id": "12892:61566",
+            "name": "Screen",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "iPhone Duo/Sheets/Inner - Portrait",
+            "rect": [
+              0,
+              0,
+              669,
+              951
+            ]
+          },
+          {
+            "id": "12892:62039",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              0,
+              0,
+              669,
+              84
+            ]
+          },
+          {
+            "id": "12892:62040",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              0,
+              856,
+              669,
+              95
+            ]
+          },
+          {
+            "id": "12892:62084",
+            "name": "Reserved Region",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              535,
+              0,
+              134,
+              84
+            ]
+          },
+          {
+            "id": "12892:61569",
+            "name": "Sheet",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "iPhone Duo/Sheets/Inner - Portrait",
+            "rect": [
+              8,
+              587,
+              653,
+              356
+            ]
+          },
+          {
+            "id": "12892:61571",
+            "name": "Vertical Bar",
+            "type": "FRAME",
+            "visible": true,
+            "parent": "Sheet",
+            "rect": [
+              585,
+              587,
+              76,
+              356
+            ]
+          },
+          {
+            "id": "12892:62045",
+            "name": "Safe Area Inset",
+            "type": "INSTANCE",
+            "visible": true,
+            "parent": "Layout Guides and Safe Areas",
+            "rect": [
+              8,
+              587,
+              653,
+              76
+            ]
+          }
+        ]
+      }
+    ],
+    "toolbar-tab-detail": {
+      "id": "12883:6008",
+      "name": "Toolbar - Top - iPhone Duo",
+      "properties": {
+        "Show Subtitle#5561:8": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Leading#10464:71": {
+          "type": "SLOT",
+          "description": "",
+          "slotSettings": {
+            "stretchChildOnInsert": false,
+            "displayEmptyByDefault": false,
+            "minChildren": null,
+            "maxChildren": null,
+            "allowPreferredValuesOnly": true
+          },
+          "preferredValues": [
+            {
+              "type": "COMPONENT_SET",
+              "key": "9b1bd00e87290aed87e7e63aa46a080ed33fb715"
+            }
+          ]
+        },
+        "Trailing#10464:77": {
+          "type": "SLOT",
+          "description": "",
+          "slotSettings": {
+            "stretchChildOnInsert": false,
+            "displayEmptyByDefault": false,
+            "minChildren": null,
+            "maxChildren": null,
+            "allowPreferredValuesOnly": true
+          },
+          "preferredValues": [
+            {
+              "type": "COMPONENT_SET",
+              "key": "9b1bd00e87290aed87e7e63aa46a080ed33fb715"
+            }
+          ]
+        },
+        "Show Title#12884:2": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Show Leading#12886:12": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Show Trailing#12886:17": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Show Reserved Region#12886:22": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Show Status Bar#12887:15": {
+          "type": "BOOLEAN",
+          "defaultValue": true
+        },
+        "Style": {
+          "type": "VARIANT",
+          "defaultValue": "Title",
+          "variantOptions": [
+            "Title",
+            "Compact Large",
+            "Large Title",
+            "Title 2 Line"
+          ]
+        },
+        "Sheet": {
+          "type": "VARIANT",
+          "defaultValue": "False",
+          "variantOptions": [
+            "False",
+            "True"
+          ]
+        }
+      },
+      "variants": [
+        {
+          "id": "12886:11597",
+          "name": "Style=Title 2 Line, Sheet=True",
+          "width": 600,
+          "height": 74,
+          "layoutMode": "HORIZONTAL",
+          "padding": [
+            16,
+            16,
+            16,
+            10
+          ],
+          "children": [
+            {
+              "id": "12886:11598",
+              "name": "Leading",
+              "type": "SLOT",
+              "width": 48,
+              "height": 48
+            },
+            {
+              "id": "12886:11600",
+              "name": "Title and Subtitle",
+              "type": "FRAME",
+              "width": 390,
+              "height": 38
+            },
+            {
+              "id": "12886:11603",
+              "name": "Trailing",
+              "type": "SLOT",
+              "width": 106,
+              "height": 48
+            },
+            {
+              "id": "12887:18175",
+              "name": "Grabber",
+              "type": "INSTANCE",
+              "width": 60,
+              "height": 4
+            }
+          ]
+        },
+        {
+          "id": "12886:11607",
+          "name": "Style=Compact Large, Sheet=True",
+          "width": 600,
+          "height": 76,
+          "layoutMode": "HORIZONTAL",
+          "padding": [
+            16,
+            16,
+            16,
+            10
+          ],
+          "children": [
+            {
+              "id": "12886:11608",
+              "name": "Leading",
+              "type": "SLOT",
+              "width": 48,
+              "height": 48
+            },
+            {
+              "id": "12886:11610",
+              "name": "Title and Subtitle",
+              "type": "FRAME",
+              "width": 390,
+              "height": 50
+            },
+            {
+              "id": "12886:11613",
+              "name": "Trailing",
+              "type": "SLOT",
+              "width": 106,
+              "height": 48
+            },
+            {
+              "id": "12887:18172",
+              "name": "Grabber",
+              "type": "INSTANCE",
+              "width": 60,
+              "height": 4
+            }
+          ]
+        },
+        {
+          "id": "12886:11617",
+          "name": "Style=Large Title, Sheet=True",
+          "width": 600,
+          "height": 138,
+          "layoutMode": "VERTICAL",
+          "padding": [
+            16,
+            16,
+            16,
+            10
+          ],
+          "children": [
+            {
+              "id": "12886:11618",
+              "name": "Controls",
+              "type": "FRAME",
+              "width": 568,
+              "height": 48
+            },
+            {
+              "id": "12886:11626",
+              "name": "Title and Subtitle",
+              "type": "FRAME",
+              "width": 568,
+              "height": 54
+            },
+            {
+              "id": "12887:18169",
+              "name": "Grabber",
+              "type": "INSTANCE",
+              "width": 60,
+              "height": 4
+            }
+          ]
+        },
+        {
+          "id": "12886:11629",
+          "name": "Style=Title, Sheet=True",
+          "width": 600,
+          "height": 76,
+          "layoutMode": "HORIZONTAL",
+          "padding": [
+            16,
+            16,
+            16,
+            12
+          ],
+          "children": [
+            {
+              "id": "12886:11630",
+              "name": "Leading",
+              "type": "SLOT",
+              "width": 48,
+              "height": 48
+            },
+            {
+              "id": "12886:11632",
+              "name": "Title",
+              "type": "FRAME",
+              "width": 388,
+              "height": 22
+            },
+            {
+              "id": "12886:11634",
+              "name": "Trailing",
+              "type": "SLOT",
+              "width": 108,
+              "height": 48
+            },
+            {
+              "id": "12887:18131",
+              "name": "Grabber",
+              "type": "INSTANCE",
+              "width": 60,
+              "height": 4
+            }
+          ]
+        },
+        {
+          "id": "12883:6024",
+          "name": "Style=Title 2 Line, Sheet=False",
+          "width": 600,
+          "height": 82,
+          "layoutMode": "HORIZONTAL",
+          "padding": [
+            20,
+            24,
+            24,
+            10
+          ],
+          "children": [
+            {
+              "id": "12884:11315",
+              "name": "Leading",
+              "type": "SLOT",
+              "width": 48,
+              "height": 48
+            },
+            {
+              "id": "12883:6027",
+              "name": "Title and Subtitle",
+              "type": "FRAME",
+              "width": 154,
+              "height": 38
+            },
+            {
+              "id": "12883:6030",
+              "name": "Trailing",
+              "type": "SLOT",
+              "width": 164,
+              "height": 48
+            },
+            {
+              "id": "12884:11229",
+              "name": "Status bar - iPhone Duo",
+              "type": "INSTANCE",
+              "width": 98,
+              "height": 48
+            },
+            {
+              "id": "12884:11230",
+              "name": "Reserved Region - Camera - Right",
+              "type": "RECTANGLE",
+              "width": 44,
+              "height": 48
+            }
+          ]
+        },
+        {
+          "id": "12883:6009",
+          "name": "Style=Compact Large, Sheet=False",
+          "width": 600,
+          "height": 84,
+          "layoutMode": "HORIZONTAL",
+          "padding": [
+            20,
+            24,
+            24,
+            10
+          ],
+          "children": [
+            {
+              "id": "12884:11252",
+              "name": "Leading",
+              "type": "SLOT",
+              "width": 48,
+              "height": 48
+            },
+            {
+              "id": "12886:11395",
+              "name": "Title and Subtitle",
+              "type": "FRAME",
+              "width": 154,
+              "height": 50
+            },
+            {
+              "id": "12883:6011",
+              "name": "Trailing",
+              "type": "SLOT",
+              "width": 164,
+              "height": 48
+            },
+            {
+              "id": "12884:11217",
+              "name": "Status bar - iPhone Duo",
+              "type": "INSTANCE",
+              "width": 98,
+              "height": 48
+            },
+            {
+              "id": "12884:11218",
+              "name": "Reserved Region - Camera - Right",
+              "type": "RECTANGLE",
+              "width": 44,
+              "height": 48
+            }
+          ]
+        },
+        {
+          "id": "12883:6013",
+          "name": "Style=Large Title, Sheet=False",
+          "width": 600,
+          "height": 146,
+          "layoutMode": "VERTICAL",
+          "padding": [
+            20,
+            24,
+            24,
+            10
+          ],
+          "children": [
+            {
+              "id": "12883:6014",
+              "name": "Controls",
+              "type": "FRAME",
+              "width": 556,
+              "height": 48
+            },
+            {
+              "id": "12883:6021",
+              "name": "Title and Subtitle",
+              "type": "FRAME",
+              "width": 556,
+              "height": 54
+            }
+          ]
+        },
+        {
+          "id": "12883:6041",
+          "name": "Sheet=False, Style=Title",
+          "width": 600,
+          "height": 84,
+          "layoutMode": "HORIZONTAL",
+          "padding": [
+            20,
+            24,
+            24,
+            12
+          ],
+          "children": [
+            {
+              "id": "12883:6042",
+              "name": "Leading",
+              "type": "SLOT",
+              "width": 48,
+              "height": 48
+            },
+            {
+              "id": "12884:8207",
+              "name": "Title",
+              "type": "FRAME",
+              "width": 154,
+              "height": 22
+            },
+            {
+              "id": "12883:6045",
+              "name": "Trailing",
+              "type": "SLOT",
+              "width": 164,
+              "height": 48
+            },
+            {
+              "id": "12884:8003",
+              "name": "Status bar - iPhone Duo",
+              "type": "INSTANCE",
+              "width": 98,
+              "height": 48
+            },
+            {
+              "id": "12884:8203",
+              "name": "Reserved Region - Camera - Right",
+              "type": "RECTANGLE",
+              "width": 44,
+              "height": 48
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "unit_note": "Values are Figma logical canvas units. A node's displayed px label is not automatically screenshot pixels or a verified runtime pt measurement.",
+  "visual_verification": [
+    {
+      "node_id": "12892:62243",
+      "result": "Centered inner-landscape sheet visibly uses a horizontal header. A descendant named Vertical Bar does not prove vertical toolbar behavior."
+    },
+    {
+      "node_id": "13035:902",
+      "result": "Folded inner-landscape guide shows a central fold-avoidance overlay and side controls. Overlay geometry is a kit example, not a universal runtime reserved-region width."
+    }
+  ],
+  "inspected_copy_version": "27.1.4",
+  "inspected_copy_change_log_date": "2026-10-28",
+  "publication_note": "The private inspection-copy file key was omitted for distribution. Obtain the official resource from community_url and locate matching frames by name/version in an accessible copy; recorded node IDs are historical structural evidence, not guaranteed IDs in a new copy."
+}

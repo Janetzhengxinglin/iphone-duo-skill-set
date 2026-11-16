@@ -1,0 +1,65 @@
+{
+  "method": "10 selected stills visually reviewed; not exhaustive motion playback",
+  "frames": [
+    {
+      "time_seconds": 98,
+      "image": "assets/reference-images/video-111466-98.png",
+      "sha256": "178fc90dc5d8989691bf8ba6fedb1c88c51ba7be9cd8d9f29d024da053343aee",
+      "observation": "侧边 tab 示例"
+    },
+    {
+      "time_seconds": 198,
+      "image": "assets/reference-images/video-111466-198.png",
+      "sha256": "3a78a6b0e9523b1827ac1b2ae14503f384b4ba188f75ff49938504491c812c9f",
+      "observation": "分屏左侧 App 控件在左外侧"
+    },
+    {
+      "time_seconds": 211,
+      "image": "assets/reference-images/video-111466-211.png",
+      "sha256": "7491202f321bdceb571edc8c9625cdb7bb8c3192295c40e34b72418c904a7816",
+      "observation": "画中画与消息内容布局示例"
+    },
+    {
+      "time_seconds": 334,
+      "image": "assets/reference-images/video-111466-334.png",
+      "sha256": "d9eca73cdb1314091ddfbde8227523c6f25ec4cd5ac38cc5d13bfe64ade8ad78",
+      "observation": "内屏竖屏水平栏，与外屏侧栏对照"
+    },
+    {
+      "time_seconds": 375,
+      "image": "assets/reference-images/video-111466-375.png",
+      "sha256": "9d2cb4e676ea004738c49f830e20599e9cf0a70d6868dd618875ca4c609ca86d",
+      "observation": "原上下工具栏动作分组映射到侧边"
+    },
+    {
+      "time_seconds": 388,
+      "image": "assets/reference-images/video-111466-388.png",
+      "sha256": "6b5254de529eb8550d674934a9f98e0f3d784acefb59795ba05c28c31fc6c7d8",
+      "observation": "宽文字 Select 保留水平位置"
+    },
+    {
+      "time_seconds": 445,
+      "image": "assets/reference-images/video-111466-445.png",
+      "sha256": "9875e547816ae8d924e0e02b5dd2bfe9c995b4563ffdb5364a9ff939b64e43a5",
+      "observation": "背景全宽且前景内容避开系统区域示例"
+    },
+    {
+      "time_seconds": 555,
+      "image": "assets/reference-images/video-111466-555.png",
+      "sha256": "4d0b77a09b3e307abb480eeb756dcdb1879d5baf0379d0b6cb329e1ea2dbd45d",
+      "observation": "内屏居中 sheet 的水平栏"
+    },
+    {
+      "time_seconds": 561,
+      "image": "assets/reference-images/video-111466-561.png",
+      "sha256": "19e1b94a0dbb675aa68f4fe5b0f59fd21fc9b279729a2c689dab8e86854e92c8",
+      "observation": "部分折叠 sheet 已移动到一侧"
+    },
+    {
+      "time_seconds": 585,
+      "image": "assets/reference-images/video-111466-585.png",
+      "sha256": "21128008dc9faff4f681f653d5c3ff5a04b7032de55aacaf166c6db2d960d2ba",
+      "observation": "部分折叠下多种控件/内容布局示例；不测量折叠宽度"
+    }
+  ]
+}

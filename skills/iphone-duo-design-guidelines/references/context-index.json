@@ -1,0 +1,105 @@
+{
+  "version": "0.5.1",
+  "note": "优先阅读索引；默认只检查当前 profile 中的规则。其余规则明确排除，不生成未验证项。full-evidence 才逐项筛选全部 active 规则。",
+  "contexts": {
+    "outer": {
+      "label": "合上折叠／外屏",
+      "priority": [
+        "DUO-01",
+        "DUO-05",
+        "DUO-11",
+        "IOS-01",
+        "IOS-04",
+        "DUO-04",
+        "DUO-08",
+        "DUO-10"
+      ],
+      "caution": "外屏方向另记；不假定所有按钮都必须移到侧边。"
+    },
+    "inner-landscape": {
+      "label": "打开折叠／内屏横屏",
+      "priority": [
+        "DUO-01",
+        "DUO-05",
+        "DUO-11",
+        "IOS-01",
+        "IOS-04",
+        "DUO-04",
+        "DUO-08",
+        "DUO-10"
+      ],
+      "caution": "完全展开和部分折叠分别判断；单栏不是失败条件。"
+    },
+    "inner-portrait": {
+      "label": "打开折叠／内屏竖屏",
+      "priority": [
+        "DUO-01",
+        "DUO-05",
+        "DUO-11",
+        "IOS-01",
+        "IOS-04",
+        "DUO-04",
+        "DUO-08",
+        "DUO-10"
+      ],
+      "caution": "水平栏属于明确例外；录屏黑边不是 App 视口。"
+    },
+    "transition": {
+      "label": "开合折叠／旋转的连续交互",
+      "priority": [
+        "DUO-01",
+        "DUO-02",
+        "DUO-03",
+        "DUO-06",
+        "DUO-07",
+        "DUO-09",
+        "DUO-10"
+      ],
+      "caution": "这是交互证据，不是第四种固定姿态；不同会话截图无法证明连续性。"
+    }
+  },
+  "topics": {
+    "sheet": [
+      "DUO-10",
+      "IOS-01"
+    ],
+    "keyboard": [
+      "DUO-01",
+      "IOS-01"
+    ],
+    "camera": [
+      "DUO-05",
+      "IOS-01"
+    ],
+    "large-text": [
+      "IOS-02",
+      "IOS-03"
+    ],
+    "overflow": [
+      "DUO-03",
+      "DUO-09"
+    ],
+    "measurement": [
+      "IOS-03",
+      "DUO-11"
+    ],
+    "button": [
+      "IOS-04",
+      "IOS-01"
+    ],
+    "toolbar": [
+      "IOS-04",
+      "DUO-04",
+      "DUO-08",
+      "DUO-13"
+    ],
+    "tab": [
+      "IOS-04",
+      "DUO-04",
+      "IOS-01"
+    ],
+    "media": [
+      "DUO-01"
+    ]
+  }
+}

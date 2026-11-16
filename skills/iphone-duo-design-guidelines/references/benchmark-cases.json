@@ -1,0 +1,146 @@
+{
+  "status": "Expected decisions for boundary-case calibration; not a completed independent AI evaluation or real App audit.",
+  "cases": [
+    {
+      "id": "B01",
+      "input": "内屏竖屏的普通页面使用水平导航栏",
+      "rule_ids": [
+        "DUO-04"
+      ],
+      "expected": "not_applicable",
+      "reason": "不要求普通内屏竖屏使用竖栏",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B02",
+      "input": "外屏工具栏中较宽的 segmented control 保留水平位置，固定导航仍在侧边",
+      "rule_ids": [
+        "DUO-04"
+      ],
+      "expected": "no_issue_observed",
+      "reason": "宽控件是例外，不把所有控件强塞侧边",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B03",
+      "input": "完全展开的内屏中线有一个按钮，没有遮挡",
+      "rule_ids": [
+        "DUO-06"
+      ],
+      "expected": "not_applicable",
+      "reason": "折叠预留区未生效",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B04",
+      "input": "部分折叠录像显示可滚动正文跨过中线，滚动后可读，没有固定控件被遮挡",
+      "rule_ids": [
+        "DUO-06"
+      ],
+      "expected": "no_issue_observed",
+      "reason": "视频明确允许 scrollable content 不避让",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B05",
+      "input": "部分折叠且 active region 已确认；固定确认按钮位于该区并在录像中无法点击",
+      "rule_ids": [
+        "DUO-06"
+      ],
+      "expected": "issue",
+      "reason": "状态、区域与实际影响证据齐全",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B06",
+      "input": "单帧看不到原先的工具栏动作，但溢出菜单尚未打开",
+      "rule_ids": [
+        "DUO-09"
+      ],
+      "expected": "needs_confirmation",
+      "reason": "不可断言入口丢失",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B07",
+      "input": "内屏一个竖栏 sheet，placement、runtime 和配置均未知",
+      "rule_ids": [
+        "DUO-10"
+      ],
+      "expected": "needs_confirmation",
+      "reason": "C-01 不允许用视频概括无条件拒绝",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B08",
+      "input": "截图可见图标为24像素宽，交互热区和缩放未知",
+      "rule_ids": [
+        "IOS-03"
+      ],
+      "expected": "not_verified",
+      "reason": "可见图标不等于点击区，px 不直接等于 pt",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B09",
+      "input": "内屏依旧单栏但功能完整可访问，没有独立故障证据",
+      "rule_ids": [
+        "DUO-12"
+      ],
+      "expected": "advisory_only",
+      "reason": "不能把可选两栏变成不适配",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B10",
+      "input": "只提供默认字体截图",
+      "rule_ids": [
+        "IOS-02"
+      ],
+      "expected": "not_verified",
+      "reason": "不能评价文字放大支持",
+      "profile": "full-evidence"
+    },
+    {
+      "id": "B11",
+      "profile": "three-form-screenshot",
+      "input": "外屏水平标签栏，无可见遮挡；适用性和例外已核实",
+      "rule_ids": [
+        "DUO-04"
+      ],
+      "expected": "guidance_deviation",
+      "reason": "仅指导差异，不计入需要修改"
+    },
+    {
+      "id": "B12",
+      "profile": "three-form-screenshot",
+      "input": "默认字体截图中重要金额被系统区域遮挡",
+      "rule_ids": [
+        "IOS-01"
+      ],
+      "expected": "issue",
+      "reason": "有可见缺陷；不附未验证字体/点击标签"
+    },
+    {
+      "id": "B13",
+      "profile": "three-form-screenshot",
+      "input": "内屏竖屏完全展开，单栏无裁切；中线有按钮",
+      "rule_ids": [
+        "DUO-06",
+        "DUO-12"
+      ],
+      "expected": "excluded",
+      "reason": "不强加折叠禁区或两栏优化"
+    },
+    {
+      "id": "B14",
+      "profile": "three-form-screenshot",
+      "input": "SDK未知，只看到水平工具栏",
+      "rule_ids": [
+        "DUO-04"
+      ],
+      "expected": "not_applicable",
+      "reason": "若SDK影响适用性则不确认偏离，不生成待核实问题"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "iPhone Duo 设计规范"
+  short_description: "依据苹果来源核查 Duo 页面，输出可追溯的逐页问题与标注数据"
+  default_prompt: "使用 $iphone-duo-design-guidelines 审查这些页面，按屏幕配置匹配规则并输出有依据的编号标注。"

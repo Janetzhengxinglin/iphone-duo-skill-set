@@ -1,0 +1,1215 @@
+{
+  "version": "0.5.1",
+  "status": "source-verified-ready-for-scoped-pilot",
+  "verified_source_date": "2026-11-12",
+  "source_manifest": "sources.json",
+  "note": "规则判据是项目对官方指导的操作化解释；默认按 three-form-screenshot profile 筛选。发布提交条件独立维护，不将全部页面指导视为强制审核条款。",
+  "rules": [
+    {
+      "id": "DUO-01",
+      "title": "布局随可用空间调整",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Best practices",
+      "source_quote": "Use size classes, layout margins, and safe area insets to lay out controls and content. Avoid fixed widths and display-specific dependencies.",
+      "source_strength": "明确指导",
+      "applies_when": "内外屏、分屏或视图尺寸变化后的稳定页面",
+      "exceptions": "装饰性背景可以延伸；可正常滚动的内容不因超出首屏判为裁切；图片填充或背景等比裁切不自动算缺陷，只有重要主体、信息或控件丢失时记录。无正常比例基准时不凭风格推断拉伸。",
+      "required_evidence": "稳定原始帧；页面视口范围；若给精确尺寸需运行时点坐标",
+      "fail_condition": "重要文字或控件在当前视口中存在可见裁切、重叠、明显拉伸或错位；正常滚动内容在边缘露出不算裁切。不能仅凭留白或示例差异定性，截图不证明不可点击或代码根因。",
+      "insufficient_evidence_condition": "截图不能证明使用了固定宽度、方向判断或机型判断等代码模式。只记录当前可见显示结果，不由未显示的内容推断不能滚动或点击。",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Best practices",
+          "quote": "Use size classes, layout margins, and safe area insets to lay out controls and content. Avoid fixed widths and display-specific dependencies."
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 240.0,
+          "quote": "Instead, focus on two size classes:",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=240"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 248.0,
+          "quote": "Avoid fixed widths, breakpoints,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=248"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 258.0,
+          "quote": "Build your layouts with layout margins",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=258"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 272.0,
+          "quote": "design your app to be freely resizable",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=272"
+        },
+        {
+          "source_id": "duo-three-steps",
+          "kind": "document",
+          "section": "Introduction",
+          "quote": "Hardcoded screen sizes, fixed orientations, and device assumptions can break layouts, leading to stretched, clipped, or misplaced content.",
+          "url": "https://developer.apple.com/iphone-duo/prepare/"
+        },
+        {
+          "source_id": "duo-three-steps",
+          "kind": "document",
+          "section": "Step 2: Fix patterns / Check full-bleed media",
+          "quote": "Check full-bleed media.",
+          "url": "https://developer.apple.com/iphone-duo/prepare/"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Address common layout and resizing considerations",
+          "quote": "Confirm your views resize well in each supported orientation and pose.",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Address-common-layout-and-resizing-considerations"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Address common layout and resizing considerations",
+          "quote": "Identify any views, sheets, or popovers that position awkwardly when you fold or open iPhone Duo.",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Address-common-layout-and-resizing-considerations"
+        },
+        {
+          "source_id": "video-111465",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 488.0,
+          "quote": "A final note on handling rotation in your app:",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111465/?time=488"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "visible-defect",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-02",
+      "title": "切换显示屏时保持状态",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Best practices",
+      "source_quote": "Keep functionality and the state of elements the same between displays.",
+      "source_strength": "明确指导",
+      "applies_when": "同一次操作中的内外屏切换",
+      "exceptions": "测试主动重启、会话到期、后台超时或测试数据重置要单独解释",
+      "required_evidence": "切换前后连续视频；同一会话、页面、输入/选择状态",
+      "fail_condition": "切换本身导致输入、选择或任务进度丢失",
+      "insufficient_evidence_condition": "单张截图或两段不同会话无法判定状态丢失",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Best practices",
+          "quote": "Keep functionality and the state of elements the same between displays."
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "extended-evidence",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-03",
+      "title": "不同姿态保留功能入口",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Best practices",
+      "source_quote": "Provide access to the same controls and content regardless of how someone holds or views the device.",
+      "source_strength": "明确指导",
+      "applies_when": "同一功能在不同姿态或窗口大小下",
+      "exceptions": "入口允许进入溢出菜单或折叠容器；无需始终直接显示",
+      "required_evidence": "两种姿态录像；滚动和菜单访问证据",
+      "fail_condition": "已确认目标入口在另一姿态无法访问，而非仅从首屏消失",
+      "insufficient_evidence_condition": "单张截图未显示入口、未展开菜单或未滚动，不能证明入口无法访问；不将此候选作为成立问题，也不输出待核实标签。",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Best practices",
+          "quote": "Provide access to the same controls and content regardless of how someone holds or views the device."
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 297.0,
+          "quote": "just be sure it has all the same controls",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=297"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 300.0,
+          "quote": "and general hierarchy as other poses.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=300"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 303.0,
+          "quote": "You don't want to tie functionality to a specific pose.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=303"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "extended-evidence",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-04",
+      "title": "遵循侧边导航及工具栏布局",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Vertical controls",
+      "source_quote": "In general, don’t override the default bar placement.",
+      "source_strength": "默认指导并有例外",
+      "applies_when": "外屏及内屏横屏的页面级导航栏、工具栏和标签栏；分屏时检查系统实际分配侧边",
+      "exceptions": "内屏竖屏保留水平栏；inspectors 水平；多栏 split view 的 sidebar/content 水平；sheet 取决于屏幕与 placement，允许特定配置关闭竖栏；内容局部控件靠近所属内容；无栏沉浸界面不强加栏；太宽的工具栏文字按钮和 segmented control 可留水平导航栏；不得由组件名判定朝向。sheet 的方向见 DUO-10 与冲突 C-01。 工具栏是否竖排先看所属容器是否贴屏幕边缘；split view仅detail栏参与。含独立信息的文字项可以保持横排，键盘附属栏保留在键盘旁；底部控件密集的单页应用可考虑关闭竖栏，不能只见横排就判失败。",
+      "required_evidence": "截图；姿态/方向/分屏侧；控件所属容器；必要时 toolbarVerticalEdge/verticalBarEdge 或配置",
+      "fail_condition": "确认适用且无例外后，页面级栏覆盖默认侧边布局；报告为平台布局指导偏离，和可用性故障分开",
+      "insufficient_evidence_condition": "容器、运行时或兼容模式不明确时待确认；自定义按钮在底部本身不充分",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Vertical controls",
+          "quote": "In general, don’t override the default bar placement."
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 94.0,
+          "quote": "This new space on the side houses the app controls.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=94"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 98.0,
+          "quote": "This includes the tab bar, the app toolbars,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=98"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 101.0,
+          "quote": "and navigation controls like the back button,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=101"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 327.0,
+          "quote": "The only pose where we've kept horizontal bars is on the inner display in portrait,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=327"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 382.0,
+          "quote": "Toolbar items that are too wide for the space on the right,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=382"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 385.0,
+          "quote": "like a text button or a segmented control,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=385"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 388.0,
+          "quote": "should stay put in the nav bar on iPhone Duo.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=388"
+        },
+        {
+          "source_id": "kit-ios27",
+          "kind": "kit-example",
+          "node_id": "12892:62244",
+          "version": "27.1.4",
+          "authority": "specified-component-example-only",
+          "url": "https://www.figma.com/community/file/1651309003795292092/ios-and-ipados-27"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Optimize bars for vertical presentation",
+          "quote": "Check the navigation bars, toolbars, and tab bars in your app to see if the system presents them vertically on the side of the display.",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Optimize-bars-for-vertical-presentation"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 217.0,
+          "quote": "toolbar itemscan only move vertically",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=217"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 223.0,
+          "quote": "In split views, only the detail column participates.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=223"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 433.0,
+          "quote": "And text-only items, like the edit button,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=433"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 590.0,
+          "quote": "However, if the text does contain meaningful information,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=590"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 600.0,
+          "quote": "Lastly, accessory bars should remain attached to keyboard",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=600"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 868.0,
+          "quote": "If your app is a single-page app with a bottom-heavy layout",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=868"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "conflict_ids": [
+        "C-01"
+      ],
+      "audit_category": "default-layout-guidance",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-05",
+      "title": "避让生效的摄像头预留区域",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Dynamic layouts / Reserved regions",
+      "source_quote": "The inner front-facing camera.** This region is only present when the camera is active.",
+      "source_strength": "明确指导",
+      "applies_when": "外屏前摄区域始终存在；内屏前摄只在 active 时存在",
+      "exceptions": "装饰背景可延伸；不要给内屏未启用摄像头时画永久禁止区",
+      "required_evidence": "稳定帧；相机状态；真实 reserved region/遮挡区域信息",
+      "fail_condition": "重要内容或交互控件被生效的摄像头区域遮挡",
+      "insufficient_evidence_condition": "相机状态或遮挡范围不明时只标视觉候选",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Dynamic layouts / Reserved regions",
+          "quote": "The inner front-facing camera.** This region is only present when the camera is active."
+        },
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Reserved regions",
+          "quote": "The inner front-facing camera.** This region is only present when the camera is active.",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo#Reserved-regions"
+        },
+        {
+          "source_id": "video-111463",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 494.0,
+          "quote": "this region is active when the camera is active",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111463/?time=494"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "visible-defect",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-06",
+      "title": "部分折叠时避让折叠区域",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Dynamic layouts / Reserved regions",
+      "source_quote": "Use the `ReservedRegion` API to keep important elements clear of the center if the system doesn’t move them automatically.",
+      "source_strength": "明确指导",
+      "applies_when": "部分展开且折叠 reserved region 生效",
+      "exceptions": "完全展开时 folding region inactive；不把整条中线永久视为禁区；装饰背景不等同关键控件；视频 09:57 明确 scrollable content 不必避让，跨中线本身不判失败。固定交互控件与可滚动正文分别检查；正文仍需可读可访问。",
+      "required_evidence": "折叠角度/姿态；active region 点坐标及其视图坐标系，或清楚显示遮挡的视频",
+      "fail_condition": "在已确认生效的折叠预留区内，固定按钮等交互控件难以看清或操作；不能以可滚动正文跨越中线为唯一依据。",
+      "insufficient_evidence_condition": "仅平面截图中控件跨越屏幕中线不能证明违反",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Dynamic layouts / Reserved regions",
+          "quote": "Use the `ReservedRegion` API to keep important elements clear of the center if the system doesn’t move them automatically."
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 568.0,
+          "quote": "We found buttons are tough to tap when they land right in the fold.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=568"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 575.0,
+          "quote": "whenever iPhone Duo is partially folded.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=575"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 597.0,
+          "quote": "Scrollable content doesn't need to avoid this region.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=597"
+        },
+        {
+          "source_id": "kit-ios27",
+          "kind": "kit-example",
+          "node_id": "13035:902",
+          "version": "27.1.4",
+          "authority": "specified-component-example-only",
+          "url": "https://www.figma.com/community/file/1651309003795292092/ios-and-ipados-27"
+        },
+        {
+          "source_id": "video-111463",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 448.0,
+          "quote": "the fold's division region is only active when someone has folded the device.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111463/?time=448"
+        },
+        {
+          "source_id": "video-111463",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 452.0,
+          "quote": "When flat, it's inactive and has a width of zero.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111463/?time=452"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "conflict_ids": [],
+      "audit_category": "extended-evidence",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-07",
+      "title": "折叠中避免极端布局跳动",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Dynamic layouts / Reserved regions",
+      "source_quote": "Move only what’s necessary to keep elements visible and easy to tap.",
+      "source_strength": "设计建议",
+      "applies_when": "连续部分折叠或展开过程",
+      "exceptions": "为保持可访问性发生必要重排允许；切换尺寸类不强求像素位置不变",
+      "required_evidence": "连续视频；调整前后稳定帧；状态一致性",
+      "fail_condition": "控件突兀大幅移动影响追踪，证据支持时列为改善建议",
+      "insufficient_evidence_condition": "截图缺少连续过程时不能断言闪跳或动画故障",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "advisory",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Dynamic layouts / Reserved regions",
+          "quote": "Move only what’s necessary to keep elements visible and easy to tap."
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "optional-enhancement",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-08",
+      "title": "竖向工具栏优先保持导航顺序",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Vertical controls",
+      "source_quote": "Reserve the top of the vertical axis for primary navigation controls, like Back or Close, followed by prominent actions, like Done.",
+      "source_strength": "明确指导",
+      "applies_when": "系统竖向工具栏的可见项",
+      "exceptions": "内容局部按钮不适用；没有 Back/Close 的页面不要求新增",
+      "required_evidence": "清晰竖栏截图；各项语义及所属工具栏",
+      "fail_condition": "已有 Back/Close 等主导航顺序明显违背指导",
+      "insufficient_evidence_condition": "无法确定图标动作语义时待确认",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Vertical controls",
+          "quote": "Reserve the top of the vertical axis for primary navigation controls, like Back or Close, followed by prominent actions, like Done."
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "default-layout-guidance",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-09",
+      "title": "压缩后操作仍可发现并访问",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Vertical controls",
+      "source_quote": "Use the system overflow menu.",
+      "source_strength": "明确指导",
+      "applies_when": "空间不足导致页面级工具栏或标签栏压缩",
+      "exceptions": "导航导向页面与任务导向页面优先级不同；允许标签栏最小化；内容局部菜单不一概并入系统溢出",
+      "required_evidence": "压缩前后帧；打开 overflow/minimized tab 的视频；所有关键入口",
+      "fail_condition": "关键入口在压缩后不可访问，或确认存在独立页面级 overflow 与系统入口重复分散",
+      "insufficient_evidence_condition": "仅截图看不见按钮不能证明入口丢失；不能仅凭截图断言使用何种 API",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Vertical controls",
+          "quote": "Use the system overflow menu."
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 347.0,
+          "quote": "If there's not enough room,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=347"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 349.0,
+          "quote": "app controls will automatically collapse into an overflow menu.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=349"
+        },
+        {
+          "source_id": "kit-ios27",
+          "kind": "kit-example",
+          "node_id": "12887:20935",
+          "version": "27.1.4",
+          "authority": "specified-component-example-only",
+          "url": "https://www.figma.com/community/file/1651309003795292092/ios-and-ipados-27"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 708.0,
+          "quote": "The bar may also need to overflow",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=708"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "extended-evidence",
+      "app_store_requirement": false
+    },
+    {
+      "id": "IOS-01",
+      "title": "重要内容与控件不被安全区遮挡",
+      "source_id": "layout",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/layout",
+      "source_section": "Guides and safe areas",
+      "source_quote": "Respecting the safe area is essential to make sure system UI and hardware features like the Dynamic Island don’t obstruct content and controls.",
+      "source_strength": "明确指导",
+      "applies_when": "所有已录页面，尤其侧边栏或底部浮层附近",
+      "exceptions": "装饰背景允许延伸到安全区外；Duo 侧边不对称；系统外壳保留为证据",
+      "required_evidence": "未裁剪 App 视口帧；姿态；必要时 safeAreaInsets",
+      "fail_condition": "重要信息或交互控件稳定被系统 UI/硬件遮挡",
+      "insufficient_evidence_condition": "系统留白不自动判为错误；精确间距判定需要实际坐标与缩放",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "layout",
+          "kind": "document",
+          "section": "Guides and safe areas",
+          "quote": "Respecting the safe area is essential to make sure system UI and hardware features like the Dynamic Island don’t obstruct content and controls."
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 413.0,
+          "quote": "most content needs an offset so",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=413"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 418.0,
+          "quote": "If your app aligns to horizontal safe area insets,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=418"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 426.0,
+          "quote": "Some UI should still center on the full display though, no offset.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=426"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 435.0,
+          "quote": "as long as you're sure interactive elements won't be blocked",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=435"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 448.0,
+          "quote": "Just to make sure every interactive element lives inside",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=448"
+        },
+        {
+          "source_id": "kit-ios27",
+          "kind": "kit-example",
+          "node_id": "12892:62244",
+          "version": "27.1.4",
+          "authority": "specified-component-example-only",
+          "url": "https://www.figma.com/community/file/1651309003795292092/ios-and-ipados-27"
+        },
+        {
+          "source_id": "layout",
+          "kind": "document",
+          "section": "Guides and safe areas",
+          "quote": "Respecting the safe area is essential to make sure system UI and hardware features like the Dynamic Island don’t obstruct content and controls.",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/layout#Guides-and-safe-areas"
+        },
+        {
+          "source_id": "video-111461",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 397.0,
+          "quote": "When positioning your UI, make sure to place foreground elements",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111461/?time=397"
+        },
+        {
+          "source_id": "video-111461",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 419.0,
+          "quote": "Allow background elements such as full-bleed artwork",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111461/?time=419"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "visible-defect",
+      "app_store_requirement": false
+    },
+    {
+      "id": "IOS-02",
+      "title": "文字放大后可读且不重叠",
+      "source_id": "layout",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/layout",
+      "source_section": "Adaptability",
+      "source_quote": "Support Dynamic Type by adjusting your layout to accommodate text at larger sizes.",
+      "source_strength": "明确指导",
+      "applies_when": "已知 Dynamic Type 档位下的页面",
+      "exceptions": "测试未切换字体档位不能断言不支持；正文与图形化标记需分别判断",
+      "required_evidence": "默认和大字体相同页面状态；系统文本档位；稳定帧",
+      "fail_condition": "文字放大后重要文案被裁切、重叠或关键动作不可达",
+      "insufficient_evidence_condition": "只有默认字体录像时，该项未验证",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "layout",
+          "kind": "document",
+          "section": "Adaptability",
+          "quote": "Support Dynamic Type by adjusting your layout to accommodate text at larger sizes."
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "extended-evidence",
+      "app_store_requirement": false
+    },
+    {
+      "id": "IOS-03",
+      "title": "检查控件实际尺寸及间隔",
+      "source_id": "accessibility",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/accessibility",
+      "source_section": "Mobility",
+      "source_quote": "|iOS, iPadOS|44x44 pt            |28x28 pt            |",
+      "source_strength": "推荐性尺寸指导",
+      "applies_when": "可取得 iOS 控件实际点尺寸/交互区域且语义明确的控件",
+      "exceptions": "当前源表：default 44×44 pt，minimum 28×28 pt；不可把 44 一概表述为硬性最小值；可见图标边界不等于点击区域",
+      "required_evidence": "运行时视图/交互区域；点坐标换算；控件语义；必要时点击测试",
+      "fail_condition": "按当前官方尺寸指导列尺寸不足或改善建议；项目若采用 44 下限，单独标项目要求来源",
+      "insufficient_evidence_condition": "截图像素未校准或无交互区域信息时不能定量判失败",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "advisory",
+      "evidence_refs": [
+        {
+          "source_id": "accessibility",
+          "kind": "document",
+          "section": "Mobility",
+          "quote": "|iOS, iPadOS|44x44 pt            |28x28 pt            |"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "optional-enhancement",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-10",
+      "title": "按容器和配置判断 sheet 行为",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Dynamic layouts / Reserved regions",
+      "source_quote": "Components like alerts, context menus, and sheets automatically move to account for the fold",
+      "source_strength": "默认指导并有例外",
+      "applies_when": "外屏或内屏上的 sheet；部分展开时另检查折叠避让",
+      "exceptions": "外屏可关闭竖栏；内屏居中/leading 默认水平，trailing 配置允许竖栏；视频概括和详细 API 文档不同，方向不明时见 C-01 系统浮层会围绕生效预留区域重新定位；不以屏幕几何居中为合格条件。控件密集且工具栏仅一个关闭按钮的sheet可关闭竖栏。",
+      "required_evidence": "显示屏、方向、sheet placement、构建/运行时、截图；折叠避让需要 active region 或连续视频",
+      "fail_condition": "有明确配置依据的布局偏离，或部分折叠时 sheet/其固定关键操作处于生效折叠区并不可访问",
+      "insufficient_evidence_condition": "单看水平/竖直方向不能无条件失败；未知 placement 或来源冲突未解决则待确认",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Dynamic layouts / Reserved regions",
+          "quote": "Components like alerts, context menus, and sheets automatically move to account for the fold"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 525.0,
+          "quote": "By default on the outer display,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=525"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 531.0,
+          "quote": "But you can keep them from moving if that fits your content better",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=531"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 550.0,
+          "quote": "On the inside, in both landscape and portrait,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=550"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 557.0,
+          "quote": "When iPhone Duo is partially folded,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=557"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 560.0,
+          "quote": "sheets slide over",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=560"
+        },
+        {
+          "source_id": "kit-ios27",
+          "kind": "kit-example",
+          "node_id": "12892:62243",
+          "version": "27.1.4",
+          "authority": "centered-inner-landscape-example-only",
+          "url": "https://www.figma.com/community/file/1651309003795292092/ios-and-ipados-27",
+          "image": "assets/reference-images/kit-inner-landscape-sheet.png"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Optimize bars for vertical presentation",
+          "quote": "For sheets on the inner display, the system presents the toolbar horizontally for centered or leading placements, and vertically for trailing placements.",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Optimize-bars-for-vertical-presentation"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 243.0,
+          "quote": "On the inner display, they're centered by default,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=243"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 252.0,
+          "quote": "sheets placed on the left remain without a vertical bar,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=252"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 255.0,
+          "quote": "while sheets placed on the right receive one.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=255"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 877.0,
+          "quote": "Similarly, if a sheet is control-heavy",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=877"
+        },
+        {
+          "source_id": "video-111463",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 334.0,
+          "quote": "The system automatically repositions components",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111463/?time=334"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "conflict_ids": [
+        "C-01"
+      ],
+      "audit_category": "default-layout-guidance",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-11",
+      "title": "按可用内容区处理不对称布局",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Vertical controls",
+      "source_quote": "Use safe areas to make sure controls don’t cover your content",
+      "source_strength": "默认指导并有例外",
+      "applies_when": "页面级侧边控件已生效的页面或分屏窗口",
+      "exceptions": "沉浸且不滚动的界面可以按全屏居中；背景可全宽；只要关键内容和控件不被遮挡，不以居中本身判违规 安全区域与layout margins可不对称，侧边栏可随横屏或分屏处于左侧；不要求左右留白相等。",
+      "required_evidence": "视口、侧边控件/安全区、内容归属；精确测量需校准",
+      "fail_condition": "内容或关键控件被侧边系统/导航区域稳定遮挡，或按已核实可用区域测出交叠",
+      "insufficient_evidence_condition": "视觉不对称或空白本身不是失败；不能固定要求所有页左移同一数值",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Vertical controls",
+          "quote": "Use safe areas to make sure controls don’t cover your content"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 413.0,
+          "quote": "most content needs an offset so",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=413"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 418.0,
+          "quote": "If your app aligns to horizontal safe area insets,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=418"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 426.0,
+          "quote": "Some UI should still center on the full display though, no offset.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=426"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 435.0,
+          "quote": "as long as you're sure interactive elements won't be blocked",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=435"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 440.0,
+          "quote": "You can also mix both approaches,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=440"
+        },
+        {
+          "source_id": "video-111461",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 432.0,
+          "quote": "Keep in mind that safe areas are often asymmetric.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111461/?time=432"
+        },
+        {
+          "source_id": "video-111461",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 445.0,
+          "quote": "As such, avoid assuming that insets on opposite sides are equal.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111461/?time=445"
+        },
+        {
+          "source_id": "video-111463",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 334.0,
+          "quote": "The system automatically repositions components",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111463/?time=334"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "visible-defect",
+      "app_store_requirement": false
+    },
+    {
+      "id": "DUO-12",
+      "title": "内屏信息层级与布局优化建议",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "source_section": "Best practices",
+      "source_quote": "Maintain your app’s information hierarchy, but show an additional level of hierarchy on the larger inner display if it makes sense for your content.",
+      "source_strength": "设计建议",
+      "applies_when": "内屏有更大可用空间且产品内容适合展示更多信息层级",
+      "exceptions": "两栏、split view、sidebar 是可选方案；并非所有 App 必须采用。若功能丢失则归 DUO-03，而不是仅因单栏判失败",
+      "required_evidence": "相同产品状态的内外屏截图，产品层级依据和可用空间",
+      "fail_condition": "只作为具体改善建议；没有独立可用性证据时不得列为确认不适配",
+      "insufficient_evidence_condition": "只有内屏单张截图或无法判断产品层级时不武断要求重设计",
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "advisory",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Best practices",
+          "quote": "Maintain your app’s information hierarchy, but show an additional level of hierarchy on the larger inner display if it makes sense for your content."
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 464.0,
+          "quote": "Split views are a great option.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=464"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 487.0,
+          "quote": "Another option is to optimize your content",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=487"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 503.0,
+          "quote": "And a third option for apps with tab bars:",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=503"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 510.0,
+          "quote": "Now this isn't for every app.",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=510"
+        },
+        {
+          "source_id": "video-111466",
+          "kind": "video-transcript",
+          "start_seconds": 512.0,
+          "quote": "It works best for",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111466/?time=512"
+        }
+      ],
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "audit_category": "optional-enhancement",
+      "app_store_requirement": false
+    },
+    {
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "app_store_requirement": false,
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "id": "IOS-04",
+      "title": "控件具有可辨识的用途内容",
+      "source_id": "buttons",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/buttons#Content",
+      "source_section": "Content",
+      "source_quote": "Ensure that each button clearly communicates its purpose. Depending on the platform, a button can contain a symbol (or icon), a text label, or both to help people understand what it does.",
+      "source_strength": "明确指导",
+      "applies_when": "截图中已识别的实际按钮、工具栏项及Tab，三种基础形态均适用。",
+      "exceptions": "空标题区域、装饰、骨架/已说明占位不当按钮；禁用态有可辨内容合法；加载指示器可能代替原图标；原图放大后复核，不据淡色本身判错。",
+      "required_evidence": "清晰原比例截图与控件识别依据；配置判断另需授权和实现证据。",
+      "fail_condition": "已确认控件仅剩背景，既无可辨识图标/文字也无进度指示；记录空白/不可辨识的可见缺陷，不声称无功能、代码原因或Duo专属故障。",
+      "insufficient_evidence_condition": "证据不足只限制依赖该事实的结论，不输出待核实页面标签。",
+      "evidence_refs": [
+        {
+          "source_id": "buttons",
+          "kind": "document",
+          "section": "Content",
+          "quote": "Ensure that each button clearly communicates its purpose. Depending on the platform, a button can contain a symbol (or icon), a text label, or both to help people understand what it does.",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/buttons#Content",
+          "paragraph_id": "buttons-P017"
+        },
+        {
+          "source_id": "buttons",
+          "kind": "document",
+          "section": "Introduction",
+          "quote": "Content. A symbol (or icon), text label, or both that a button displays to convey its purpose.",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/buttons#Introduction",
+          "paragraph_id": "buttons-P004"
+        },
+        {
+          "source_id": "toolbars",
+          "kind": "document",
+          "section": "Actions",
+          "quote": "Make sure the meaning of each control is clear. Don’t make people guess or experiment to figure out what a toolbar item does. Prefer simple, recognizable symbols for items instead of text, except for actions like edit that aren’t well-represented by symbols. For guidance on symbols that represent common actions, see Standard icons.",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars#Actions",
+          "paragraph_id": "toolbars-P032"
+        },
+        {
+          "source_id": "tab-bars",
+          "kind": "document",
+          "section": "Best practices",
+          "quote": "Include tab labels to help with navigation. A tab label appears beneath or beside a tab bar icon, and can aid navigation by clearly describing the type of content or functionality the tab contains. Use single words whenever possible.",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars#Best-practices",
+          "paragraph_id": "tab-bars-P009"
+        },
+        {
+          "source_id": "buttons",
+          "kind": "document",
+          "section": "iOS, iPadOS",
+          "quote": "Configure a button to display an activity indicator when you need to provide feedback about an action that doesn’t instantly complete. Displaying an activity indicator within a button can save space in your user interface while clearly communicating the reason for the delay. To help clarify what’s happening, you can also configure the button to display a different label alongside the activity indicator. For example, the label “Checkout” could change to “Checking out…” while the activity indicator is visible. When a delay occurs after people click or tap your configured button, the system displays the activity indicator next to the original or alternative label, hiding the button image, if there is one.",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/buttons#iOS-iPadOS",
+          "paragraph_id": "buttons-P034"
+        },
+        {
+          "source_id": "accessibility",
+          "kind": "document",
+          "section": "Vision",
+          "quote": "Strive to meet color contrast minimum standards. To ensure all information in your app is legible, it’s important that there’s enough contrast between foreground text and icons and background colors. Two popular standards of measure for color contrast are the Web Content Accessibility Guidelines (WCAG) and the Accessible Perceptual Contrast Algorithm (APCA). Use standard contrast calculators to ensure your UI meets acceptable levels. Accessibility Inspector uses the following values from WCAG Level AA as guidance in determining whether your app’s colors have an acceptable contrast.",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/accessibility#Vision",
+          "paragraph_id": "accessibility-P033"
+        }
+      ],
+      "audit_category": "visible-defect"
+    },
+    {
+      "lifecycle": "active",
+      "verification": "source-verified",
+      "review_mode": "guideline",
+      "app_store_requirement": false,
+      "reasoning_required": [
+        "applicability_facts",
+        "exceptions_checked",
+        "observed_evidence",
+        "decision_reason"
+      ],
+      "id": "DUO-13",
+      "title": "工具栏提供图标和标题以适应呈现",
+      "source_id": "duo-hig",
+      "source_url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo#Vertical-controls",
+      "source_section": "Vertical controls",
+      "source_quote": "Provide both a title and a symbol for each toolbar item that isn’t text-only. Giving both lets the system pick the right representation for the context. Include a title even when an item shows a symbol, because the system uses the title in overflow menus and expanded forms. For developer guidance, see Label (SwiftUI) and UIBarButtonItem (UIKit).",
+      "source_strength": "明确指导",
+      "applies_when": "用户授权的开发配置或实现审查。",
+      "exceptions": "仅截图看不到标题不证明未配置；纯文字/自定义视图有水平例外；配置规则不自动等于商店审核要求。",
+      "required_evidence": "清晰原比例截图与控件识别依据；配置判断另需授权和实现证据。",
+      "fail_condition": "由配置/代码证据确认工具栏内容无法适应需要的呈现；截图空白由IOS-04判断。",
+      "insufficient_evidence_condition": "证据不足只限制依赖该事实的结论，不输出待核实页面标签。",
+      "evidence_refs": [
+        {
+          "source_id": "duo-hig",
+          "kind": "document",
+          "section": "Vertical controls",
+          "quote": "Provide both a title and a symbol for each toolbar item that isn’t text-only. Giving both lets the system pick the right representation for the context. Include a title even when an item shows a symbol, because the system uses the title in overflow menus and expanded forms. For developer guidance, see Label (SwiftUI) and UIBarButtonItem (UIKit).",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo#Vertical-controls",
+          "paragraph_id": "duo-hig-P073"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Organize items in your bars",
+          "quote": "When you create toolbar items, specify both an icon and a title for items that you want to have the most adaptability. iPhone Duo might present items vertically, horizontally, or in an overflow menu:",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Organize-items-in-your-bars",
+          "paragraph_id": "duo-prepare-P036"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Organize items in your bars",
+          "quote": "The system uses an icon for an item it presents vertically.",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Organize-items-in-your-bars",
+          "paragraph_id": "duo-prepare-P037"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Organize items in your bars",
+          "quote": "The system uses an icon or a title for an item it presents horizontally, preferring an icon.",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Organize-items-in-your-bars",
+          "paragraph_id": "duo-prepare-P038"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Organize items in your bars",
+          "quote": "The system uses an icon and title for an item in an overflow menu.",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Organize-items-in-your-bars",
+          "paragraph_id": "duo-prepare-P039"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Organize items in your bars",
+          "quote": "If your item has a title and doesn’t have an icon, the system doesn’t present it vertically.",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Organize-items-in-your-bars",
+          "paragraph_id": "duo-prepare-P040"
+        },
+        {
+          "source_id": "duo-prepare",
+          "kind": "document",
+          "section": "Organize items in your bars",
+          "quote": "If your item uses a custom view rather than a title or icon, the system doesn’t present it vertically.",
+          "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo#Organize-items-in-your-bars",
+          "paragraph_id": "duo-prepare-P041"
+        },
+        {
+          "source_id": "video-111462",
+          "kind": "video-transcript",
+          "section": "Transcript",
+          "start_seconds": 433.0,
+          "quote": "And text-only items, like the edit button,",
+          "url": "https://developer.apple.com/videos/play/tech-talks/111462/?time=433"
+        }
+      ],
+      "audit_category": "extended-evidence"
+    }
+  ]
+}

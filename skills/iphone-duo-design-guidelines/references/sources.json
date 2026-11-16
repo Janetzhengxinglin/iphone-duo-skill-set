@@ -1,0 +1,243 @@
+{
+  "sources": [
+    {
+      "id": "duo-hig",
+      "title": "Designing for iPhone Duo",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "retrieved_date": "2026-11-06",
+      "timezone": "Asia/Shanghai",
+      "sha256": "3ee003e7a7741a0d1f58fbfe9b3daafa0754d46b82e13477a0fdf8fa8054e4f9",
+      "kind": "official-document",
+      "verification": "body-read",
+      "snapshot": "references/source-snapshots/duo-hig.md",
+      "version_label": "2026-09-09: New page",
+      "additional_snapshots": [
+        {
+          "path": "references/source-snapshots/duo-hig-20261110.md",
+          "sha256": "c2c95adab26bc4dc22ae392822ba2813a9c0348cb18d706a953c2e4db7625153"
+        }
+      ],
+      "last_body_recheck": "2026-11-10"
+    },
+    {
+      "id": "duo-prepare",
+      "title": "Preparing your app for iPhone Duo",
+      "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+      "retrieved_date": "2026-11-06",
+      "timezone": "Asia/Shanghai",
+      "sha256": "3204964d9bea0e6ffa910a601cf9a5e11408c48e6861da2ad273927ca07e8842",
+      "kind": "official-document",
+      "verification": "body-read",
+      "snapshot": "references/source-snapshots/duo-prepare.md",
+      "version_label": null,
+      "additional_snapshots": [
+        {
+          "path": "references/source-snapshots/duo-prepare-20261110.md",
+          "sha256": "1b49f069205e072e05fca41b66fbac67594baa2f7f15afba4e6ffd8a777c5932"
+        }
+      ],
+      "last_body_recheck": "2026-11-10"
+    },
+    {
+      "id": "layout",
+      "title": "Layout",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/layout",
+      "retrieved_date": "2026-11-06",
+      "timezone": "Asia/Shanghai",
+      "sha256": "8ed64c1ce4ba780e08a8e6420d5e223b8972db74e145f9d367c622ab2ff9a15f",
+      "kind": "official-document",
+      "verification": "body-read",
+      "snapshot": "references/source-snapshots/layout.md",
+      "version_label": null,
+      "additional_snapshots": [
+        {
+          "path": "references/source-snapshots/layout-20261110.md",
+          "sha256": "7ce616267c7c3b123ce586859dd0a31776e9be1f30c272de95e316a76017cb26"
+        }
+      ],
+      "last_body_recheck": "2026-11-10"
+    },
+    {
+      "id": "accessibility",
+      "title": "Accessibility",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/accessibility",
+      "retrieved_date": "2026-11-06",
+      "timezone": "Asia/Shanghai",
+      "sha256": "6d6a6939c81da9e50e999a2afbd08898b563335fb654d4a262edbef746375bb5",
+      "kind": "official-document",
+      "verification": "body-read",
+      "snapshot": "references/source-snapshots/accessibility.md",
+      "version_label": null,
+      "additional_snapshots": [
+        {
+          "path": "references/source-snapshots/accessibility-20261110.md",
+          "sha256": "1c75e01ca346dee2ded08ceea0f0bbf7aa2d128545b3cc663bf5297acf8aa249"
+        }
+      ],
+      "last_body_recheck": "2026-11-10"
+    },
+    {
+      "id": "video-111466",
+      "title": "Design for iPhone Duo",
+      "kind": "official-video-transcript",
+      "url": "https://developer.apple.com/videos/play/tech-talks/111466/",
+      "retrieved_date": "2026-11-06",
+      "snapshot": "references/source-snapshots/video-111466-transcript.json",
+      "sha256": "237929b96131d1e00c14fb491e97e52bd7b084b8327a7d93cfecf124623c3043",
+      "verification": "Full timestamped transcript read; 10 selected rendered frames visually reviewed; motion not exhaustively reviewed",
+      "duration_seconds": 645,
+      "additional_snapshots": [
+        {
+          "path": "references/source-snapshots/video-111466-visual-review.json",
+          "sha256": "9b5d96023231e755dc45d4ff57f540ecae9663014ff065c6e8e6bd7f51da18b1"
+        }
+      ]
+    },
+    {
+      "id": "kit-ios27",
+      "title": "Apple iOS and iPadOS 27 UI Kit",
+      "kind": "official-design-resource-inspected-copy",
+      "url": "https://www.figma.com/community/file/1651309003795292092/ios-and-ipados-27",
+      "retrieved_date": "2026-11-06",
+      "version_label": "27.1.4 / 2026-10-28",
+      "snapshot": "references/source-snapshots/figma-kit-inspection.json",
+      "sha256": "98dc9ed5742923c82c78c38e7baf42c48391cf75024b8e69252b2685aaa4c3e1",
+      "supplemental_snapshot": "references/source-snapshots/figma-tab-variants.json",
+      "supplemental_sha256": "7287cf10b789d8ac65c7aa2bfbf59f4f0e5eceba1ab20095f65bdd94e7ef8481",
+      "verification": "Layout guides/tab/toolbars inspected; supplemental Examples/Sheets/Status Bars structure checked; inner portrait example, centered sheet and fold guide renders checked",
+      "license_url": "https://developer.apple.com/apple-design-resources-license/",
+      "limitation": "Existing Community copy. Current publisher page and matching copy changelog verified; local edit history not audited. Kit geometry is reference data, not runtime enforcement.",
+      "additional_snapshots": [
+        {
+          "path": "references/source-snapshots/figma-supplemental-inspection.json",
+          "sha256": "91f47e81d79c35b35f9dde31bd10aea1fe48b483093478d484747a228f528fe5"
+        }
+      ],
+      "unredacted_snapshot_sha256": "49884d7f4dec2b7aa0112e2b05e8f283cf063753abf268947f1ea81d6ad3f70b",
+      "snapshot_redaction": "Inspection-copy file key omitted; structural evidence and source quotations unchanged."
+    },
+    {
+      "id": "duo-three-steps",
+      "title": "Three steps to make your app shine on iPhone Duo",
+      "url": "https://developer.apple.com/iphone-duo/prepare/",
+      "retrieved_date": "2026-11-09",
+      "timezone": "Asia/Shanghai",
+      "kind": "official-document",
+      "verification": "intro-and-steps-1-to-3-read",
+      "snapshot": "references/source-snapshots/duo-three-steps.md",
+      "sha256": "1f6b3e1fb9c36fb18bdcdab72a8cccfff10d2aae7d1b3d03f8ae489f4bc6b544",
+      "scope": "App resizability patterns and testing; code inspection belongs to the separate Apple development skill"
+    },
+    {
+      "id": "toolbars",
+      "title": "Toolbars",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars",
+      "kind": "official-document",
+      "retrieved_date": "2026-11-10",
+      "verification": "body-read-platform-sections-separated",
+      "snapshot": "references/source-snapshots/toolbars-20261110.md",
+      "sha256": "6c134aa03af8b061cdf8af40ded14094a7f1b81cef156465833ff0ecc75557e6"
+    },
+    {
+      "id": "buttons",
+      "title": "Buttons",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/buttons",
+      "kind": "official-document",
+      "retrieved_date": "2026-11-10",
+      "verification": "body-read-platform-sections-separated",
+      "snapshot": "references/source-snapshots/buttons-20261110.md",
+      "sha256": "c07d5a8d9235993be6c885eefd7d656aa13ad7663e33cc0bd1dccc451411240e"
+    },
+    {
+      "id": "icons",
+      "title": "Icons",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/icons",
+      "kind": "official-document",
+      "retrieved_date": "2026-11-10",
+      "verification": "body-read-platform-sections-separated",
+      "snapshot": "references/source-snapshots/icons-20261110.md",
+      "sha256": "7d6e1507a0012f7560ebdfab2f0207c1ff99f78da7a0f30d4151c1eab40fee97"
+    },
+    {
+      "id": "tab-bars",
+      "title": "Tab Bars",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars",
+      "kind": "official-document",
+      "retrieved_date": "2026-11-10",
+      "verification": "body-read-platform-sections-separated",
+      "snapshot": "references/source-snapshots/tab-bars-20261110.md",
+      "sha256": "a380d09130802860bbfe12ba419fbb22a2d4db0a6d95712b6a6d0c39188f2d8d"
+    },
+    {
+      "id": "video-111461",
+      "title": "Prepare your app for iPhone Duo",
+      "kind": "official-video-transcript",
+      "url": "https://developer.apple.com/videos/play/tech-talks/111461/",
+      "retrieved_date": "2026-11-12",
+      "snapshot": "references/source-snapshots/video-111461-transcript.json",
+      "sha256": "fa5ff14d8701a409e2854c51cf34e3c02f51a5bcd841f6adcc12881f9eefcef0",
+      "verification": "Full official timestamped transcript read; no claim of exhaustive visual or motion review",
+      "last_transcript_start_seconds": 597.0,
+      "usage": "core-interpretation"
+    },
+    {
+      "id": "video-111462",
+      "title": "Raise the bar with iPhone Duo",
+      "kind": "official-video-transcript",
+      "url": "https://developer.apple.com/videos/play/tech-talks/111462/",
+      "retrieved_date": "2026-11-12",
+      "snapshot": "references/source-snapshots/video-111462-transcript.json",
+      "sha256": "4ee8183f162570e52461253c3fff7a47abe47a05409358a26492bb6547cbd93a",
+      "verification": "Full official timestamped transcript read; no claim of exhaustive visual or motion review",
+      "last_transcript_start_seconds": 930.0,
+      "usage": "core-interpretation"
+    },
+    {
+      "id": "video-111463",
+      "title": "Strike a pose with adaptive layouts on iPhone Duo",
+      "kind": "official-video-transcript",
+      "url": "https://developer.apple.com/videos/play/tech-talks/111463/",
+      "retrieved_date": "2026-11-12",
+      "snapshot": "references/source-snapshots/video-111463-transcript.json",
+      "sha256": "e243f07983278ab3fe94465c070d31697e397d87272d4107ac6d136a6a2be798",
+      "verification": "Full official timestamped transcript read; no claim of exhaustive visual or motion review",
+      "last_transcript_start_seconds": 1065.0,
+      "usage": "core-interpretation"
+    },
+    {
+      "id": "video-111464",
+      "title": "Leverage multiple displays and scenes on iPhone Duo",
+      "kind": "official-video-transcript",
+      "url": "https://developer.apple.com/videos/play/tech-talks/111464/",
+      "retrieved_date": "2026-11-12",
+      "snapshot": "references/source-snapshots/video-111464-transcript.json",
+      "sha256": "7145e00b227c951268627fddc7c38c3d6ce97555537f7fd7419a7c90b8063653",
+      "verification": "Full official timestamped transcript read; no claim of exhaustive visual or motion review",
+      "last_transcript_start_seconds": 424.0,
+      "usage": "scene-extension"
+    },
+    {
+      "id": "video-111465",
+      "title": "Build a great camera experience for iPhone Duo",
+      "kind": "official-video-transcript",
+      "url": "https://developer.apple.com/videos/play/tech-talks/111465/",
+      "retrieved_date": "2026-11-12",
+      "snapshot": "references/source-snapshots/video-111465-transcript.json",
+      "sha256": "4367f01acec747515032828c0780512c79045bff58153180139f6ea8df79113d",
+      "verification": "Full official timestamped transcript read; no claim of exhaustive visual or motion review",
+      "last_transcript_start_seconds": 552.0,
+      "usage": "scene-extension"
+    },
+    {
+      "id": "duo-overview",
+      "title": "iPhone Duo — Apple Developer",
+      "kind": "official-resource-index",
+      "url": "https://developer.apple.com/iphone-duo/",
+      "retrieved_date": "2026-11-12",
+      "snapshot": "references/source-snapshots/duo-overview-20261112.html",
+      "sha256": "8c086fa725762e08a757dd86ccdea04289a4110c8d34dc16e4c403e695f1049e",
+      "verification": "Overview body and linked six technical video transcripts read; three Group Lab recordings not reviewed",
+      "usage": "discovery-index-only"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "App 录屏页面截图"
+  short_description: "从录屏独立提取 App 页面与展示状态，保存完整截图和来源以供适配审查"
+  default_prompt: "使用 $app-video-page-capture 提取这个录屏中的 App 页面截图。"
