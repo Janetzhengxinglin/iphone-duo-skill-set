@@ -21,8 +21,6 @@
 仓库：https://github.com/Janetzhengxinglin/iphone-duo-skill-set
 ```
 
-安装完成后，在下一轮对话中开始审查。
-
 <details>
 <summary>手动下载安装</summary>
 
@@ -46,19 +44,13 @@ python3 -m pip install -r requirements.txt
 
 ```text
 使用 $iphone-duo-adaptation-review 审查这个录屏。
-流程：充值；姿态：折叠态；输出：Figma／飞书目标链接。
 ```
 
-| 需要提供 | 填写内容 |
-|---|---|
-| 录屏 | 本地 App 录屏文件 |
-| 流程 | 如充值、支付、提现 |
-| 姿态 | 折叠态、展开－横屏、展开－竖屏；支持混合 |
-| 输出 | Figma 或飞书目标链接，需有写入权限 |
+Codex 会询问缺少的流程名称、屏幕姿态和报告输出位置，按提示补充即可。已经提供的信息不会重复询问。
 
-缺少信息时，Codex 会询问。总入口自动串联三个 skill，仅审查 App 内页面。
+支持折叠态、展开－横屏、展开－竖屏及混合录屏，仅审查 App 内页面。
 
-发布到 Figma 需要 Figma 工具；发布到飞书需要已授权的文档工具。
+输出到 Figma 或飞书时，需提供有写入权限的目标链接，并配置对应工具。
 
 ## 输出结果
 
