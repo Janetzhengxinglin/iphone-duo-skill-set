@@ -16,14 +16,14 @@
 
 **推荐：把下面一句话发给 Codex。**
 
-> 请使用 $skill-installer 安装 https://github.com/Janetzhengxinglin/iphone-duo-skill-set 中 skills/ 下的全部三个 skill，并检查和配置录屏截图所需依赖。
+> 请使用 $skill-installer 安装 https://github.com/Janetzhengxinglin/iphone-duo-skill-set 中 skills/ 下的全部三个 skill，并检查和配置录屏截图所需依赖，完成联动检查。
 
-仓库为私有：使用者需先接受 GitHub 邀请，并在电脑上登录有访问权限的 GitHub 账号。Codex 会完成下载和安装；遇到登录、网络或依赖安装授权时，按提示操作。安装后下一轮对话即可调用。
+仓库已公开，下载无需 GitHub 邀请。Codex 会完成下载和安装；遇到网络或依赖安装授权时，按提示操作。安装后下一轮对话即可调用。
 
 <details>
 <summary>安装信息（供 Codex 读取）</summary>
 
-三个路径：`skills/app-video-page-capture`、`skills/iphone-duo-design-guidelines`、`skills/iphone-duo-adaptation-review`。用内置 `skill-installer` 一次安装三个目录；私有仓库使用已授权的 Git 凭据。检查运行环境能否导入 OpenCV 和 Pillow，缺少时安装 `requirements.txt` 的依赖。已有同名 skill 时先核对版本并保留备份，不直接覆盖用户修改。
+三个路径：`skills/app-video-page-capture`、`skills/iphone-duo-design-guidelines`、`skills/iphone-duo-adaptation-review`。用内置 `skill-installer` 一次安装三个目录。检查运行环境能否导入 OpenCV 和 Pillow，缺少时安装 `requirements.txt` 的依赖，再运行总入口的 `scripts/preflight.py`。已有同名 skill 时先核对版本并保留备份，不直接覆盖用户修改。
 
 </details>
 
@@ -52,6 +52,8 @@
 > 使用 $iphone-duo-adaptation-review 审查这个录屏。流程是充值，姿态是折叠态，报告输出到这个 Figma 或飞书链接：……
 
 缺少流程、姿态或输出信息时，skill 会询问。选择 Figma 输出时，需要用户提供可编辑的目标文件链接；未提供会交互询问，不使用历史默认文件。重点支持 **折叠态、展开－横屏、展开－竖屏**，也支持混合录屏。仅审查 App 内页面，外部浏览器页面排除。
+
+**三个 skill 如何连贯运行：**使用「iPhone Duo 适配审查」作为总入口，无需分别调用三个 skill。入口先检查安装、兼容版本和依赖，再通过同一任务目录串联完整截图、逐页审查、汇总与发布。缺少组件或工具时先处理缺项并保留已有结果。一次安装使三个组件齐全，流程检查保障按顺序交接；视觉判断仍需复查，不能承诺每次结果零遗漏。
 
 ## 输出结果
 

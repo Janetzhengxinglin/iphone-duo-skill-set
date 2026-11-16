@@ -5,7 +5,13 @@ description: Orchestrate iPhone Duo recording review from independent App page c
 
 # iPhone Duo 适配审查
 
-总入口：调用 App 录屏页面截图和 iPhone Duo 设计规范，筛选问题页面、归并同类问题、生成并发布报告，交付后总结共性问题。版本 0.2.8。规则仅维护在规范 skill，不复制规则或历史问题清单。
+总入口：调用 App 录屏页面截图和 iPhone Duo 设计规范，筛选问题页面、归并同类问题、生成并发布报告，交付后总结共性问题。版本 0.2.9。规则仅维护在规范 skill，不复制规则或历史问题清单。
+
+## 启动检查与交接
+
+首次执行本轮任务前，用处理录屏的 Python 运行本 skill 的 `scripts/preflight.py`，检查三个 skill 的同级安装、支持版本与截图依赖。检查失败先补齐对应 skill 或可用运行环境，不跳过环节、不替换为竞品流程；版本不兼容时安装同一发布包。再运行规范 skill 的 `scripts/validate_rules.py` 核对规则来源完整性。
+
+运行命令时把各 skill 的脚本解析为绝对路径，全部中间数据使用同一个绝对 `RUN_DIR`。截图 skill 写入的完整 `capture.json` 由本入口 `workflow.py seed` 交接为 `review.json`，逐页审查不得丢失页面 ID、证据 ID、姿态或图片校验值。报告只读取该轮审查数据；发布前核对所选 Figma／飞书工具与用户目标权限，缺工具或权限明确说明并保留本轮草稿，不切换发布位置。检查保障安装和数据交接条件，不证明视觉判断准确。
 
 ## 交互
 
