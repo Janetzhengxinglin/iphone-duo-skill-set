@@ -49,7 +49,7 @@
       ],
       "context_note": "outer 默认外屏竖屏；两个内屏默认完全展开。未知字段只限制依赖它的判断，不导致页面失败。",
       "checklist_required": true,
-      "checklist_version": "0.5.0"
+      "checklist_version": "0.5.1"
     },
     "full-evidence": {
       "label": "用户明确要求的扩展证据审查",

@@ -53,6 +53,8 @@ def validate(root):
     assert profiles['version'] == bundle['version']
     assert profiles['default'] in profiles['profiles']
     for profile in profiles['profiles'].values():
+        if profile.get('checklist_required'):
+            assert profile['checklist_version'] == bundle['version'], 'profile checklist version mismatch'
         visible, guidance = set(profile['visible_rules']), set(profile['guidance_rules'])
         excluded = set(profile['excluded_rules'])
         assert not visible & guidance and not (visible | guidance) & excluded

@@ -22,5 +22,5 @@
 
 新审查 schema_version 仍为1.0，rule_version=0.5.1，新增 checklist_version=0.5.1 与 check_items。
 每页 component_inventory：实例 id、type（page/button/toolbar/tab/system/media/sheet/keyboard/menu/camera）、evidence_id、region（归一化 xywh）。页面本体用一个page实例；可识别的每个按钮都列实例，空白控件不可漏识别。
-check_items：page_id、check_id、component_id、decision、observation、reason、exceptions_checked、evidence_ids、finding_ids。每页18张截图卡都要筛选；有适用组件则每实例一项，没有对象用 component_id=null、not_applicable 和具体原因。unknown对象仅保留观察和筛选理由，不伪称所有控件通过。schema校验保障记录完整，不证明视觉识别完整。
+check_items：page_id、check_id、component_id、decision、observation、reason、exceptions_checked、evidence_ids、finding_ids。按 component-checklist.json 筛选当前姿态下全部适用检查卡；有适用组件则每实例一项，没有对象用 component_id=null、not_applicable 和具体原因。unknown对象仅保留观察和筛选理由，不伪称所有控件通过。schema校验保障记录完整，不证明视觉识别完整。
 findings新增 check_ids、cause_attribution（not_assessed/confirmed_duo_related），可选 functional_evidence={source:user/runtime,statement:...}。无行为证据不得声称没有功能，无比较证据不得声称Duo造成。通用可见问题仍用visible-defect，在展示中标明通用显示问题。check_items中的issue/guidance_deviation必须指向实际finding。

@@ -17,7 +17,8 @@ def expected_pairs(root,page):
 def validate_items(data,root,pages,evidence,findings):
     def need(v,m):
         if not v:raise ValueError(m)
-    need(data.get('checklist_version')=='0.5.0','missing/mismatched checklist version')
+    checklist=json.loads((root/'references/component-checklist.json').read_text())
+    need(data.get('checklist_version')==checklist['version'],'missing/mismatched checklist version')
     expected=set(); inventory_by_page={}
     for p in pages.values():
         need(isinstance(p.get('component_inventory'),list),'missing component inventory')
@@ -31,7 +32,7 @@ def validate_items(data,root,pages,evidence,findings):
             box=i['region'];need(len(box)==4 and all(isinstance(v,(int,float)) for v in box),'component region')
             x,y,w,h=box;need(x>=0 and y>=0 and w>0 and h>0 and x+w<=1 and y+h<=1,'component out of bounds')
         expected |= expected_pairs(root,p)
-    seen=set(); cmap={c['id']:c for c in json.loads((root/'references/component-checklist.json').read_text())['cards']}
+    seen=set(); cmap={c['id']:c for c in checklist['cards']}
     for row in data.get('check_items',[]):
         key=(row['page_id'],row['check_id'],row['component_id']);need(key in expected,'check item not applicable to inventory/context')
         need(key not in seen,'duplicate check item');seen.add(key)
