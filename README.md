@@ -18,7 +18,7 @@
 
 > 请使用 $skill-installer 安装 https://github.com/Janetzhengxinglin/iphone-duo-skill-set 中 skills/ 下的全部三个 skill，并检查和配置录屏截图所需依赖，完成联动检查。
 
-仓库已公开，下载无需 GitHub 邀请。Codex 会完成下载和安装；遇到网络或依赖安装授权时，按提示操作。安装后下一轮对话即可调用。
+安装后，在下一轮对话中调用「iPhone Duo 适配审查」。
 
 <details>
 <summary>安装信息（供 Codex 读取）</summary>
@@ -43,7 +43,7 @@
    python3 -m pip install -r requirements.txt
    ```
 
-发布到 Figma 需要可用的 Figma 工具及目标文件编辑权限；发布到飞书需要已授权的飞书文档工具和写入 skill。它们不随本仓库安装。缺少发布工具时可保留本地 HTML 草稿，不能视为已交付到指定目标。
+发布到 Figma 需要 Figma 工具及目标文件编辑权限；发布到飞书需要已授权的文档工具。
 
 ## 如何使用
 
@@ -51,9 +51,9 @@
 
 > 使用 $iphone-duo-adaptation-review 审查这个录屏。流程是充值，姿态是折叠态，报告输出到这个 Figma 或飞书链接：……
 
-缺少流程、姿态或输出信息时，skill 会询问。选择 Figma 输出时，需要用户提供可编辑的目标文件链接；未提供会交互询问，不使用历史默认文件。重点支持 **折叠态、展开－横屏、展开－竖屏**，也支持混合录屏。仅审查 App 内页面，外部浏览器页面排除。
+缺少流程、姿态或输出信息时，skill 会询问。选择 Figma 输出时，需要提供可编辑的目标文件链接。重点支持 **折叠态、展开－横屏、展开－竖屏**，也支持混合录屏。仅审查 App 内页面。
 
-**三个 skill 如何连贯运行：**使用「iPhone Duo 适配审查」作为总入口，无需分别调用三个 skill。入口先检查安装、兼容版本和依赖，再通过同一任务目录串联完整截图、逐页审查、汇总与发布。缺少组件或工具时先处理缺项并保留已有结果。一次安装使三个组件齐全，流程检查保障按顺序交接；视觉判断仍需复查，不能承诺每次结果零遗漏。
+「iPhone Duo 适配审查」统一调用截图和规范 skill，完成截图、逐页审查、问题汇总与报告发布。
 
 ## 输出结果
 
@@ -61,14 +61,10 @@
 - **当前聊天**：报告交付后总结本轮共性问题，并询问是否另建飞书文档。
 - **可选共性文档**：按“大类｜共性问题表现｜图片示例｜官方依据与修改建议”输出表格，描述客观现象。
 
-全部截图、时间点和逐页审查记录保存在本轮任务目录，便于回溯；不在报告中展示技术索引。
+全部截图和逐页审查记录保留，便于复查。
 
 ## 依据与范围
 
-依据包括 Apple 的 [iPhone Duo](https://developer.apple.com/iphone-duo/)、[准备指南](https://developer.apple.com/iphone-duo/prepare/)、[Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)、[官方设计视频](https://developer.apple.com/videos/play/tech-talks/111466/)和经核实的官方 UI Kit。完整来源、引用与例外见 [规范来源索引](skills/iphone-duo-design-guidelines/references/sources.json)。来源快照的核对日期见各条记录，使用时需留意官方更新。
+依据包括 Apple 的 [iPhone Duo](https://developer.apple.com/iphone-duo/)、[准备指南](https://developer.apple.com/iphone-duo/prepare/)、[Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)、[官方设计视频](https://developer.apple.com/videos/play/tech-talks/111466/)和官方 UI Kit。完整来源、引用与例外见 [规范来源索引](skills/iphone-duo-design-guidelines/references/sources.json)。
 
-审查优先处理可见适配缺陷；平台布局指导差异单独说明。截图审查不能替代交互测试、代码检查或 Apple 提交合规检查。脚本负责证据与排版，逐页判断由 Codex 执行。
-
-本仓库不包含实际业务录屏、截图或报告。第三方参考材料的权利和用途见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
-
-UI Kit 链接指向官方资源入口；使用时在可访问的资源副本中按 Frame 名称和版本查找，不依赖作者个人 Figma 副本。
+审查优先处理可见适配缺陷；平台布局指导差异单独说明。审查范围是截图可见内容，交互测试、代码检查及 Apple 提交合规检查需另行开展。
