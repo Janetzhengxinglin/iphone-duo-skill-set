@@ -8,11 +8,11 @@ import sys
 
 
 SUPPORTED = {
-    'app-video-page-capture': '0.1.2',
+    'app-video-page-capture': '0.1.3',
     'iphone-duo-design-guidelines': '0.5.1',
 }
 REQUIRED = {
-    'app-video-page-capture': ['SKILL.md', 'scripts/capture.py', 'references/capture-contract.md'],
+    'app-video-page-capture': ['SKILL.md', 'scripts/capture.py', 'scripts/image_batches.py', 'references/capture-contract.md', 'references/image-processing.md'],
     'iphone-duo-design-guidelines': ['SKILL.md', 'scripts/validate_rules.py', 'scripts/validate_review.py',
         'scripts/checklist.py', 'references/rules.json', 'references/component-checklist.json',
         'references/audit-profiles.json', 'references/capture-handoff.md'],

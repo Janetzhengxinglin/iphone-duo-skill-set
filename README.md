@@ -60,6 +60,8 @@ Codex 会询问缺少的流程名称、屏幕姿态和报告输出位置，按�
 
 全部截图和逐页审查记录保留，便于复查。
 
+长录屏会保留完整候选索引，将连续完全相同的候选折叠为首尾代表帧，再分批读取图片。短暂状态和变化画面仍需检查；两轮审查保持全页面覆盖。图片输入日志与检查点保存在任务目录，接近读取预算时交接到新上下文。具体执行方法见 [图片处理协议](skills/app-video-page-capture/references/image-processing.md)。
+
 ## 依据与范围
 
 依据包括 Apple 的 [iPhone Duo](https://developer.apple.com/iphone-duo/)、[准备指南](https://developer.apple.com/iphone-duo/prepare/)、[Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)、[官方设计视频](https://developer.apple.com/videos/play/tech-talks/111466/)和官方 UI Kit。完整来源、引用与例外见 [规范来源索引](skills/iphone-duo-design-guidelines/references/sources.json)。

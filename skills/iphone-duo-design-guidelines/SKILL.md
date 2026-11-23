@@ -44,3 +44,7 @@ HIG 确定设计原则，开发文档确认容器和系统条件，视频解释�
 ## 完成前自测
 
 按 [判断协议](references/decision-protocol.md) 的第二轮视觉复查，从原图重新审视全部受审页面及各组件实例，检查漏报和误报，再核对发现是否完整进入汇总。自测与改进候选保存在本次项目，不写入报告正文。联动审查由入口统一执行 [持续改进](../iphone-duo-adaptation-review/references/continuous-improvement.md)；独立截图审查也执行其中的证据核实与通用方法更新条件。
+
+## 大批量图片读取
+
+逐页判断与第二轮复查遵守 [图片处理协议](../app-video-page-capture/references/image-processing.md)，独立使用时同样分批、记录累计输入和保存接续检查点。候选拼图不代替原图判断，读取预算不减少页面、组件或两轮复查范围。

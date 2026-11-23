@@ -7,6 +7,7 @@ import math
 import shutil
 from pathlib import Path
 import cv2
+from image_batches import candidate_plan
 from PIL import Image, ImageDraw, ImageFilter
 
 FORMS = {'outer', 'inner-landscape', 'inner-portrait'}
@@ -28,7 +29,7 @@ def frame(video, seconds):
     if not ok: raise ValueError(f'Cannot decode frame at {seconds}')
     return Image.fromarray(cv2.cvtColor(pixels, cv2.COLOR_BGR2RGB))
 
-def sample(video, run, interval=.5):
+def sample(video, run, interval=.5, keep_all=False):
     video = video.resolve(); run = run.resolve()
     if not math.isfinite(interval) or interval <= 0: raise ValueError('Invalid interval')
     target = run/'candidates'
@@ -48,16 +49,19 @@ def sample(video, run, interval=.5):
         name=f'C{i+1:05d}.jpg';preview.save(target/name,quality=85)
         gray=cv2.resize(cv2.cvtColor(cv2.imread(str(target/name)),cv2.COLOR_BGR2GRAY),(48,48)).astype('float32')
         difference=float(abs(gray-previous).mean()) if previous is not None else 0
-        rows.append({'id':f'C{i+1:05d}','time_seconds':t,'image':'candidates/'+name,'change_score':round(difference,2)})
+        visual_hash=hashlib.sha256(str(im.size).encode()+im.tobytes()).hexdigest()
+        rows.append({'visual_sha256':visual_hash,'id':f'C{i+1:05d}','time_seconds':t,'image':'candidates/'+name,'change_score':round(difference,2)})
         previous=gray
-    for start in range(0,len(rows),24):
+    plan, representatives=candidate_plan(rows,24,keep_all)
+    dump(target/'candidate-groups.json',plan)
+    for start in range(0,len(representatives),24):
         sheet=Image.new('RGB',(6*220,4*330),'#172033'); draw=ImageDraw.Draw(sheet)
-        for j,row in enumerate(rows[start:start+24]):
+        for j,row in enumerate(representatives[start:start+24]):
             im=Image.open(run/row['image']);x=(j%6)*220;y=(j//6)*330
             sheet.paste(im,(x+(220-im.width)//2,y));draw.text((x+5,y+303),f"{row['id']} {row['time_seconds']:.2f}s",fill='white')
         sheet.save(target/f'sheet-{start//24+1:03d}.jpg',quality=90)
-    dump(target/'index.json',{'video':{'id':'V01','file':str(dest),'sha256':sha(dest),'duration_seconds':duration},'interval':interval,'candidates':rows})
-    return {'candidates':len(rows),'index':str(target/'index.json')}
+    dump(target/'index.json',{'video':{'id':'V01','file':str(dest),'sha256':sha(dest),'duration_seconds':duration},'interval':interval,'candidates':rows,'candidate_groups':'candidates/candidate-groups.json'})
+    return {'candidates':len(rows),'representatives':len(representatives),'sheets':len(plan['sheet_candidate_ids']),'index':str(target/'index.json')}
 
 def box(region, size):
     if len(region)!=4 or not all(isinstance(v,(int,float)) and math.isfinite(v) for v in region): raise ValueError('Invalid region')
@@ -106,10 +110,10 @@ def finalize(run, selection):
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);sub=ap.add_subparsers(dest='command',required=True)
-    s=sub.add_parser('sample');s.add_argument('video',type=Path);s.add_argument('run',type=Path);s.add_argument('--interval',type=float,default=.5)
+    s=sub.add_parser('sample');s.add_argument('video',type=Path);s.add_argument('run',type=Path);s.add_argument('--interval',type=float,default=.5);s.add_argument('--keep-all-candidates',action='store_true')
     f=sub.add_parser('frame');f.add_argument('video',type=Path);f.add_argument('seconds',type=float);f.add_argument('output',type=Path)
     z=sub.add_parser('finalize');z.add_argument('run',type=Path);z.add_argument('selection',type=Path)
     a=ap.parse_args()
-    if a.command=='sample': print(sample(a.video,a.run,a.interval))
+    if a.command=='sample': print(sample(a.video,a.run,a.interval,a.keep_all_candidates))
     elif a.command=='finalize': print(finalize(a.run,a.selection))
     else: a.output.parent.mkdir(parents=True,exist_ok=True);frame(a.video,a.seconds).save(a.output);print(a.output)
