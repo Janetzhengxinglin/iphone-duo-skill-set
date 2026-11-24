@@ -5,7 +5,7 @@ description: Extract stable App page and layout-state screenshots from local rec
 
 # App 录屏页面截图
 
-从录屏提取可审查的 App 页面状态。独立于竞品截图，运行时不调用 flow-video-review；不判断规范、不发布报告。版本 0.1.3。
+从录屏提取可审查的 App 页面状态。独立于竞品截图，运行时不调用 flow-video-review；不判断规范、不发布报告。版本 0.1.4。
 
 1. 取得流程、姿态、本次项目目录，独立调用只问缺失的流程/姿态。交互选项统一为“折叠态、展开－横屏、展开－竖屏”，分别映射 outer、inner-landscape、inner-portrait；混合姿态逐页记录。不要向用户展示后台英文标识。
 2. 读 [截图与交接](references/capture-contract.md)。执行 `python3 scripts/capture.py sample VIDEO RUN_DIR`，生成候选缩略图、拼图和索引。依赖 OpenCV/Pillow；缺少时先查本机运行时，不自行全局安装。
@@ -26,3 +26,5 @@ description: Extract stable App page and layout-state screenshots from local rec
 ## 图片处理与读取预算
 
 采样、选帧和质量回查前读取 [图片筛选与接续](references/image-processing.md)。使用压缩候选拼图及完整分组索引分类，图片按预算分批输入；文件生成不等于已读取或审查完成。
+
+每次读图前必须执行该协议的本地 check；默认一次 1–2 张、最多 2 张，同时检查像素与尺寸。当前批完成分析并保存结果后再读下一批；失败后单张降量，连续失败或累计预算耗尽则保存进度接续，不能原样重试或减少验收范围。候选、原图、复查与报告预览共用同一累计日志。

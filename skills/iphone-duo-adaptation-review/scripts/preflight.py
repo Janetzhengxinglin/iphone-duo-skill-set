@@ -8,7 +8,7 @@ import sys
 
 
 SUPPORTED = {
-    'app-video-page-capture': '0.1.3',
+    'app-video-page-capture': '0.1.4',
     'iphone-duo-design-guidelines': '0.5.1',
 }
 REQUIRED = {
