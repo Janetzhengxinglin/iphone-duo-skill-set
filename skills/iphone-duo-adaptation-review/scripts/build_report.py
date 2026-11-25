@@ -31,24 +31,42 @@ def reference_delivery(ref):
     result['figma_delivery']={'preferred':'native_frame','native_source':{'file_key':match.group(2) or match.group(1),'node_id':node_id,'url':resource},'image_role':'preview_or_document_export'}
     return result
 
+def reference_numbers(ref,selected_numbers):
+    numbers=ref.get('problem_numbers')
+    if not isinstance(numbers,list) or not numbers or not set(numbers)<=selected_numbers:
+        raise ValueError('Official figure must explicitly map to current problem_numbers')
+    if len(numbers)!=len(set(numbers)):raise ValueError('Duplicate official figure problem number')
+    return numbers
+
 def annotation_geometry(size,targets,style):
     factor=min(1,style['image_max_width']/size[0],style['image_max_height']/size[1]);w=round(size[0]*factor);h=round(size[1]*factor)
-    rail=style['rail_px'];radius=style['label_radius_px'];used={'left':[],'right':[]};items=[]
+    rail=style['rail_px'];radius=style['label_radius_px'];used={s:[] for s in ('left','right','top','bottom')};items=[]
     for number,a in sorted(targets,key=lambda r:r[1]['region'][1]):
-        x,y,rw,rh=a['region'];rect=[rail+x*w,y*h,rw*w,rh*h]
-        side=a.get('side','left' if x+rw/2<.5 else 'right')
+        x,y,rw,rh=a['region'];rect=[rail+x*w,rail+y*h,rw*w,rh*h]
+        distances={'left':x*w,'right':(1-x-rw)*w,'top':y*h,'bottom':(1-y-rh)*h}
+        side=a.get('side',min(distances,key=distances.get))
         if side not in used:raise ValueError('Invalid annotation side')
-        desired=(y+rh/2)*h;cy=max(radius+3,min(h-radius-3,desired))
+        vertical=side in ('left','right');limit=h if vertical else w
+        desired=(y+rh/2)*h if vertical else (x+rw/2)*w
+        coordinate=max(radius+3,min(limit-radius-3,desired))
         for prev in used[side]:
-            if abs(cy-prev)<style['label_gap_px']:cy=prev+style['label_gap_px']
-        if cy>h-radius-3:raise ValueError('Labels overlap; split annotation views')
-        used[side].append(cy);cx=rail/2 if side=='left' else rail+w+rail/2
-        items.append({'number':number,'region':a['region'],'side':side,'rect_px':rect,'label_center_px':[cx,cy],'line_px':[[rect[0] if side=='left' else rect[0]+rect[2],desired],[cx+radius if side=='left' else cx-radius,cy]]})
-    return {'image_size_px':[w,h],'canvas_size_px':[w+2*rail,h],'rail_px':rail,'annotations':items}
+            if abs(coordinate-prev)<style['label_gap_px']:coordinate=prev+style['label_gap_px']
+        if coordinate>limit-radius-3:raise ValueError('Labels overlap; split annotation views')
+        used[side].append(coordinate)
+        if vertical:
+            cx=rail/2 if side=='left' else rail+w+rail/2;cy=rail+coordinate
+            point=[rect[0] if side=='left' else rect[0]+rect[2],rail+desired]
+            edge=[cx+radius if side=='left' else cx-radius,cy]
+        else:
+            cx=rail+coordinate;cy=rail/2 if side=='top' else rail+h+rail/2
+            point=[rail+desired,rect[1] if side=='top' else rect[1]+rect[3]]
+            edge=[cx,cy+radius if side=='top' else cy-radius]
+        items.append({'number':number,'region':a['region'],'side':side,'rect_px':rect,'label_center_px':[cx,cy],'line_px':[point,edge]})
+    return {'image_size_px':[w,h],'canvas_size_px':[w+2*rail,h+2*rail],'image_offset_px':[rail,rail],'rail_px':rail,'annotations':items}
 
 def annotate(path,out,geo,style):
     im=Image.open(path).convert('RGB').resize(tuple(geo['image_size_px']),Image.Resampling.LANCZOS)
-    canvas=Image.new('RGB',tuple(geo['canvas_size_px']),style['background']);canvas.paste(im,(geo['rail_px'],0));d=ImageDraw.Draw(canvas)
+    canvas=Image.new('RGB',tuple(geo['canvas_size_px']),style['background']);canvas.paste(im,tuple(geo.get('image_offset_px',[geo['rail_px'],0])));d=ImageDraw.Draw(canvas)
     font=None
     for fp in ['/System/Library/Fonts/Supplemental/Arial Bold.ttf','/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf']:
         if Path(fp).exists():font=ImageFont.truetype(fp,20);break
@@ -120,7 +138,9 @@ def build(run,rule_root,style_path):
     reference_file=run/'official-references.json'
     if reference_file.exists() and selected:
         reference_specs=json.loads(reference_file.read_text())['figures']
+        selected_numbers={f['number'] for f in selected}
         for ref in reference_specs:
+            reference_numbers(ref,selected_numbers)
             if not ref['url'].startswith('https://developer.apple.com/'):raise ValueError('Reference must have an Apple source URL')
             if ref.get('resource_url'):
                 from urllib.parse import urlparse
@@ -145,10 +165,11 @@ def build(run,rule_root,style_path):
     issue_pages={f['page_id'] for f in data['findings'] if f['decision']=='issue'}
     guidance_pages={f['page_id'] for f in data['findings'] if f['decision']=='guidance_deviation'}-issue_pages
     counts={'reviewed_pages':len(data['pages']),'needs_changes':len(issue_pages),'suggestions_only':len(guidance_pages),'passed':len(data['pages'])-len(issue_pages)-len(guidance_pages),'displayed_pages':len(result_pages)}
-    if intake['content']=='defects-and-guidance':
-        summary=f"{form_label} · 共 {counts['reviewed_pages']} 张截图：{counts['needs_changes']} 张需修改 ＋ {counts['suggestions_only']} 张仅有建议项 ＋ {counts['passed']} 张检查通过"
-    else:
-        summary=f"{form_label} · 共 {counts['reviewed_pages']} 张截图：{counts['needs_changes']} 张需修改 ＋ {counts['reviewed_pages']-counts['needs_changes']} 张未发现显示缺陷"
+    defect_groups=sum(g['category']!='平台布局差异' for g in result_groups)
+    guidance_groups=len(result_groups)-defect_groups
+    summary=form_label+'：'+('本次审查发现'+str(defect_groups)+'类显示问题' if defect_groups else '本次截图未发现显示问题')
+    if guidance_groups:summary+='，另有'+str(guidance_groups)+'类布局指导差异'
+    summary+='。'
     representatives=choose_examples(result_groups,selected,by_e,by_p)
     for rep in representatives:
         eid=rep['evidence_key'];e=by_e[eid]
@@ -157,14 +178,14 @@ def build(run,rule_root,style_path):
         assets[eid]['example']={'orig_image':assets[eid]['orig_image'],'annotated_image':str((out/name).resolve()),'preview_image':name,**geo}
     references=[]
     for index,ref in enumerate(reference_specs,1):
-        item={'url':ref['url'],'caption':ref.get('caption',''),**reference_delivery(ref)}
+        item={'url':ref['url'],'caption':ref.get('caption',''),'problem_numbers':ref['problem_numbers'],**reference_delivery(ref)}
         if ref.get('resource_url'):item['resource_url']=ref['resource_url']
         if ref['_source'] is not None:
             name=f"images/official-{index}{ref['_source'].suffix}"
             shutil.copy2(ref['_source'],out/name)
             item['image']=name
         references.append(item)
-    presentation={'layout_version':style['layout_version'],'structure':['summary','official_standard_examples','consolidated_examples_and_explanations','issue_page_gallery'],'representatives':representatives,'reference_style':'unmodified_official_image_with_prominent_heading','gallery_caption':'page_title_only','style':style,'example_annotations':'owned_problem_numbers_only'}
+    presentation={'layout_version':style['layout_version'],'structure':['summary','official_standard_examples','consolidated_examples_and_explanations','issue_page_gallery'],'representatives':representatives,'reference_style':'matched_abstract_reference_first_compact_unmodified_source','gallery_caption':'page_title_only','style':style,'example_annotations':'owned_problem_numbers_only'}
     report={'schema_version':'1.2','title':intake['flow']+'｜iPhone Duo 适配审查','form':form_label,'summary':summary,'counts':counts,'presentation':presentation,'official_references':references,'groups':result_groups,'pages':result_pages,'empty_message':'本次截图检查通过。' if not selected else ''}
     dump(out/'report.json',report);dump(out/'report-assets.json',assets)
     blocks=[{'type':'heading','level':1,'text':report['title']},{'type':'paragraph','text':summary}]
@@ -173,6 +194,8 @@ def build(run,rule_root,style_path):
         blocks.append({'type':'heading','level':2,'text':'苹果官方规范示例'})
         official_figures=[]
         for ref in references:
+            correspondence='对应'+ '、'.join(str(n) for n in ref['problem_numbers'])
+            blocks.append({'type':'heading','level':3,'text':correspondence})
             if ref.get('image'):blocks.append({'type':'image','path':str((out/ref['image']).resolve()),'alt':ref['caption'] or '苹果官方规范示例'})
             if ref['caption']:blocks.append({'type':'paragraph','text':ref['caption']})
             blocks.append({'type':'paragraph','runs':[{'text':'官方来源 ↗','url':ref['url']}]})
@@ -181,8 +204,8 @@ def build(run,rule_root,style_path):
                 blocks.append({'type':'paragraph','runs':[{'text':'资源 Frame ↗','url':ref['resource_url']}]})
                 detail=' · <a href="'+esc(ref['resource_url'])+'">资源 Frame ↗</a>'
             preview='<img src="'+esc(ref['image'])+'" alt="苹果官方规范示例">' if ref.get('image') else ''
-            official_figures.append('<figure>'+preview+'<figcaption>'+esc(ref['caption'])+'</figcaption><a href="'+esc(ref['url'])+'">官方来源 ↗</a>'+detail+'</figure>')
-        parts.append('<section class="official"><h2>苹果官方规范示例</h2>'+''.join(official_figures)+'</section>')
+            official_figures.append('<figure><h3>'+esc(correspondence)+'</h3>'+preview+'<figcaption>'+esc(ref['caption'])+'</figcaption><a href="'+esc(ref['url'])+'">官方来源 ↗</a>'+detail+'</figure>')
+        parts.append('<section class="official"><h2>苹果官方规范示例</h2><div class="official-figures">'+''.join(official_figures)+'</div></section>')
     if result_groups:
         blocks.append({'type':'heading','level':2,'text':'App 问题示例'})
     for rep in representatives:
@@ -210,7 +233,7 @@ def build(run,rule_root,style_path):
         gallery.append('<article>'+''.join(images)+'<h3>'+esc(p['title'])+'</h3></article>')
     if result_pages:parts.append('<h2>问题页面汇总</h2><div class="gallery">'+''.join(gallery)+'</div>')
     else:blocks.append({'type':'paragraph','text':report['empty_message']});parts.append('<p>'+report['empty_message']+'</p>')
-    css=f'body{{background:{style["background"]};color:{style["text"]};font:16px/1.6 -apple-system,sans-serif;margin:32px}}img{{max-width:100%;height:auto}}.consolidated{{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:30px 0;align-items:start}}.representatives{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}figure{{margin:0;min-width:0}}.copy{{background:{style["card_background"]};color:{style["card_text"]};padding:24px;margin-bottom:24px}}a{{color:{style["link"]};text-decoration:underline}}.basis{{margin-top:{style["basis_gap_px"]}px}}.gallery{{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}}h3{{font-size:16px}}@media(max-width:900px){{.consolidated{{grid-template-columns:1fr}}.gallery{{grid-template-columns:repeat(2,minmax(0,1fr))}}.representatives{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}'
+    css=f'body{{background:{style["background"]};color:{style["text"]};font:16px/1.6 -apple-system,sans-serif;margin:32px}}img{{max-width:100%;height:auto}}.official-figures{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,{style["official_image_max_width"]}px));gap:24px;align-items:start;text-align:left}}.official img{{max-width:100%;max-height:{style["official_image_max_height"]}px;width:auto;height:auto;object-fit:contain}}.consolidated{{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:30px 0;align-items:start}}.representatives{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}figure{{margin:0;min-width:0}}.copy{{background:{style["card_background"]};color:{style["card_text"]};padding:24px;margin-bottom:24px}}a{{color:{style["link"]};text-decoration:underline}}.basis{{margin-top:{style["basis_gap_px"]}px}}.gallery{{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}}h3{{font-size:16px}}@media(max-width:900px){{.consolidated{{grid-template-columns:1fr}}.gallery{{grid-template-columns:repeat(2,minmax(0,1fr))}}.representatives{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}'
     (out/'preview.html').write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(report['title'])+'</title><style>'+css+'</style><h1>'+esc(report['title'])+'</h1><p>'+esc(summary)+'</p>'+''.join(parts)+'</html>')
     dump(out/'lark-blocks.json',blocks)
     dump(out/'publication.json',{'status':'draft','channel':intake['output'],'target':intake['target'],'report_sha256':hashfile(out/'report.json'),'node_mapping':{},'block_mapping':{},'official_reference_mapping':{}})

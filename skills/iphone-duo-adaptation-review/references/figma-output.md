@@ -1,14 +1,16 @@
 # Figma 交付
 
+同时执行 [视觉呈现与验收](output-presentation.md)；先核对该文件的简洁、对应、对齐、尺度与去重要求。
+
 读 figma-use，建会话，核对用户提供的目标文件链接与编辑权限，读取指定目标及用户提供的模板，以新版本保留历史报告。没有目标链接先交互询问，不从历史任务取文件，也不自动新建替代文件。
 
 report.json 是正文，report-assets.json 是后台素材/坐标。创建可编辑 frame、截图 image、红框 rectangle、引线 vector/line、橙色圆与白字数字、原生正文。不要烘焙整页报告。右侧说明 auto-layout，依据蓝色下划线有段落间距。字体先加载。
 
-annotations.region 为图归一化xywh；label_center_px 为加入 rail_px 后展示坐标，image_size_px 提供基准，统一缩放。orig_image 是脱敏受审图，raw_image 不发布。不同时贴烘焙标注图和可编辑标注。evidence_key 只查表，不显示。
+annotations.region 为图归一化xywh；rect_px 与 label_center_px 是标注画布坐标，image_offset_px 是原图共同原点，image_size_px 提供基准，统一缩放。orig_image 是脱敏受审图，raw_image 不发布。不同时贴烘焙标注图和可编辑标注。evidence_key 只查表，不显示。
 
 ## 固定布局
 
-依照 report.json 的 presentation：标题与互斥统计 → 苹果官方规范示例 → App 问题示例与集中说明（左：去重代表图；右：按编号的问题类型、问题点、官方依据）→ 一个问题页面汇总区。代表图可多张，按姿态比例排成网格；不要按问题类别拆为多张重复说明画板。汇总图只标号和页面名。使用 assets/report-style.json 的统一深蓝底、#E8EDF4 说明卡、橙色两侧编号；排版和字号以 style.figma 为准，不随录屏或旧报告改变。空间不足时增加高度，不缩小文字到不可读。
+依照 report.json 的 presentation：标题与一句结论 → 苹果官方规范示例 → App 问题示例与集中说明（左：去重代表图；右：按编号的问题类型、问题点、官方依据）→ 一个问题页面汇总区。代表图可多张，按姿态比例排成网格；不要按问题类别拆为多张重复说明画板。汇总图只标号和页面名。使用 assets/report-style.json 的统一深蓝底、#E8EDF4 说明卡、橙色两侧编号；排版和字号以 style.figma 为准，不随录屏或旧报告改变。空间不足时增加高度，不缩小文字到不可读。
 
 ## 参考图
 
@@ -25,7 +27,7 @@ annotations.region 为图归一化xywh；label_center_px 为加入 rail_px 后�
 - Apple Design Resources 中经核实由苹果发布的 UI Kit，引用当前姿态对应的结构 Frame、组件变体或布局示例。Figma 交付优先复制原始 Frame 或导入对应组件实例，保留原始内容、内部图层及组件关系；图片替代条件见下节。不重组或补画。
 - 苹果官方 Tech Talk／开发视频中对应姿态、组件和容器的示例。
 
-每个受审姿态都要查找对应的官方 UI Kit 结构 Frame；已找到且与问题匹配的 Frame 不因已有视频截图而遗漏。没有匹配项时可使用 HIG／官方视频示例，后台记录选择依据，不强行配图。选图先看是否对应当前姿态、容器及问题，再看是否能直接表达标准与实际页面的差别；不按来源固定排序。结构问题优先找结构 Frame／图示；页面内容或组件问题找对应的官方页面／组件示例。必要时多张互补，避免重复和无关图。找不到匹配示例时不强行放图。
+结构问题或缺少匹配抽象图解时，查找对应姿态的官方 UI Kit 结构 Frame；已找到且与问题匹配的 Frame 不因已有视频截图而遗漏。没有匹配项时可使用 HIG／官方视频示例，后台记录选择依据，不强行配图。选图先看是否对应当前姿态、容器及问题，再看是否能直接表达标准与实际页面的差别；不按来源固定排序。结构问题优先找结构 Frame／图示；页面内容或组件问题找对应的官方页面／组件示例。必要时多张互补，避免重复和无关图。找不到匹配示例时不强行放图。
 
 UI Kit 须核实官方发布者、苹果资源页或官方发布链接、版本及目标 Frame 的姿态；民间 Kit、改动过的副本不能标为官方示例。后台记录资源来源、版本、Frame／节点链接和核实记录。图下只保留必要的姿态／组件说明与可点击来源。
 
@@ -48,4 +50,4 @@ UI Kit 须核实官方发布者、苹果资源页或官方发布链接、版本�
 
 使用 style.figma 的固定宽度、内边距、区块间距、两栏宽度、三列示例、五列汇总、卡片间距、字号与标号直径。卡片与网格使用 auto-layout；画板高度随内容延长，不压缩字号。官方图数量与截图原比例可变，排版体系不变。
 
-代表图读取 report.presentation.representatives[].problem_numbers 以及 report-assets[evidence_key].example 的标注坐标；只显示该示例分配的编号。汇总使用 report-assets[evidence_key] 的完整标注，不能套用精简后的 example。每个编号只有一张代表页面，跨页同类问题仍在汇总中全部展示。
+代表图读取 report.presentation.representatives[].problem_numbers 以及 report-assets[evidence_key].example 的标注坐标；只显示该示例分配的编号。汇总使用 report-assets[evidence_key] 的完整标注，不能套用精简后的 example。每个编号默认一张清楚代表图，不能覆盖新组件或独立位置时补图；底部按已核实的同页分组去重，保留全部来源和完整编号。

@@ -5,7 +5,7 @@ description: Orchestrate iPhone Duo recording review from independent App page c
 
 # iPhone Duo 适配审查
 
-总入口：调用 App 录屏页面截图和 iPhone Duo 设计规范，筛选问题页面、归并同类问题、生成并发布报告，交付后总结共性问题。版本 0.2.11。规则仅维护在规范 skill，不复制规则或历史问题清单。
+总入口：调用 App 录屏页面截图和 iPhone Duo 设计规范，筛选问题页面、归并同类问题、生成并发布报告，交付后总结共性问题。版本 0.2.12。规则仅维护在规范 skill，不复制规则或历史问题清单。
 
 ## 启动检查与交接
 
@@ -40,11 +40,13 @@ description: Orchestrate iPhone Duo recording review from independent App page c
 
 ## 汇总与输出
 
+发布前必须读取 [视觉呈现与验收](references/output-presentation.md)，落实简短说明、抽象对应图解、统一对齐、就近图外标号、适中参考尺寸和底部全量去重映射；该文件优先约束展示方式，不改变平台判定规则。
+
 问题数量、单页问题数量、问题类型数量及问题页面数量均无上限。所有适用页面检查完成后再归组；同类合并说明但保留全部发生页面和问题位置，不按历史类别或模板容量截取发现。
 
-读 [报告约定](references/report.md)。按本次发现归组，同组跨页同编号，不固定历史类型。固定为官方规范示例在前、App 问题示例与集中说明在后、最后一个问题页面汇总；每组一次短说明，代表图跨组去重，可用多张覆盖全部现象。官方示例交叉选择 HIG、经核实的苹果官方 UI Kit 结构 Frame 和官方视频，匹配本次姿态与问题；保持原始内容，不加工；规范区与问题区分别使用醒目的标题。问题标注位置来自本次 App 截图。
+读 [报告约定](references/report.md)。按本次发现归组，同组跨页同编号，不固定历史类型。固定为官方规范示例在前、App 问题示例与集中说明在后、最后一个问题页面汇总；每组一次短说明，代表图跨组去重，可用多张覆盖全部现象。官方示例先选对应的官方抽象图解，再按需要查 HIG 页面、经核实的苹果 UI Kit 结构 Frame 和官方视频，匹配本次姿态与问题；保持原始内容，不加工；规范区与问题区分别使用醒目的标题。问题标注位置来自本次 App 截图。
 
-`python3 scripts/build_report.py RUN_DIR` 校验完整覆盖与证据，生成 report.json、可编辑 Figma 标注数据、Lark 原生块排版稿、标注图片和内部 HTML。它不判断、不发布。样式独立在 assets/report-style.json；三种姿态使用同一套排版、字体、说明卡颜色和编号样式，只按原图比例调整截图高度。问题示例每个编号只归属一张代表页面，汇总保留全部页面和完整编号。训练样式不改规范。
+`python3 scripts/build_report.py RUN_DIR` 校验完整覆盖与证据，生成 report.json、可编辑 Figma 标注数据、Lark 原生块排版稿、标注图片和内部 HTML。它不判断、不发布。样式独立在 assets/report-style.json；三种姿态使用同一套排版、字体、说明卡颜色和编号样式，只按原图比例调整截图高度。问题示例默认每编号一张代表图，必要时补图覆盖新组件或独立位置；底部按人工核实的同页分组去重，完整来源留后台。训练样式不改规范。
 
 按用户选择只读 [Figma 输出](references/figma-output.md) 或 [飞书输出](references/lark-output.md)，使用对应工具完成写入和回读。Figma 中的官方 UI Kit 示例优先复制／导入原生 Frame 或组件实例，保留内部图层；图片仅用于预览、飞书或经核实复制受限后的替代。按 Figma 输出的验收要求检查内部可编辑性，不能把图片外套 Frame 算作原生示例。内部 HTML 不替代选定交付。失败保留草稿、明确未发布；保存 publication.json 的目标链接、版本、节点/块映射和报告校验值。
 

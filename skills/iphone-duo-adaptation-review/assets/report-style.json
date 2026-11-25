@@ -1,5 +1,5 @@
 {
-  "version": "0.2.4",
+  "version": "0.2.5",
   "layout_version": "unified-report-v2",
   "background": "#141E30",
   "card_background": "#E8EDF4",
@@ -60,5 +60,7 @@
     "example_annotations": "owned_problem_numbers_only",
     "gallery_annotations": "all_selected_findings",
     "preserve_image_aspect_ratio": true
-  }
+  },
+  "official_image_max_width": 360,
+  "official_image_max_height": 260
 }
