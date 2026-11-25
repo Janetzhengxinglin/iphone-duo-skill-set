@@ -4,13 +4,13 @@
 
 source/ 原视频副本；candidates/ 拼图索引；evidence/raw/ 原图；evidence/images/ 受审图；capture.json 交接。都在本次项目，不进 skill。
 
-sample 默认每0.5秒采样并保留首末帧，变化分数仅提示补看。视觉确认全部拼图，补查快速间隔；--interval 可缩小。覆盖记录验证不证明视觉识别完整。
+sample 默认每 1 秒顺序解码采样，保留全部无损候选及实际源帧时间；不能把候选当作完整验收清单。视觉确认全部拼图，补查快速间隔；--interval 可缩小。覆盖记录验证不证明视觉识别完整。
 
 交互名称：折叠态=合上后的外屏竖屏（outer）；展开－横屏=完全展开内屏横屏（inner-landscape）；展开－竖屏=完全展开内屏竖屏（inner-portrait）。接受用户使用普通连字符“展开-横屏/展开-竖屏”的写法，后台标识不变。
 
 selection.json：
 - pages 每项 id（唯一后台ID）、title（页面名和必要状态）、state、form（outer/inner-landscape/inner-portrait）、time_seconds、container（默认page）。可选 crop_px=[x,y,w,h] 仅去录屏外边框；privacy=[{region:[x,y,w,h],type,reason,allow_large:false}]，归一化坐标在裁边后图中。
-- coverage 每项 candidate_id、disposition（retained/duplicate/browser/non_app/transition/loading）、reason；retained/duplicate 需 page_id 对应 pages。全部候选分类，不同页面/姿态/状态不合并。最终帧可选邻近更稳定时间。
+- coverage 每项 candidate_id、disposition（retained/duplicate/browser/non_app/transition/loading）、reason；retained/duplicate 需 page_id 对应 pages。全部候选分类，不同页面/姿态/状态不合并。可选 candidate_id 精确关联候选，time_seconds 须与索引一致；直接复用对应源帧。邻近更稳定或短暂状态可按任意时间补帧。
 
 阶段交接条件：完整录屏范围已遍历；全部候选已分类；独立页面和布局状态已去重或保留；必要补帧已完成，所选图已有完整来源及清晰拼图索引；capture.json 与图片一致。满足这些条件后统一交接，才进入设计规范审查。候选选帧不筛选适配问题；成品拼图巡检时可同时确认质量和适配，不增加独立全量人工质检。
 
@@ -24,3 +24,8 @@ evidence：time_seconds、image、raw_image、image_sha256、raw_sha256、size_p
 集中巡检清晰整页拼图，疑点打开原图：App 与系统边界、比例、稳定性、裁边、脱敏范围应一致。正常滚动、键盘、菜单和系统权限弹窗的不同状态不能因背景页面相同而直接合并。排除项沿用本次授权范围。
 
 在本轮采集记录中保存实际核对范围、分类纠正和补帧结果，不强制另建独立全量自测阶段或文件。只有完成实际回查才记录完成，不能从 selection.json 自动推断视觉复查通过。独立使用时在本项目记录截图方法的改进候选；联动使用时由审查入口集中复盘。
+
+新顺序采样 selection 需 capture_review：all_candidates_classified=true、all_intervals_reviewed=true 与实际 notes；只有完成候选及完整时间区间回查后才填写。finalize 保存这些声明，但不证明视觉正确。旧索引仍兼容。
+清晰成品拼图用 scripts/review_sheets.py CAPTURE OUTPUT --pages-per-sheet 4（可选 2／1）；manifest 记录各格页面、证据、源路径及 hash。
+
+采样末尾一个区间逐帧保留；其他区间仍须完整回查。采样间隔内独立补出的页面可在 selection.supplementary_pages 登记 {page_id,time_seconds,reason}，与 pages 时间一致，不虚构 retained 候选。finalize 将它单独留存，merge 保留来源前缀；原 coverage 必须覆盖全部原候选。

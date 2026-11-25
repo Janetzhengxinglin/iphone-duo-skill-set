@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 def write_json(path, value):
-    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
 def candidate_plan(rows, sheet_size, keep_all=False):
@@ -98,7 +98,7 @@ def detail(image):
 
 
 def read_ledger(path):
-    return json.loads(Path(path).read_text()) if Path(path).exists() else {
+    return json.loads(Path(path).read_text(encoding='utf-8')) if Path(path).exists() else {
         'schema_version': 2, 'scope': 'local observed/attempted inputs; history may contain more',
         'events': []}
 
@@ -174,7 +174,7 @@ def record(path, session, stage, images, call_limit=2, session_limit=30,
 
 def manifest_paths(manifest):
     path = Path(manifest).resolve()
-    items = json.loads(path.read_text())
+    items = json.loads(path.read_text(encoding='utf-8'))
     if not isinstance(items, list) or not all(isinstance(p, str) for p in items):
         raise ValueError('manifest must be a JSON array of image paths')
     return [str((path.parent / p).resolve()) for p in items]

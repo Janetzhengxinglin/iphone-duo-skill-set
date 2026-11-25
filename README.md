@@ -62,7 +62,7 @@ Codex 会询问缺少的流程名称、屏幕姿态和报告输出位置，按�
 
 Codex 会根据素材关联性和工作量选择执行方式：简单或连续流程由主智能体处理；材料可独立处理且有明确收益时，使用子智能体按阶段分工；默认集中巡检和问题重点复查，不另设独立全量质检或第二轮全量原图复读。各任务保留独立结果和完整覆盖记录，最终由主智能体核对并发布。环境不支持子智能体时按相同覆盖要求继续执行。
 
-审查入口 0.2.14 保留统一输出要求：标题下只留一句结论；官方区优先逐项对应的抽象图解、一句说明和出处；图文共用边线，编号就近放在图外；参考图紧凑适中，底部保留全部独立问题与重复来源映射。实际预览验收与图片预算规则见 [视觉呈现与验收](skills/iphone-duo-adaptation-review/references/output-presentation.md)。
+审查入口 0.2.15 保留统一输出要求：标题下只留一句结论；官方区优先逐项对应的抽象图解、一句说明和出处；图文共用边线，编号就近放在图外；参考图紧凑适中，底部保留全部独立问题与重复来源映射。实际预览验收与图片预算规则见 [视觉呈现与验收](skills/iphone-duo-adaptation-review/references/output-presentation.md)。
 
 长录屏会保留完整候选索引，将连续完全相同的候选折叠为首尾代表帧，再分批读取图片。短暂状态和变化画面仍需检查；默认清晰整页拼图覆盖全部页面，疑点打开原图，复查集中于问题和报告；严格双轮仅在明确要求时执行。图片输入日志与检查点保存在任务目录，接近读取预算时交接到新上下文。具体执行方法见 [图片处理协议](skills/app-video-page-capture/references/image-processing.md)。
 
@@ -80,10 +80,16 @@ Codex 会根据素材关联性和工作量选择执行方式：简单或连续�
 
 默认本批总像素 400 万、单图最长边 2560、总文件大小 8 MiB、累计约 30 次图片输入均是本地保守预算，可按实际输入调整，不能保证平台永不超限。脚本检查不拦截图片工具；执行者必须先检查再读取。超大原图保留原文件和整页检查要求，候选预览可拆分或缩小，细节图按覆盖区域补查。
 
-当前采集 skill 为 0.1.4，审查入口为 0.2.14；2026-11-25 回退到集中批量巡检和重点复查，苹果规则包仍为 0.5.1。执行方法见 [集中批量审核](skills/iphone-duo-adaptation-review/references/batch-execution.md)。
+当前采集 skill 为 0.1.5，审查入口为 0.2.15；2026-11-25 回退到集中批量巡检和重点复查，苹果规则包仍为 0.5.1。执行方法见 [集中批量审核](skills/iphone-duo-adaptation-review/references/batch-execution.md)。
 
 ## 依据与范围
 
 依据包括 Apple 的 [iPhone Duo](https://developer.apple.com/iphone-duo/)、[准备指南](https://developer.apple.com/iphone-duo/prepare/)、[Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)、[官方设计视频](https://developer.apple.com/videos/play/tech-talks/111466/)和官方 UI Kit。完整来源、引用与例外见 [规范来源索引](skills/iphone-duo-design-guidelines/references/sources.json)。
 
 审查优先处理可见适配缺陷；平台布局指导差异单独说明。审查范围是截图可见内容，交互测试、代码检查及 Apple 提交合规检查需另行开展。
+
+### 2026-11-25 顺序采集与多素材交接
+
+参考已执行的 Duo 批次，并比较实际 Android/Duo 录屏后，批量候选使用 FFmpeg 顺序解码，默认每秒采样，尾段逐帧保留。选中后复用同一无损源帧；短暂状态补帧独立登记，原候选仍完整分类。两端共用清晰整页拼图、图片预算、连续业务流程和条件分工协议；本包保留 Apple 姿态字段、脱敏副本、规范判定及现有三段式报告样式。
+
+新增 workflow.py merge RUN CAPTURE...，合并完整原采集、唯一 ID、补帧来源和 hash；重复视频先核对，缺输出目标可先做本地采集。采集依赖 FFmpeg/ffprobe 和 Pillow，无需 OpenCV。完整验收优先于减少输入量，脚本通过不代表视觉审核完成。

@@ -5,7 +5,7 @@ description: Orchestrate iPhone Duo recording review from independent App page c
 
 # iPhone Duo 适配审查
 
-总入口：调用 App 录屏页面截图和 iPhone Duo 设计规范，筛选问题页面、归并同类问题、生成并发布报告，交付后总结共性问题。版本 0.2.14。规则仅维护在规范 skill，不复制规则或历史问题清单。
+总入口：调用 App 录屏页面截图和 iPhone Duo 设计规范，筛选问题页面、归并同类问题、生成并发布报告，交付后总结共性问题。版本 0.2.15。规则仅维护在规范 skill，不复制规则或历史问题清单。
 
 ## 执行方式与子智能体
 
@@ -69,3 +69,5 @@ description: Orchestrate iPhone Duo recording review from independent App page c
 执行各阶段前读取 [图片处理协议](../app-video-page-capture/references/image-processing.md)，完整清单在本地交接，图片分批读取并保存累计日志和检查点。默认保持全页清晰巡检和问题重点回查，汇总及发布预览也纳入图片预算。
 
 按采集 skill 的图片协议执行读取前预算检查、记账和接续。读取批次不拆成独立工作任务；原图用于疑点及问题回查。
+
+统一执行方法见 [批量执行](references/batch-execution.md)；验收覆盖与现有三段式报告样式不变。
