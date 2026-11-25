@@ -14,7 +14,7 @@
 
 ## 运行依赖
 
-检查处理录屏的 Python 环境能否导入 `cv2`（OpenCV）和 `PIL.Image`（Pillow）；缺少时，在适用环境中安装根目录 `requirements.txt` 的依赖。
+检查处理录屏的 Python 环境能否导入 `PIL.Image`（Pillow）；缺少时，在适用环境中安装根目录 `requirements.txt` 的依赖。
 
 ## 安装后检查
 
@@ -23,3 +23,5 @@
 3. 首次审查时统一调用 `iphone-duo-adaptation-review`，全部过程数据保存在同一任务目录。
 
 脚本路径按实际安装位置解析为绝对路径。Figma／飞书工具及目标写入权限在选择输出目标后检查。
+
+采集还需 ffmpeg 和 ffprobe 在 PATH 中；preflight 会检查。已有 OpenCV 可保留，但新采集器不再依赖它。

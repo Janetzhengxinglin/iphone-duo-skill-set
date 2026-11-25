@@ -1,63 +1,29 @@
-# 按条件使用子智能体
+# 条件分工与交接
 
-## 启动时选择执行方式
+仅在实际分工时读取。先按真实来源建立素材清单，核对重复链接、连续片段、关联状态与跨姿态证据；文件数量和视频分钟数不等于独立任务数量。默认由主智能体按完整业务流程连续执行，下载、抽帧、hash 和拼图可用脚本并发。单智能体不建立 delegation-plan 或 handoff 文件。
 
-先建立素材清单：解析文档中的实际录屏／图片来源，核对重复来源，标明同一流程的连续片段、前后状态、跨姿态对照和来源缺口。文件／链接数量不等于独立任务数量；同视频重复链接只算一个来源。素材数量只用于初筛，不依据视频分钟数、预估截图数量或处理上限机械启动子智能体。
+多份录屏／业务流程可以独立处理且收益明确时，默认最多 2 个子智能体，按完整录屏或业务流程分派；必要时也可在完整受审清单冻结后按独立页面组分派。关联滚动、弹层对照和跨姿态依据放同一任务，不按每几张图创建执行者。单份复杂材料如需独立复核，可在全页巡检完成后委托重点复查；严格双轮才另建全量第二轮任务。不建立多层质量／预审／修补队列。
 
-默认由主智能体完成少量或高度关联的单一流程。多份独立材料且并行收益明显时，使用子智能体分别整理；完整受审清单冻结后，也可按独立业务页面组分派第一轮审查。同页关联状态、滚动前后、弹层对照和跨姿态判断需要的证据放在同一任务，避免拆散依据。单份材料如果复杂、历史上容易漏报／误报或用户明确要求独立复核，可在第一轮全部完成后使用独立复查子智能体。不强制每轮都使用第二个 AI。
+在工具与当前授权允许时使用分工；用户要求单智能体时遵从，工具不可用时主智能体执行并如实说明。skill 是任务说明，安装本身不会后台启动 AI。首选独立上下文，只传必要用户事实、原始证据索引、路径／hash、阶段、规则版本、判定范围／例外、读图预算和完成标准；不默认继承完整图片历史。子任务读取本平台 skill，混合平台材料分开处理，不能扩展判错权限、动态测试或自行发布。
 
-有子智能体工具且当前授权／环境允许时按条件直接执行，不重复请求已获得的授权；用户要求单智能体时遵从。工具不可用时由主智能体按相同阶段和覆盖要求执行，并准确说明没有启动子智能体。skill 是任务说明，不是后台启动器，不能声称仅安装 skill 就会自动产生独立 AI。
+主智能体从实际完整清单建立分阶段 manifest，phase 为 capture、review 或 recheck；capture 的单位是录屏／关联素材组，review 的单位是完整受审状态或页面组，默认 recheck 仅分配问题／疑点。expected_units 不能照抄子任务自报范围。同阶段分配无重叠且覆盖全部所需单元；每个任务在独立 output_dir 写结果，禁止改主 capture／review 文件或其他任务输出。聊天只交接路径、完成／待处理范围、新发现和必要证据摘要，图片和大 JSON 留在文件中。
 
-把选择写入 delegation-plan.json：材料及关联组、执行方式、理由、当前阶段、完整工作单元清单、规则版本、固定证据及 hash、任务归属、独立输出目录和完成标准。单智能体不建立额外分工文件。默认同时最多 2 个子智能体，资源允许且收益明确时再增加；抽帧、hash、拼图、版本和覆盖校验交给脚本。交接频繁、重复读图增多或任务高度互相依赖时收回相关分工，由主智能体继续，不反复新建执行者。
-
-## 交接与并行边界
-
-主智能体掌握完整清单：集中采集分类 → 清晰整页巡检（质量和适配同时确认）→ 问题及报告重点复查 → 汇总发布。默认不要求全部原图独立第二轮；用户明确要求严格双轮时再建立第二轮全量任务。证据变化重审受影响结论，保留旧版本。
-
-
-分派前从用户目标或任务上下文确认平台，混合平台材料分开建立清单和校验，不混用两种 review schema。安卓沿用 merge／prepare／seed；苹果现有 workflow.py 只有 init／seed，多录屏 capture 由主智能体按现有 schema 显式合并 videos、pages、evidence 与候选覆盖映射，重写唯一 ID、关联引用和图片／视频路径，保留 hash 与每份原采集文件，不宣称已有自动 merge。合并后的完整清单核对通过再 seed。输出目标尚缺失时先保留本地采集与规划，不能造 target 或绕过 intake 条件；真实目标到位后再进入现有 init／seed 链。子任务采用规范 skill 的实际判定范围，报告模板措辞不扩展其判错权限。
-
-每个子任务明确阶段、工作单元 ID、完整关联证据路径／hash、平台规则版本、适用范围／例外、用户事实和输出目标约束、读图预算、结果路径与完成标准。首选独立上下文，仅传必要事实与文件索引；不能仅传主对话摘要代替实际材料，也不默认继承完整图片历史。子智能体读取对应平台的采集／规范 skill，不增加其他平台标准、动态测试或自行发布。
-
-同阶段分配无重叠且覆盖全部单元；仅严格双轮时另建第二轮 manifest；默认重点复查只分派问题与疑点。每个任务写独立子目录，禁止直接改主 capture.json、review-input.json、review.json、报告或其他任务文件。单元内部按现有格式保留全部状态、组件、检查项与发生位置；跨任务可能冲突的局部发现 ID 用任务前缀，正式分组与编号由主智能体统一核对。结果通过文件交接，聊天只返回路径、完成／待处理范围、新发现与证据摘要，避免回传全部图片或大 JSON。
-
-同一实际上下文的候选、原图、复查和预览共用该上下文的图片累计日志；独立上下文分别计数。工具并行调用不能放宽每次总读图量。各子任务仍执行图片协议的 check／record／fail，不得通过创建子智能体重置主上下文账本，不能把多个失败尝试当作全新预算。必要时保存检查点接续，未完成范围继续保留。
-
-## 独立复查与分歧处理
-
-默认重点复查者取得问题、疑点、原图和规则，核对新增、撤回和保留结论；只有严格双轮时独立重看全部页面及组件。两个智能体意见一致不证明正确，有分歧回到原图、条件与官方依据，不靠投票或资历决定。
-
-主智能体审核每轮工作单元、证据版本、组件检查覆盖、遗漏与重复、未完成项和分歧，按现有平台格式合并并运行平台校验。子任务的“complete”、交接脚本通过或问题数量少都不是视觉准确性证明。报告和外部文件由主智能体统一写入并回读，不让多个执行者同时发布。任务变更只传相关新增约束，并确认受影响执行者已接收；规范／证据变更后冻结新版本、重做受影响判断。
-
-## 可执行的交接核对
-
-使用 scripts/validate_handoffs.py；此脚本只校验任务身份、无重叠分配、全量覆盖、独立文件目录和证据／结果 hash，不识别页面、不判断组件、不合并平台数据、不证明已完成视觉审查。
-
-manifest 的 phase 为 capture、review 或 recheck，每阶段独立一份；capture 的单位是录屏／关联材料组，review／recheck 的单位是完整受审状态或明确页面组。expected_units 必须由主智能体从实际完整清单核对得到，不能直接照抄子任务自报范围。规则与来源快照也可列入 evidence 固定 hash；每项任务的 evidence_ids 必须覆盖其所有必要证据。
+manifest 使用 scripts/validate_handoffs.py 的现有契约：schema_version=1、phase、rule_version、expected_units、evidence（ID 对应 path 与 sha256）和 tasks（id、units、evidence_ids、output_dir）。每个任务的证据清单覆盖其所有必要材料。
 
 ~~~json
-{
-  "schema_version": 1,
-  "phase": "review",
-  "rule_version": "本轮平台规则版本",
-  "expected_units": ["状态A", "状态B"],
-  "evidence": {
-    "图A": {"path": "evidence/a.png", "sha256": "实际hash"},
-    "图B": {"path": "evidence/b.png", "sha256": "实际hash"}
-  },
-  "tasks": [
-    {"id": "worker1", "units": ["状态A"], "evidence_ids": ["图A"], "output_dir": "tasks/worker1"},
-    {"id": "worker2", "units": ["状态B"], "evidence_ids": ["图B"], "output_dir": "tasks/worker2"}
-  ]
-}
+{"schema_version":1,"phase":"review","rule_version":"本平台实际规则版本","expected_units":["P1"],"evidence":{"E1":{"path":"evidence/p1.png","sha256":"实际hash"}},"tasks":[{"id":"worker1","units":["P1"],"evidence_ids":["E1"],"output_dir":"tasks/worker1"}]}
 ~~~
 
-每个任务在自己的 output_dir 写 handoff.json，包含 task_id、phase、rule_version、status（complete 或 incomplete）、completed_units、pending_units、evidence_hashes（本任务证据 ID 到 hash）、result_files（相对任务目录的 path 和 sha256）。至少交接一份真实阶段结果文件；原有平台检查格式不变，handoff.json 仅是交接收据。未执行的内容不能写 complete，接续中断必须留下 pending_units。
+每个任务在其 output_dir 写 handoff.json：task_id、phase、rule_version、status（complete/incomplete）、completed_units、pending_units、evidence_hashes 和 result_files（相对任务目录的 path 与 sha256）。至少包含真实阶段结果文件；未执行的范围列 pending_units，不写 complete。正式检查记录仍采用本平台 schema。
 
 ~~~bash
-python3 scripts/validate_handoffs.py PHASE_MANIFEST --plan-only
-# 主智能体核对任务清单后分派；全部交接后：
-python3 scripts/validate_handoffs.py PHASE_MANIFEST
+python3 scripts/validate_handoffs.py MANIFEST --plan-only
+# 主智能体核对清单后分派；全部结果到位后：
+python3 scripts/validate_handoffs.py MANIFEST
 ~~~
 
-ready_for_merge=true 仅说明交接结构及 hash 一致。主智能体仍对照实际完整清单和平台逐项检查记录核验；缺任务、漏单元、重复分配、证据改变、结果文件共享、未完成项或版本不一致时停止合并并修复。完整记录核对通过后才进入下一阶段。
+ready_for_merge=true 只证明身份、覆盖、独立目录、版本与 hash 一致，不证明截图识别和审查正确。主智能体核对真实状态／组件记录、遗漏、重复与分歧；有分歧回到原图、适用条件和官方依据，不投票。缺口、共享文件、重复单元、证据改变或版本不符时停止合并，修复后接续。任务变更只传受影响约束，并确认执行者收到；交接频繁或重复读图增多时收回相关分工。
+
+两端均可用本平台 workflow.py merge RUN CAPTURE... 合并完整采集；安卓继续 prepare／seed，苹果在真实目标到位后 init／seed。合并保留唯一 ID、原采集文件、来源 hash 与原图路径；不能混用平台 schema。缺输出目标时可以先采集到本地，不造 target。采集质量与全页巡检按 batch-execution.md 执行，不因子任务已完成就省略主清单对账。
+
+每个实际上下文使用自己的累计读图账本；子任务仍执行 check／record／fail。工具并发不增加一次可读图量；新任务名或继承历史的分叉不重置上下文。中断保留待处理范围和检查点，不能用创建子任务绕过主上下文预算。最终报告编号、归并、外部写入和发布回读由主智能体负责。

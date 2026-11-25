@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check the installed skill set before starting capture; not a visual QA test."""
 import importlib
+import shutil
 import json
 from pathlib import Path
 import re
@@ -8,11 +9,11 @@ import sys
 
 
 SUPPORTED = {
-    'app-video-page-capture': '0.1.4',
+    'app-video-page-capture': '0.1.5',
     'iphone-duo-design-guidelines': '0.5.1',
 }
 REQUIRED = {
-    'app-video-page-capture': ['SKILL.md', 'scripts/capture.py', 'scripts/image_batches.py', 'references/capture-contract.md', 'references/image-processing.md'],
+    'app-video-page-capture': ['SKILL.md', 'scripts/capture.py', 'scripts/sequential_frames.py', 'scripts/review_sheets.py', 'scripts/image_batches.py', 'references/capture-contract.md', 'references/image-processing.md'],
     'iphone-duo-design-guidelines': ['SKILL.md', 'scripts/validate_rules.py', 'scripts/validate_review.py',
         'scripts/checklist.py', 'references/rules.json', 'references/component-checklist.json',
         'references/audit-profiles.json', 'references/capture-handoff.md'],
@@ -47,11 +48,13 @@ def check(skills_root):
         except (OSError, ValueError, KeyError) as exc:
             errors.append(f'无法读取 {filename}：{exc}')
 
-    for module, package in [('cv2', 'OpenCV'), ('PIL.Image', 'Pillow')]:
+    for module, package in [('PIL.Image', 'Pillow')]:
         try:
             importlib.import_module(module)
         except Exception as exc:
             errors.append(f'当前 Python 无法加载 {package}：{exc}；请检查可用运行环境或安装截图依赖。')
+    for executable in ['ffmpeg','ffprobe']:
+        if not shutil.which(executable): errors.append('缺少 '+executable)
     return {'ready': not errors, 'versions': versions, 'errors': errors,
             'scope': '安装完整性、支持版本和 Python 依赖；不验证视觉审查质量或 Figma/飞书访问权限。'}
 

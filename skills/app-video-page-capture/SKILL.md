@@ -5,10 +5,10 @@ description: Extract stable App page and layout-state screenshots from local rec
 
 # App 录屏页面截图
 
-从录屏提取可审查的 App 页面状态。独立于竞品截图，运行时不调用 flow-video-review；不判断规范、不发布报告。版本 0.1.4；批量执行回退 2026-11-25。
+从录屏提取可审查的 App 页面状态。独立于竞品截图，运行时不调用 flow-video-review；不判断规范、不发布报告。版本 0.1.5；批量执行回退 2026-11-25。
 
 1. 取得流程、姿态、本次项目目录，独立调用只问缺失的流程/姿态。交互选项统一为“折叠态、展开－横屏、展开－竖屏”，分别映射 outer、inner-landscape、inner-portrait；混合姿态逐页记录。不要向用户展示后台英文标识。
-2. 读 [截图与交接](references/capture-contract.md)。执行 `python3 scripts/capture.py sample VIDEO RUN_DIR`，生成候选缩略图、拼图和索引。依赖 OpenCV/Pillow；缺少时先查本机运行时，不自行全局安装。
+2. 读 [截图与交接](references/capture-contract.md)。执行 `python3 scripts/capture.py sample VIDEO RUN_DIR`，生成候选缩略图、拼图和索引。依赖 FFmpeg/ffprobe 与 Pillow；缺少时先查本机运行时，不自行全局安装。
 3. 顺序看拼图，识别 App 边界、页面、状态。候选采样不等于页面识别完成。快速变化、短暂错误、键盘/弹窗片段用 `frame VIDEO SECONDS OUTPUT` 补帧；必要时更小 --interval 到新的候选目录。不能仅按图像差异去重。
 4. 编写 selection.json 的页面状态与全部候选分类。无需用户填写时间点。先看全部候选及可疑时间间隔，未出现的状态不造。
 5. `python3 scripts/capture.py finalize RUN_DIR SELECTION_JSON` 保存原始全尺寸图、紧范围脱敏图与 capture.json；脚本核对来源与尺寸，集中清晰拼图巡检时确认比例、裁边、稳定性和脱敏；疑点查看原图。
@@ -28,3 +28,5 @@ description: Extract stable App page and layout-state screenshots from local rec
 采样、选帧和质量回查前读取 [图片筛选与接续](references/image-processing.md)。使用压缩候选拼图及完整分组索引分类，图片按预算分批输入；文件生成不等于已读取或审查完成。
 
 按图片协议执行读取前预算检查、记账和接续；每个业务流程连续工作，疑点才额外打开原图。
+
+统一执行方法见 [图片协议](references/image-processing.md)；验收覆盖与现有三段式报告样式不变。
