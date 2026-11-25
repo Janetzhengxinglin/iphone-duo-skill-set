@@ -5,7 +5,11 @@ description: Orchestrate iPhone Duo recording review from independent App page c
 
 # iPhone Duo 适配审查
 
-总入口：调用 App 录屏页面截图和 iPhone Duo 设计规范，筛选问题页面、归并同类问题、生成并发布报告，交付后总结共性问题。版本 0.2.12。规则仅维护在规范 skill，不复制规则或历史问题清单。
+总入口：调用 App 录屏页面截图和 iPhone Duo 设计规范，筛选问题页面、归并同类问题、生成并发布报告，交付后总结共性问题。版本 0.2.13。规则仅维护在规范 skill，不复制规则或历史问题清单。
+
+## 执行方式与子智能体
+
+启动时读取 [条件分工与交接](references/agent-coordination.md)，先核对实际素材及关联性，再选择单智能体、同阶段并行或独立复查。单一／高度关联流程默认主智能体执行；可独立拆分且有明确收益时使用子智能体，默认同时最多 2 个。主智能体维护全量覆盖清单、阶段顺序和最终验收；结果写独立任务目录，合并前运行 scripts/validate_handoffs.py，并继续执行平台校验与实际视觉复查。
 
 ## 启动检查与交接
 
