@@ -16,7 +16,7 @@ REQUIRED = {
     'iphone-duo-design-guidelines': ['SKILL.md', 'scripts/validate_rules.py', 'scripts/validate_review.py',
         'scripts/checklist.py', 'references/rules.json', 'references/component-checklist.json',
         'references/audit-profiles.json', 'references/capture-handoff.md'],
-    'iphone-duo-adaptation-review': ['SKILL.md', 'scripts/workflow.py', 'scripts/build_report.py',
+    'iphone-duo-adaptation-review': ['SKILL.md', 'scripts/workflow.py', 'scripts/build_report.py', 'scripts/validate_handoffs.py', 'references/agent-coordination.md',
         'references/intake.md', 'references/report.md', 'references/figma-output.md',
         'references/lark-output.md', 'references/common-problems.md', 'assets/report-style.json'],
 }
