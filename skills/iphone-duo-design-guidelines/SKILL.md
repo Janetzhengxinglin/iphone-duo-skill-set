@@ -5,7 +5,7 @@ description: Review visible App layout on iPhone Duo screenshots using verified 
 
 # iPhone Duo 设计规范
 
-本 skill 将苹果原文、适用条件、例外与截图证据关联，形成可追溯的页面判断。规则包 0.5.1；读取流程修订 2026-11-24。规则编号和检查优先级由项目制定，不是苹果认证标准。
+本 skill 将苹果原文、适用条件、例外与截图证据关联，形成可追溯的页面判断。规则包 0.5.1；读取流程回退 2026-11-25。规则编号和检查优先级由项目制定，不是苹果认证标准。
 
 ## 审查范围与优先级
 
@@ -43,10 +43,10 @@ HIG 确定设计原则，开发文档确认容器和系统条件，视频解释�
 
 ## 完成前自测
 
-按 [判断协议](references/decision-protocol.md) 的第二轮视觉复查，从原图重新审视全部受审页面及各组件实例，检查漏报和误报，再核对发现是否完整进入汇总。自测与改进候选保存在本次项目，不写入报告正文。联动审查由入口统一执行 [持续改进](../iphone-duo-adaptation-review/references/continuous-improvement.md)；独立截图审查也执行其中的证据核实与通用方法更新条件。
+按 [判断协议](references/decision-protocol.md) 的集中巡检和重点复查，回查疑点、问题及易漏区域，再核对发现完整进入汇总。默认不强制全量第二轮原图。自测与改进候选保存在本次项目，不写入报告正文。联动审查由入口统一执行 [持续改进](../iphone-duo-adaptation-review/references/continuous-improvement.md)；独立截图审查也执行其中的证据核实与通用方法更新条件。
 
 ## 大批量图片读取
 
-逐页判断与第二轮复查遵守 [图片处理协议](../app-video-page-capture/references/image-processing.md)，独立使用时同样分批、记录累计输入和保存接续检查点。候选拼图不代替原图判断，读取预算不减少页面、组件或两轮复查范围。
+全页清晰巡检与重点复查遵守 [图片处理协议](../app-video-page-capture/references/image-processing.md)，独立使用时同样分批、记录累计输入和保存接续检查点。小候选图只筛选，清晰整页成品拼图可巡检；读不清或有疑点时使用原图，读取预算不减少应审页面及组件。
 
-每次读图前必须执行该协议的本地 check；默认一次 1–2 张、最多 2 张，同时检查像素与尺寸。当前批完成分析并保存结果后再读下一批；失败后单张降量，连续失败或累计预算耗尽则保存进度接续，不能原样重试或减少验收范围。候选、原图、复查与报告预览共用同一累计日志。
+按图片协议执行读取前预算检查、记账和接续。默认策略见 [集中批量审核](../iphone-duo-adaptation-review/references/batch-execution.md)。
